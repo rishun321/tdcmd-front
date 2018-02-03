@@ -1,0 +1,26 @@
+{
+  "editor.tabSize": 2,
+  "files.associations": {
+    "*.vue": "vue"
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "explorer.confirmDragAndDrop": false,
+  "javascript.validate.enable": false,
+  "vetur.validation.template": false,
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.format.defaultFormatter.js": "prettier",
+  "eslint.options": {
+    "extensions": [
+      ".js",
+      ".vue"
+    ]
+  },
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    {"autoFix": true, "language": "vue"}
+  ],
+  "git.autofetch": true,
+  "workbench.colorTheme": "Solarized Light"
+}
