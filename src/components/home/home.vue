@@ -1,33 +1,17 @@
 <template>
-<!-- <div class="wrapper"> -->
-  <!-- <lockScreen :manager="manager"/>
-  <messageModal :manager="manager"/> -->
-  <div>
-    <button class="btn btn-primary" @click="test">test</button>
-    <button class="btn btn-primary" @click="test2">test</button>
-    <button class="btn btn-primary" @click="test3">test</button>
-    <button class="btn btn-primary" @click="test4">test</button>
-  </div>
-<!-- </div> -->
+<div>
+  <vue-headful title="ブドウさん - ホーム"/>
+  <button class="btn btn-primary" @click="test">test</button>
+  <button class="btn btn-primary" @click="test2">test</button>
+  <button class="btn btn-primary" @click="test3">test</button>
+  <button class="btn btn-primary" @click="test4">test</button>
+</div>
 </template>
 
 <script>
-// import manager from '@/store/manager.js'
 import utils from '@/tool/utils.js'
-
-// import lockScreen from '@/components/common/lockScreen'
-// import messageModal from '@/components/common/messageModal'
 export default {
   props: ['manager'],
-  // components: {
-  //   lockScreen: lockScreen,
-  //   messageModal: messageModal
-  // },
-  // methods: {
-  //   test () {
-  //     utils.restGet('/api/getData', {something: 'testdata'})
-  //   }
-  // }
   methods: {
     test () {
       utils.restGet('/api/getData', {something: 'testdata'}).then(

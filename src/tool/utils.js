@@ -3,7 +3,7 @@ import Vue from 'vue'
 
 class Utils {
   constructor () {
-    let options = {
+    const options = {
       timeout: 120000,
       withCredentials: true,
       headers: {
@@ -16,7 +16,7 @@ class Utils {
     this.event = new Vue()
   }
   async restGet (api, params) {
-    let self = this
+    const self = this
     let responseData = null
     self.event.$emit('LOCK_SCREEN', 'lock')
     await this.api.get(api, {params: params}).then(
@@ -31,7 +31,7 @@ class Utils {
     return responseData
   }
   async restPost (api, params) {
-    let self = this
+    const self = this
     let responseData = null
     self.event.$emit('LOCK_SCREEN', 'lock')
     await this.api.post(api, params).then(
@@ -46,7 +46,7 @@ class Utils {
     return responseData
   }
   async restPut (api, params) {
-    let self = this
+    const self = this
     let responseData = null
     self.event.$emit('LOCK_SCREEN', 'lock')
     await this.api.put(api, params).then(
@@ -61,7 +61,7 @@ class Utils {
     return responseData
   }
   async restDelete (api, params) {
-    let self = this
+    const self = this
     let responseData = null
     self.event.$emit('LOCK_SCREEN', 'lock')
     await this.api.delete(api, {params: params}).then(
@@ -96,7 +96,7 @@ class Utils {
       code: '',
       detail: ''
     }
-    let auth = 'authenticate'
+    const auth = 'authenticate'
     if (detail.config && detail.config.url && detail.config.url.slice(detail.config.url.length - auth.length) === auth) {
       error.code = 'B002'
     } else if (detail.request) {

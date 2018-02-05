@@ -4,14 +4,24 @@ import loading from '@/components/loading'
 import login from '@/components/login'
 import register from '@/components/register'
 import error from '@/components/error'
+import main from '@/components/main'
 import home from '@/components/home/home'
+import chat from '@/components/chat/chat'
+import contact from '@/components/contact/contact'
+import favorite from '@/components/favorite/favorite'
+import rent from '@/components/rent/rent'
+import lend from '@/components/lend/lend'
+import buy from '@/components/buy/buy'
+import sell from '@/components/sell/sell'
+import manage from '@/components/manage/manage'
+import publish from '@/components/publish/publish'
 
 import manager from '@/store/manager.js'
 // import utils from '@/tool/utils.js'
 
 Vue.use(Router)
 
-let preloadHome = (to, from, next) => {
+const preloadHome = (to, from, next) => {
   if (!manager.controller.checkAuth(to)) {
     return
   }
@@ -32,7 +42,22 @@ export default new Router({
     {path: '/login', name: 'login', component: login},
     {path: '/register', name: 'register', component: register},
     {path: '/error', name: 'error', component: error},
-    {path: '/', name: 'home', component: home, beforeEnter: preloadHome},
+    {
+      path: '/',
+      component: main,
+      children: [
+        {path: '/', name: 'home', component: home, beforeEnter: preloadHome},
+        {path: '/chat', name: 'chat', component: chat},
+        {path: '/contact', name: 'contact', component: contact},
+        {path: '/favorite', name: 'favorite', component: favorite},
+        {path: '/rent', name: 'rent', component: rent},
+        {path: '/lend', name: 'lend', component: lend},
+        {path: '/buy', name: 'buy', component: buy},
+        {path: '/sell', name: 'sell', component: sell},
+        {path: '/manage', name: 'manage', component: manage},
+        {path: '/publish', name: 'publish', component: publish}
+      ]
+    },
     {path: '*', redirect: '/'}
   ]
 })

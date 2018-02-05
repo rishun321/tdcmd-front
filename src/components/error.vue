@@ -1,5 +1,6 @@
 <template>
 <div class="wrapper">
+  <vue-headful title="ブドウさん"/>
   <div class="fullscreen">
     <div class="error-page">
       <h2 class="headline text-red">401</h2>

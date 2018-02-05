@@ -1,5 +1,5 @@
 <template>
-<div :class="{'lock-screen-hide': manager.controller.locker == 'unlock', 'lock-screen-show': manager.controller.locker == 'lock'}">
+<div :class="{'lock-screen-hide': manager.controller.locker === 'unlock', 'lock-screen-show': manager.controller.locker === 'lock'}">
   <div class="load-animation">
     <div class="bar bar1"></div>
     <div class="bar bar2"></div>

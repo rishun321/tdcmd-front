@@ -1,5 +1,6 @@
 <template>
 <div class="wrapper">
+  <vue-headful title="ブドウさん"/>
   <div class="fullscreen">
     <div class="login-box">
       <div class="login-logo">
@@ -40,8 +41,8 @@ import messageModal from '@/components/common/messageModal'
 export default {
   props: ['manager'],
   components: {
-    lockScreen: lockScreen,
-    messageModal: messageModal
+    lockScreen,
+    messageModal
   },
   created () {
     manager.logout()
@@ -53,8 +54,8 @@ export default {
       }
     },
     login () {
-      let self = this
-      let path = self.$route.query.path
+      const self = this
+      const path = self.$route.query.path
       if (manager.user._id === '' || manager.user.password === '') {
         utils.event.$emit('SHOW_MESSAGE', {code: 'B004'}, () => {
           $('#message-modal').on('hidden.bs.modal', () => {

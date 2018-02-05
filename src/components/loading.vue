@@ -1,5 +1,6 @@
 <template>
 <div class="wrapper">
+  <vue-headful title="ブドウさん"/>
   <lockScreen :manager="manager"/>
   <messageModal :manager="manager"/>
 </div>
@@ -14,12 +15,12 @@ import messageModal from '@/components/common/messageModal'
 export default {
   props: ['manager'],
   components: {
-    lockScreen: lockScreen,
-    messageModal: messageModal
+    lockScreen,
+    messageModal
   },
   mounted () {
-    let self = this
-    let path = this.$route.query.path
+    const self = this
+    const path = this.$route.query.path
     utils.restGet('/login').then(
       response => {
         if (response) {

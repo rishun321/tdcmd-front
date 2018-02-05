@@ -29,9 +29,11 @@ import Vue from 'vue'
 import app from './app'
 import router from './tool/router'
 import {VueMasonryPlugin} from 'vue-masonry'
+import vueHeadful from 'vue-headful'
 
 Vue.config.productionTip = false
 Vue.use(VueMasonryPlugin)
+Vue.component('vue-headful', vueHeadful)
 
 utils.router = router
 

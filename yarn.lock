@@ -3868,6 +3868,10 @@ he@1.1.1, he@1.1.x, he@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
+headful@1.x:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/headful/-/headful-1.0.0.tgz#0699e82adbb304faa0cf0b38f6f49fa84fe6ded9"
+
 hmac-drbg@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/hmac-drbg/-/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"
@@ -8166,6 +8170,12 @@ vue-eslint-parser@^2.0.1:
     espree "^3.5.2"
     esquery "^1.0.0"
     lodash "^4.17.4"
+
+vue-headful@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/vue-headful/-/vue-headful-1.0.0.tgz#e79353b0d6970e2d44300de9545c23be08b67c5e"
+  dependencies:
+    headful "1.x"
 
 vue-hot-reload-api@^2.2.0:
   version "2.2.4"
