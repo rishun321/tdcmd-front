@@ -7,7 +7,7 @@
       <div class="error-content">
         <h3><i class="fa fa-warning text-red"></i> 認証が失敗しました！</h3>
         <p>
-          アカウント情報が消えています。再度<router-link to="/">ブドウさん</router-link>にログインしてみてください。
+          アカウント情報が消えています。再度<router-link to="/">ブドウさんにログイン</router-link>してみてください。
         </p>
       </div>
     </div>

@@ -7,8 +7,8 @@
       </div>
       <div class="pull-left info">
         <p>{{manager.user._id}}</p>
-        <!-- <a v-if="manager.socket && manager.socket.connected" v-on:click="disconnect()"><i class="fa fa-circle text-success"></i> Online</a>
-        <a v-else v-on:click="connect()"><i class="fa fa-circle text-red"></i> Offline</a> -->
+        <a v-if="manager.socketer.isOnline()" v-on:click="disconnect()"><i class="fa fa-circle text-success"></i> Online</a>
+        <a v-else v-on:click="connect()"><i class="fa fa-circle text-red"></i> Offline</a>
       </div>
     </div>
     <ul id='side-menu-tree' class="sidebar-menu" data-widget="tree">
@@ -112,10 +112,10 @@ export default {
   },
   methods: {
     connect () {
-      manager.initSocket(() => {})
+      manager.socketer.on(() => {})
     },
     disconnect () {
-      manager.socket.disconnect()
+      manager.socketer.off()
     },
     toHome () {
       this.$router.push({name: 'home'})

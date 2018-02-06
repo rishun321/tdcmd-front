@@ -14,6 +14,10 @@ class Utils {
     }
     this.api = axios.create(options)
     this.event = new Vue()
+    this.router = null
+  }
+  setRouter (router) {
+    this.router = router
   }
   async restGet (api, params) {
     const self = this

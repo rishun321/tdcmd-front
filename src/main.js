@@ -35,7 +35,7 @@ Vue.config.productionTip = false
 Vue.use(VueMasonryPlugin)
 Vue.component('vue-headful', vueHeadful)
 
-utils.router = router
+utils.setRouter(router)
 
 router.beforeEach((to, from, next) => {
   manager.controller.setApp(to)

@@ -22,5 +22,6 @@
     {"autoFix": true, "language": "vue"}
   ],
   "git.autofetch": true,
-  "workbench.colorTheme": "Solarized Light"
+  "workbench.colorTheme": "Solarized Light",
+  "files.eol": "\n"
 }
