@@ -1,8 +1,8 @@
-# budousan
+# budousan - frontend
 
 > ブドウさん - フロントエンド
 
-## 1. install git, node.js, python, mongodb, mongodb IDE
+## 1. install softwares
 
 - install git
 
@@ -64,4 +64,4 @@ cd /your/path/like/desktop/budousan-front
 npm run build
 ```
 
-Then dist folder will be created. Move it to budousan-back.
+then dist folder will be created. move it to budousan-back.
