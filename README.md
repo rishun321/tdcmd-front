@@ -8,21 +8,17 @@
 
 - install node.js(version >= 8.4)
 
-- install python(version == 2.7.x)
-
-- install mongodb(make sure that mongodb service is on)
-
-- i recommend to use this mongo IDE: https://studio3t.com/
-
 - install yarn
 
 - install visual studio code
+
+- install jdk(for e2e test)
 
 ## 2. download source code
 
 ``` bash
 cd /your/path/like/desktop
-sudo git clone https://your-git-account@github.com/mrm-xiefan/budousan-front.git
+git clone https://your-git-account@github.com/mrm-xiefan/budousan-front.git
 ```
 
 ## 3. install dependencies
@@ -38,6 +34,8 @@ yarn install
 cd /your/path/like/desktop/budousan-front
 npm run dev
 ```
+
+this only boots frontend, you also need to boot backend even development enviroment.
 
 ## 5. development
 
