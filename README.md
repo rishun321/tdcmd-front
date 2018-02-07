@@ -2,9 +2,7 @@
 
 > ブドウさん - フロントエンド
 
-## 1. installation
-
-### install git, node.js, python, mongodb, mongodb IDE
+## 1. install git, node.js, python, mongodb, mongodb IDE
 
 - install git
 
@@ -20,52 +18,52 @@
 
 - install visual studio code
 
-### download source code
+## 2. download source code
 
 ``` bash
 cd /your/path/like/desktop
 sudo git clone https://your-git-account@github.com/mrm-xiefan/budousan-front.git
 ```
 
-### install dependencies
+## 3. install dependencies
 
 ``` bash
 cd /your/path/like/desktop/budousan-front
 yarn install
 ```
 
-### boot frontend
+## 4. boot frontend
 
 ``` bash
 cd /your/path/like/desktop/budousan-front
 npm run dev
 ```
 
-### development
+## 5. development
 
-- run unit tests
+### run unit tests
 
 ``` bash
 npm run unit
 ```
 
-- run e2e tests
+### run e2e tests
 
 ``` bash
 npm run e2e
 ```
 
-- run all tests
+### run all tests
 
 ``` bash
 npm test
 ```
 
-### deploy to production enviroment
+## 6. deploy to production enviroment
 
 ``` bash
 cd /your/path/like/desktop/budousan-front
 npm run build
 ```
 
-[^1]: Then dist folder will be created. Move it to budousan-back.
+Then dist folder will be created. Move it to budousan-back.
