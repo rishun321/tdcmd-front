@@ -48,5 +48,7 @@ export default {
 </script>
 
 <style scoped>
-
+.content {
+  box-shadow: 0.5px 3px 2px 0px gray inset;
+}
 </style>

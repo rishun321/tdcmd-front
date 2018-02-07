@@ -25,7 +25,7 @@
             <router-link to="/login">すでにアカウントをお持ちの場合はこちらへ</router-link>
           </div>
           <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat" v-on:click="register()">Register</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat" v-on:click="register()">作成</button>
           </div>
         </div>
       </div>

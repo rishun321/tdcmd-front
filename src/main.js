@@ -7,8 +7,10 @@ import 'jquery-ui/themes/base/sortable.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'font-awesome/css/font-awesome.css'
 import 'admin-lte/dist/css/AdminLTE.min.css'
+import 'vue-material/dist/theme/default.css'
 import 'admin-lte/dist/css/skins/_all-skins.min.css'
 import 'bootstrap-fileinput/css/fileinput.min.css'
+import 'vue-material/dist/vue-material.min.css'
 
 import 'es6-promise/auto'
 import 'jquery/dist/jquery.min.js'
@@ -30,10 +32,12 @@ import app from './app'
 import router from './tool/router'
 import {VueMasonryPlugin} from 'vue-masonry'
 import vueHeadful from 'vue-headful'
+import VueMaterial from 'vue-material'
 
 Vue.config.productionTip = false
 Vue.use(VueMasonryPlugin)
 Vue.component('vue-headful', vueHeadful)
+Vue.use(VueMaterial)
 
 utils.setRouter(router)
 

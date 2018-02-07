@@ -77,7 +77,7 @@ export default {
 .modal-header {
   position: relative;
   padding: 12px 22px 10px;
-  background: #5CC2EF;
+  background: #555299;
   h4 {
     color: #fff;
     font-size: 22px;

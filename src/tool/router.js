@@ -34,6 +34,12 @@ const preloadHome = (to, from, next) => {
   //   }
   // )
 }
+const nonePreload = (to, from, next) => {
+  if (!manager.controller.checkAuth(to)) {
+    return
+  }
+  next()
+}
 
 export default new Router({
   mode: 'history',
@@ -47,15 +53,15 @@ export default new Router({
       component: main,
       children: [
         {path: '/', name: 'home', component: home, beforeEnter: preloadHome},
-        {path: '/chat', name: 'chat', component: chat},
-        {path: '/contact', name: 'contact', component: contact},
-        {path: '/favorite', name: 'favorite', component: favorite},
-        {path: '/rent', name: 'rent', component: rent},
-        {path: '/lend', name: 'lend', component: lend},
-        {path: '/buy', name: 'buy', component: buy},
-        {path: '/sell', name: 'sell', component: sell},
-        {path: '/manage', name: 'manage', component: manage},
-        {path: '/publish', name: 'publish', component: publish}
+        {path: '/chat', name: 'chat', component: chat, beforeEnter: nonePreload},
+        {path: '/contact', name: 'contact', component: contact, beforeEnter: nonePreload},
+        {path: '/favorite', name: 'favorite', component: favorite, beforeEnter: nonePreload},
+        {path: '/rent', name: 'rent', component: rent, beforeEnter: nonePreload},
+        {path: '/lend', name: 'lend', component: lend, beforeEnter: nonePreload},
+        {path: '/buy', name: 'buy', component: buy, beforeEnter: nonePreload},
+        {path: '/sell', name: 'sell', component: sell, beforeEnter: nonePreload},
+        {path: '/manage', name: 'manage', component: manage, beforeEnter: nonePreload},
+        {path: '/publish', name: 'publish', component: publish, beforeEnter: nonePreload}
       ]
     },
     {path: '*', redirect: '/'}
