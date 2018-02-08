@@ -21,28 +21,6 @@
       <md-button class="md-primary" @click.native="login()">ログイン</md-button>
     </md-card-actions>
   </md-card>
-
-  <!-- <div class="login-logo">
-    ブドウさん
-  </div>
-  <div class="login-box-body">
-      <md-field md-clearable>
-        <label>アカウント名</label>
-        <md-input ref="login_user" v-model="manager.user._id" @keyup.enter.native="foucusPassword()"></md-input>
-      </md-field>
-      <md-field md-clearable>
-        <label>パスワード</label>
-        <md-input ref="login_password" v-model="manager.user.password" type="password" @keyup.enter.native="login()"></md-input>
-      </md-field>
-  </div>
-  <div class="md-layout">
-    <div class="md-layout-item login-button">
-      <router-link to="/register">アカウント作成</router-link>
-    </div>
-    <div class="md-layout-item login-button">
-      <button type="submit" class="btn btn-primary btn-block btn-flat" v-on:click="login()">ログイン</button>
-    </div>
-  </div> -->
 </div>
 </template>
 
