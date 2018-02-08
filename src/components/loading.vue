@@ -1,23 +1,14 @@
 <template>
 <div class="wrapper">
   <vue-headful title="ブドウさん"/>
-  <lockScreen :manager="manager"/>
-  <messageModal :manager="manager"/>
 </div>
 </template>
 
 <script>
 import manager from '@/store/manager.js'
 import utils from '@/tool/utils.js'
-
-import lockScreen from '@/components/common/lockScreen'
-import messageModal from '@/components/common/messageModal'
 export default {
   props: ['manager'],
-  components: {
-    lockScreen,
-    messageModal
-  },
   mounted () {
     const self = this
     const path = this.$route.query.path

@@ -23,15 +23,7 @@ export default {
     requestList,
     requestDialog,
     publishDialog
-  },
-  data: () => ({
-    stations: [],
-    minute: 0,
-    layout: null,
-    percent: 0,
-    amount: 5000,
-    isLatest: true
-  })
+  }
 }
 </script>
 

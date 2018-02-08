@@ -31,23 +31,14 @@
       </div>
     </div>
   </div>
-  <lockScreen :manager="manager"></lockScreen>
-  <messageModal :manager="manager"></messageModal>
 </div>
 </template>
 
 <script>
 import manager from '@/store/manager.js'
 import utils from '@/tool/utils.js'
-
-import lockScreen from '@/components/common/lockScreen'
-import messageModal from '@/components/common/messageModal'
 export default {
   props: ['manager'],
-  components: {
-    lockScreen,
-    messageModal
-  },
   data () {
     return {
       retype: ''

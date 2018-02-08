@@ -8,12 +8,6 @@ class Controller {
     utils.event.$on('LOCK_SCREEN', (locker) => {
       self.locker = locker
     })
-    this.currentApp = ''
-  }
-  setApp (route) {
-    const blocks = route.path.replace('/', '').split('/')
-    const target = blocks[0] ? blocks[0] : ''
-    this.currentApp = target || 'home'
   }
   checkAuth (route) {
     if (!manager.user.isLogin()) {

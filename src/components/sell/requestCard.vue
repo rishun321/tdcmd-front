@@ -37,10 +37,12 @@ export default {
 
 <style scoped>
 .md-title {
+  opacity: 0.7;
   font-size: 12px;
 }
 .md-subhead {
   font-size: 12px;
+  opacity: 1;
   color: #111;
 }
 </style>

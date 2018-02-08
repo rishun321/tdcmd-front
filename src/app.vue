@@ -1,20 +1,34 @@
 <template>
-<router-view :manager="manager"/>
+<div class="page-container">
+  <router-view :manager="manager"/>
+  <lockScreen :manager="manager"></lockScreen>
+  <!-- <messageModal :manager="manager"></messageModal> -->
+</div>
 </template>
 
 <script>
+import lockScreen from '@/components/common/lockScreen'
+import messageModal from '@/components/common/messageModal'
 export default {
-  props: ['manager']
+  props: ['manager'],
+  components: {
+    lockScreen,
+    messageModal
+  }
 }
 </script>
 
-<style>
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
-@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
-body {
-  font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+<style lang="scss">
+@import "~vue-material/dist/theme/engine";
+@include md-register-theme("default", (
+  primary: md-get-palette-color(deeppurple, 400), // The primary color of your application
+  accent: md-get-palette-color(red, A200) // The accent or secondary color
+));
+@import "~vue-material/dist/theme/all";
+.page-container {
+  width: 100vw;
+  height: 100vh;
 }
-
 .md-select-menu {
   z-index: 10;
 }
