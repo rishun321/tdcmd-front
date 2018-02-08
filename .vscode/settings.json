@@ -1,10 +1,14 @@
 {
   "editor.tabSize": 2,
+  "emmet.syntaxProfiles": {
+    "vue": "scss"
+  },
   "files.associations": {
     "*.vue": "vue"
   },
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
+  "files.eol": "\n",
   "explorer.confirmDragAndDrop": false,
   "javascript.validate.enable": false,
   "vetur.validation.template": false,
@@ -22,6 +26,5 @@
     {"autoFix": true, "language": "vue"}
   ],
   "git.autofetch": true,
-  "workbench.colorTheme": "Solarized Light",
-  "files.eol": "\n"
+  "workbench.colorTheme": "Solarized Light"
 }

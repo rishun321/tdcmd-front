@@ -1,5 +1,5 @@
 <template>
-<md-card md-with-hover>
+<md-card md-with-hover @click.native="showRequestDetail(request)">
   <md-ripple>
     <md-card-header>
       <md-card-header-text>
@@ -13,7 +13,7 @@
     </md-card-header>
 
     <md-card-actions>
-      <md-button>連絡</md-button>
+      <md-button @click.stop="contact(request)">連絡</md-button>
       <md-button>詳細</md-button>
     </md-card-actions>
   </md-ripple>
@@ -21,8 +21,17 @@
 </template>
 
 <script>
+import utils from '@/tool/utils.js'
 export default {
-  props: ['manager', 'request']
+  props: ['manager', 'request'],
+  methods: {
+    contact (request) {
+      this.$router.push({name: 'chat'})
+    },
+    showRequestDetail (request) {
+      utils.event.$emit('SHOW_REQUEST_DIALOG', request)
+    }
+  }
 }
 </script>
 
