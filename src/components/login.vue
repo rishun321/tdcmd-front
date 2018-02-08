@@ -1,32 +1,48 @@
 <template>
-<div class="wrapper">
-  <vue-headful title="ブドウさん"/>
-  <div class="fullscreen">
-    <div class="login-box">
-      <div class="login-logo">
-        ブドウさん
-      </div>
-      <div class="login-box-body">
-        <p class="login-box-msg">アカウントをお持ちの場合</p>
-        <div class="form-group has-feedback">
-          <input id="login-user" v-model="manager.user._id" type="text" class="form-control" placeholder="アカウント名" @keyup.tab="foucusPassword()">
-          <span class="glyphicon glyphicon-user form-control-feedback"></span>
-        </div>
-        <div class="form-group has-feedback">
-          <input id="login-password" v-model="manager.user.password" type="password" class="form-control" placeholder="パスワード" @keyup.enter="login()">
-          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        </div>
-        <div class="row">
-          <div class="col-xs-8 middle-padding">
-            <router-link to="/register">アカウント作成</router-link>
-          </div>
-          <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat" v-on:click="login()">ログイン</button>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="fullscreen">
+  <md-card class=" md-elevation-8">
+    <md-card-header>
+      <div class="md-title">ブドウさん</div>
+    </md-card-header>
+
+    <md-card-content>
+      <md-field md-clearable>
+        <label>アカウント名</label>
+        <md-input ref="login_user" v-model="manager.user._id" @keyup.enter.native="foucusPassword()"></md-input>
+      </md-field>
+      <md-field md-clearable>
+        <label>パスワード</label>
+        <md-input ref="login_password" v-model="manager.user.password" type="password" @keyup.enter.native="login()"></md-input>
+      </md-field>
+    </md-card-content>
+
+    <md-card-actions>
+      <md-button class="md-primary" @click.native="createAcount()">アカウント作成</md-button>
+      <md-button class="md-primary" @click.native="login()">ログイン</md-button>
+    </md-card-actions>
+  </md-card>
+
+  <!-- <div class="login-logo">
+    ブドウさん
   </div>
+  <div class="login-box-body">
+      <md-field md-clearable>
+        <label>アカウント名</label>
+        <md-input ref="login_user" v-model="manager.user._id" @keyup.enter.native="foucusPassword()"></md-input>
+      </md-field>
+      <md-field md-clearable>
+        <label>パスワード</label>
+        <md-input ref="login_password" v-model="manager.user.password" type="password" @keyup.enter.native="login()"></md-input>
+      </md-field>
+  </div>
+  <div class="md-layout">
+    <div class="md-layout-item login-button">
+      <router-link to="/register">アカウント作成</router-link>
+    </div>
+    <div class="md-layout-item login-button">
+      <button type="submit" class="btn btn-primary btn-block btn-flat" v-on:click="login()">ログイン</button>
+    </div>
+  </div> -->
 </div>
 </template>
 
@@ -40,9 +56,14 @@ export default {
   },
   methods: {
     foucusPassword () {
+      const self = this
       if (manager.user._id !== '') {
-        $('#login-password').focus()
+        self.$refs.login_password.$el.focus()
       }
+    },
+    createAcount () {
+      const self = this
+      self.$router.push({path: '/register'})
     },
     login () {
       const self = this
@@ -51,9 +72,9 @@ export default {
         utils.event.$emit('SHOW_MESSAGE', {code: 'B004'}, () => {
           $('#message-modal').on('hidden.bs.modal', () => {
             if (manager.user._id === '') {
-              $('#login-user').focus()
+              this.$refs.login_user.$el.focus()
             } else {
-              $('#login-password').focus()
+              this.$refs.login_password.$el.focus()
             }
           })
         })
@@ -79,15 +100,20 @@ export default {
 
 <style scoped>
 .fullscreen {
-  background: #d2d6de;
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  text-align: center;
 }
-.middle-padding {
-  padding: 7px 5px 7px 16px;
-}
+
+.md-card {
+  top: 100px;
+  width: 320px;
+  height: 320px;
+  padding: 10px;
+  /* border: 1px dashed #ccc; */
+  }
 </style>
