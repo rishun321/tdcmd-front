@@ -4,6 +4,7 @@
     <md-card-header>
       <div class="md-title">アカウント作成</div>
     </md-card-header>
+
     <md-card-content>
       <md-field md-clearable>
         <label>アカウント名</label>
@@ -111,12 +112,8 @@ export default {
   width: 320px;
   height: 380px;
   padding: 10px;
-  /* border: 1px dashed #ccc; */
-  }
+}
 .md-subheader {
   text-align: center;
-}
-.sub-title {
-  font-size: 12pt;
 }
 </style>
