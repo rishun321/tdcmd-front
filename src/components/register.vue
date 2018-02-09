@@ -2,10 +2,8 @@
 <div class="fullscreen">
   <md-card class=" md-elevation-8">
     <md-card-header>
-      <div class="md-title">ブドウさん</div>
-      <div class="md-title sub-title">アカウント作成</div>
+      <div class="md-title">アカウント作成</div>
     </md-card-header>
-
     <md-card-content>
       <md-field md-clearable>
         <label>アカウント名</label>
@@ -27,40 +25,6 @@
     </md-card-actions>
   </md-card>
 </div>
-
-<!-- <div class="wrapper">
-  <vue-headful title="ブドウさん"/>
-  <div class="fullscreen">
-    <div class="login-box">
-      <div class="login-logo">
-        ブドウさん
-      </div>
-      <div class="login-box-body">
-        <p class="login-box-msg">アカウント作成</p>
-        <div class="form-group has-feedback">
-          <input id="register-user" v-model="manager.user._id" type="text" class="form-control" placeholder="アカウント" @keyup.tab="foucusPassword()">
-          <span class="glyphicon glyphicon-user form-control-feedback"></span>
-        </div>
-        <div class="form-group has-feedback">
-          <input id="register-password" v-model="manager.user.password" type="password" class="form-control" placeholder="パスワード" @keyup.tab="foucusRetype()">
-          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        </div>
-        <div class="form-group has-feedback">
-          <input id="register-retype" v-model="retype" type="password" class="form-control" placeholder="パスワード再入力" @keyup.enter="register()">
-          <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-        </div>
-        <div class="row">
-          <div class="col-xs-8 middle-padding">
-            <router-link to="/login">すでにアカウントをお持ちの場合はこちらへ</router-link>
-          </div>
-          <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat" v-on:click="register()">作成</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 </template>
 
 <script>
@@ -145,11 +109,13 @@ export default {
 .md-card {
   top: 100px;
   width: 320px;
-  height: 450px;
+  height: 380px;
   padding: 10px;
   /* border: 1px dashed #ccc; */
   }
-
+.md-subheader {
+  text-align: center;
+}
 .sub-title {
   font-size: 12pt;
 }
