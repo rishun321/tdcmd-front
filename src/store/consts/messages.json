@@ -1,12 +1,12 @@
 {
-  "S001": {"type": "warn", "title": "ERROR", "message": "ネットワークエラー"},
-  "S002": {"type": "warn", "title": "ERROR", "message": "予期せぬエラー(ロジック)"},
-  "S003": {"type": "warn", "title": "ERROR", "message": "予期せぬエラー(データベース)"},
-  "S004": {"type": "warn", "title": "ERROR", "message": "予期せぬエラー(ストレージ)"},
-  "S005": {"type": "warn", "title": "ERROR", "message": "接続が切断されました。"},
-  "S006": {"type": "warn", "title": "ERROR", "message": "アップロードが失敗しました。"},
-  "B001": {"type": "warn", "title": "ERROR", "message": "データがありません。"},
-  "B002": {"type": "warn", "title": "ERROR", "message": "アカウント名もしくはパスワードに誤りがあります。"},
-  "B003": {"type": "warn", "title": "ERROR", "message": "アカウントはすでに存在しています。"},
-  "B004": {"type": "warn", "title": "ERROR", "message": "アカウントとパスワードを入力してください。"}
+  "S001": {"type": "error", "title": "ERROR", "message": "ネットワークエラー"},
+  "S002": {"type": "error", "title": "ERROR", "message": "予期せぬエラー(ロジック)"},
+  "S003": {"type": "error", "title": "ERROR", "message": "予期せぬエラー(データベース)"},
+  "S004": {"type": "error", "title": "ERROR", "message": "予期せぬエラー(ストレージ)"},
+  "S005": {"type": "error", "title": "ERROR", "message": "接続が切断されました。"},
+  "S006": {"type": "error", "title": "ERROR", "message": "アップロードが失敗しました。"},
+  "B001": {"type": "error", "title": "ERROR", "message": "データがありません。"},
+  "B002": {"type": "error", "title": "ERROR", "message": "アカウント名もしくはパスワードに誤りがあります。"},
+  "B003": {"type": "error", "title": "ERROR", "message": "アカウントはすでに存在しています。"},
+  "B004": {"type": "error", "title": "ERROR", "message": "アカウントとパスワードを入力してください。"}
 }

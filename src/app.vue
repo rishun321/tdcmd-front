@@ -2,18 +2,18 @@
 <div class="page-container">
   <router-view :manager="manager"/>
   <lockScreen :manager="manager"></lockScreen>
-  <messageModal :manager="manager"></messageModal>
+  <messageDialog :manager="manager"></messageDialog>
 </div>
 </template>
 
 <script>
 import lockScreen from '@/components/common/lockScreen'
-import messageModal from '@/components/common/messageModal'
+import messageDialog from '@/components/common/messageDialog'
 export default {
   props: ['manager'],
   components: {
     lockScreen,
-    messageModal
+    messageDialog
   }
 }
 </script>
