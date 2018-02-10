@@ -27,7 +27,7 @@
     </md-card-content>
 
     <md-card-actions>
-      <md-button class="md-primary" @click.native="returnToBack()">既存アカウントでログイン</md-button>
+      <md-button class="md-primary" @click.native="toLogin()">既存アカウントでログイン</md-button>
       <md-button class="md-primary" @click.native="register()">作成</md-button>
     </md-card-actions>
   </md-card>
@@ -98,7 +98,7 @@ export default {
         self.$refs.login_user.$el.focus()
       }
     },
-    returnToBack () {
+    toLogin () {
       const self = this
       self.$router.push({name: 'login'})
     },
