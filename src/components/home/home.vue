@@ -91,7 +91,7 @@
 <script>
 import utils from '@/tool/utils.js'
 import contactCard from '../contact/contactCard'
-import requestCard from '../sell/requestCard'
+import requestCard from '../estate/sell/requestCard'
 export default {
   props: ['manager'],
   components: {
@@ -107,7 +107,7 @@ export default {
     ],
     contacts: [
       {_id: '1', name: '田中竜', text: 'ABC屋'},
-      {_id: '2', name: '田中竜', text: '未来不動産'},
+      {_id: '2', name: '田中竜 ', text: '未来不動産'},
       {_id: '3', name: '田中竜', text: '新希望不動産'},
       {_id: '4', name: '中田龍', text: '学生寮専門店'}
     ]
