@@ -1,20 +1,7 @@
 <template>
 <div>
   <vue-headful title="ブドウさん - ホーム"/>
-  <div class="segment">
-    <md-card>
-      <md-card-header>
-        <div class="md-title">未読メッセージ</div>
-      </md-card-header>
-      <md-card-content>
-        <div class="md-layout md-gutter">
-          <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="request in requests" :key="request._id">
-            <requestCard :manager="manager" :request="request"/>
-          </div>
-        </div>
-      </md-card-content>
-    </md-card>
-  </div>
+
   <div class="segment">
     <md-card>
       <md-card-header>
