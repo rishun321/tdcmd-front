@@ -8,7 +8,7 @@
       </md-card-header-text>
 
       <md-card-media md-medium>
-        <img src="../../../static/user.jpg" alt="People">
+        <img src="../../../../static/user.jpg" alt="People">
       </md-card-media>
     </md-card-header>
 

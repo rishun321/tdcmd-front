@@ -6,7 +6,7 @@
 
   <md-card-content>
     <div class="md-layout md-gutter md-alignment-center">
-      <div class="md-layout-item md-medium-size-25 md-small-size-50 md-xsmall-size-100">
+      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
         <md-field>
           <label>最寄り駅</label>
           <md-select v-model="stations" multiple>
@@ -20,7 +20,7 @@
           </md-select>
         </md-field>
       </div>
-      <div class="md-layout-item md-medium-size-25 md-small-size-50 md-xsmall-size-100">
+      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
         <md-field :class="{'md-invalid': !isMinuteValid}">
           <label>徒歩時間</label>
           <md-input v-model="minute" type="number"></md-input>
@@ -28,7 +28,7 @@
           <span class="md-helper-text">駅から物件までの徒歩時間（分）</span>
         </md-field>
       </div>
-      <div class="md-layout-item md-medium-size-25 md-small-size-50 md-xsmall-size-100">
+      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
         <md-field>
           <label>間取り</label>
           <md-select v-model="layout">
@@ -42,7 +42,7 @@
           </md-select>
         </md-field>
       </div>
-      <div class="md-layout-item md-medium-size-25 md-small-size-50 md-xsmall-size-100">
+      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
         <label>金額{{percent * amount}}万円以下</label>
         <input type="range" v-model.number="percent">
       </div>

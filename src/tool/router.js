@@ -8,13 +8,15 @@ import main from '@/components/main'
 import home from '@/components/home/home'
 import chat from '@/components/chat/chat'
 import contact from '@/components/contact/contact'
-import favorite from '@/components/favorite/favorite'
-import rent from '@/components/rent/rent'
-import lend from '@/components/lend/lend'
-import buy from '@/components/buy/buy'
-import sell from '@/components/sell/sell'
-import manage from '@/components/manage/manage'
-import publish from '@/components/publish/publish'
+import estate from '@/components/estate/estate'
+import rent from '@/components/estate/rent/rent'
+import lend from '@/components/estate/lend/lend'
+import buy from '@/components/estate/buy/buy'
+import sell from '@/components/estate/sell/sell'
+import my from '@/components/my/my'
+import favorite from '@/components/my/favorite/favorite'
+import manage from '@/components/my/manage/manage'
+import publish from '@/components/my/publish/publish'
 
 import manager from '@/store/manager.js'
 // import utils from '@/tool/utils.js'
@@ -55,13 +57,27 @@ export default new Router({
         {path: '/', name: 'home', component: home, beforeEnter: preloadHome},
         {path: '/chat', name: 'chat', component: chat, beforeEnter: nonePreload},
         {path: '/contact', name: 'contact', component: contact, beforeEnter: nonePreload},
-        {path: '/favorite', name: 'favorite', component: favorite, beforeEnter: nonePreload},
-        {path: '/rent', name: 'rent', component: rent, beforeEnter: nonePreload},
-        {path: '/lend', name: 'lend', component: lend, beforeEnter: nonePreload},
-        {path: '/buy', name: 'buy', component: buy, beforeEnter: nonePreload},
-        {path: '/sell', name: 'sell', component: sell, beforeEnter: nonePreload},
-        {path: '/manage', name: 'manage', component: manage, beforeEnter: nonePreload},
-        {path: '/publish', name: 'publish', component: publish, beforeEnter: nonePreload}
+        {
+          path: '/estate',
+          name: 'estate',
+          component: estate,
+          children: [
+            {path: '/estate/sell', name: 'sell', component: sell, beforeEnter: nonePreload},
+            {path: '/estate/buy', name: 'buy', component: buy, beforeEnter: nonePreload},
+            {path: '/estate/rent', name: 'rent', component: rent, beforeEnter: nonePreload},
+            {path: '/estate/lend', name: 'lend', component: lend, beforeEnter: nonePreload}
+          ]
+        },
+        {
+          path: '/my',
+          name: 'my',
+          component: my,
+          children: [
+            {path: '/my/favorite', name: 'favorite', component: favorite, beforeEnter: nonePreload},
+            {path: '/my/manage', name: 'manage', component: manage, beforeEnter: nonePreload},
+            {path: '/my/publish', name: 'publish', component: publish, beforeEnter: nonePreload}
+          ]
+        }
       ]
     },
     {path: '*', redirect: '/'}
