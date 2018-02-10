@@ -41,6 +41,7 @@ export default {
 @import "~vue-material/dist/theme/all";
 @import "~vue-material/dist/base/theme";
 @import "~vue-material/dist/components/MdCard/theme";
+@import "~vue-material/dist/components/MdButton/theme";
 
 .page-container {
   width: 100vw;

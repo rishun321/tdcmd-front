@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="subPage">
   <md-content>
     <searchCard :manager="manager"/>
   </md-content>
@@ -28,10 +28,7 @@ export default {
 </script>
 
 <style scoped>
-.give-space {
-  margin-right: 50px;
-}
-.md-content {
-  margin-bottom: 20px;
+.subPage {
+  margin-top: 50px;
 }
 </style>
