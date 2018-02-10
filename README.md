@@ -10,7 +10,7 @@
 
 - install yarn
 
-- install visual studio code
+- install visual studio code(install plugins: ESLint, Vetur)
 
 - install jdk(for e2e test)
 

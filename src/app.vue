@@ -48,6 +48,7 @@ export default {
 .page-container {
   width: 100vw;
   height: 100vh;
+  position: relative;
 }
 .md-select-menu {
   z-index: 10;
