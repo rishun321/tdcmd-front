@@ -1,7 +1,6 @@
 <template>
 <div>
   <vue-headful title="ブドウさん - ホーム"/>
-
   <div class="segment">
     <md-card>
       <md-card-header>

@@ -25,6 +25,10 @@ export default {
   accent: md-get-palette-color(red, A200) // The accent or secondary color
 ));
 
+@include md-register-theme("pink-card", (
+  primary: md-get-palette-color(pink, 500)
+));
+
 @include md-register-theme("green-card", (
   primary: md-get-palette-color(green, 500)
 ));
