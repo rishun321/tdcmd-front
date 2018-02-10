@@ -25,10 +25,6 @@ export default {
   accent: md-get-palette-color(red, A200)
 ));
 
-@include md-register-theme("pink-card", (
-  primary: md-get-palette-color(pink, 500)
-));
-
 @include md-register-theme("green-card", (
   primary: md-get-palette-color(green, 500)
 ));
@@ -45,6 +41,7 @@ export default {
 @import "~vue-material/dist/theme/all";
 @import "~vue-material/dist/base/theme";
 @import "~vue-material/dist/components/MdCard/theme";
+@import "~vue-material/dist/components/MdButton/theme";
 
 .page-container {
   width: 100vw;
