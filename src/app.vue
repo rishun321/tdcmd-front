@@ -2,7 +2,7 @@
 <div class="page-container">
   <router-view :manager="manager"/>
   <lockScreen :manager="manager"></lockScreen>
-  <!-- <messageModal :manager="manager"></messageModal> -->
+  <messageModal :manager="manager"></messageModal>
 </div>
 </template>
 
