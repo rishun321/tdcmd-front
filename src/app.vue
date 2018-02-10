@@ -28,15 +28,12 @@ export default {
 @include md-register-theme("green-card", (
   primary: md-get-palette-color(green, 500)
 ));
-
 @include md-register-theme("black-card", (
   primary: md-get-palette-color(black, 500)
 ));
-
 @include md-register-theme("purple-card", (
   primary: md-get-palette-color(purple, 500)
 ));
-
 @include md-register-theme("orange-card", (
   primary: md-get-palette-color(orange, 500)
 ));
