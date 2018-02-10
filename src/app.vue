@@ -21,8 +21,8 @@ export default {
 <style lang="scss">
 @import "~vue-material/dist/theme/engine";
 @include md-register-theme("default", (
-  primary: md-get-palette-color(deeppurple, 400), // The primary color of your application
-  accent: md-get-palette-color(red, A200) // The accent or secondary color
+  primary: md-get-palette-color(deeppurple, 400),
+  accent: md-get-palette-color(red, A200)
 ));
 
 @include md-register-theme("green-card", (
