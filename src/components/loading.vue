@@ -1,7 +1,5 @@
 <template>
-<div class="wrapper">
-  <vue-headful title="ブドウさん"/>
-</div>
+<vue-headful title="ブドウさん"/>
 </template>
 
 <script>
