@@ -20,26 +20,24 @@ export default {
 
 <style lang="scss">
 @import "~vue-material/dist/theme/engine";
+
 @include md-register-theme("default", (
   primary: md-get-palette-color(deeppurple, 400),
   accent: md-get-palette-color(red, A700)
 ));
-
-@include md-register-theme("business-card", (
-  primary: md-get-palette-color(red,100),
-  accent: md-get-palette-color(deeporange, 800)
-));
-
 @import "~vue-material/dist/theme/all";
+
+@include md-register-theme("pink", (
+  primary: #f1b5c7,
+  accent: #e44071
+));
 @import "~vue-material/dist/base/theme";
-@import "~vue-material/dist/components/MdCard/theme";
-@import "~vue-material/dist/components/MdButton/theme";
 
 .page-container {
   width: 100vw;
   height: 100vh;
   position: relative;
-  background: #EEEEEE;
+  background: #eee;
 }
 .md-select-menu {
   z-index: 10;
