@@ -9,7 +9,7 @@
     </md-tab>
 
     <md-tab md-label="業者情報">
-      <img src="static/user.jpg" alt="People">
+      <img src="../../../../static/user.jpg" alt="People">
     </md-tab>
 
     <md-tab md-label="お客様属性">

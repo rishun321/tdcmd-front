@@ -39,6 +39,11 @@ class Socketer {
     self.socket.on('reinited', () => {
       utils.event.$emit('RECONNECTED')
     })
+
+    self.socket.on('receiveChat', (chat) => {
+      manager.chatService.addChat(chat)
+      utils.event.$emit('SCROLL_CHAT')
+    })
   }
   off () {
     if (this.isOnline()) {

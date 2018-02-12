@@ -3,12 +3,15 @@ import Controller from './models/controller.js'
 import Socketer from './models/socketer.js'
 import User from './models/user.js'
 
+import ChatService from './chatService.js'
+
 class Manager {
   constructor () {
     this.const = new Const()
     this.controller = new Controller()
     this.socketer = new Socketer()
     this.user = new User()
+    this.chatService = new ChatService()
   }
   login (data, next) {
     this.user.login(data.user)
