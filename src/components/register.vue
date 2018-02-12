@@ -146,10 +146,14 @@ export default {
 }
 .md-card {
   width: 320px;
-  height: 380px;
+  height: 400px;
   padding: 10px;
 }
 .md-card-header {
   text-align: center;
+}
+
+.md-field{
+  margin: 0 0 30px 0;
 }
 </style>
