@@ -1,5 +1,5 @@
 <template>
-<md-card md-with-hover>
+  <md-card md-with-hover @click.native="showRequestDetail(request)">
     <md-ripple>
         <md-card-header>
           <md-avatar>
@@ -10,13 +10,17 @@
           <div class="md-subhead">売買担当：五十嵐</div>
         </md-card-header>
 
+        <md-card-media>
+          <img src="../../../../static/sample1.jpg" alt="People">
+        </md-card-media>
+
         <md-card-content>
-          ＪＲ総武線 / 亀戸駅 徒歩10分、4階、南向き、２５００万、専有面積、25.51m²
+          亀戸富士マンション,ＪＲ総武線 / 亀戸駅 徒歩10分、4階、南向き、２５００万、専有面積、25.51m²
         </md-card-content>
 
         <md-card-actions>
           <md-button @click.stop="contact(request)">連絡</md-button>
-
+          <md-button>詳細</md-button>
         </md-card-actions>
     </md-ripple>
   </md-card>
@@ -31,7 +35,7 @@ export default {
       this.$router.push({name: 'chat'})
     },
     showRequestDetail (request) {
-      utils.event.$emit('SHOW_REQUEST_DIALOG_SELL', request)
+      utils.event.$emit('SHOW_REQUEST_DIALOG_BUY', request)
     }
   }
 }
@@ -46,5 +50,9 @@ export default {
   font-size: 12px;
   opacity: 1;
   color: #111;
+  display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
 }
 </style>

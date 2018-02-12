@@ -1,7 +1,7 @@
 <template>
 <md-card>
   <md-card-header>
-    <div class="md-title">お客様を探す</div>
+    <div class="md-title">売買物件を探す</div>
   </md-card-header>
 
   <md-card-content>
@@ -93,7 +93,7 @@
   </md-card-content>
 
   <md-card-actions>
-    <md-button class="md-raised md-accent give-space" @click="showPublishDetail()">物件公開</md-button>
+    <md-button class="md-raised md-accent give-space" @click="showPublishDetail()">希望公開</md-button>
     <md-switch v-model="isLatest" class="give-space">1週間以内に公開</md-switch>
     <md-button class="md-raised md-primary">検索</md-button>
   </md-card-actions>
@@ -118,7 +118,7 @@ export default {
   }),
   methods: {
     showPublishDetail () {
-      utils.event.$emit('SHOW_PUBLISH_DIALOG_SELL')
+      utils.event.$emit('SHOW_PUBLISH_DIALOG_BUY')
     }
   },
   computed: {

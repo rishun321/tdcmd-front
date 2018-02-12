@@ -1,9 +1,8 @@
 <template>
 <md-dialog :md-active.sync="showPublishDialog">
   <md-dialog-content md-dynamic-height>
-
     <md-tabs md-dynamic-height>
-      <md-tab md-label="物件情報">
+      <md-tab md-label="希望物件条件">
         <div class="md-layout md-gutter md-alignment-center">
           <div class="md-layout-item md-size-50 md-small-size-100">
             <md-field>
@@ -94,24 +93,93 @@
           <div class="md-layout-item md-size-100">
             <md-field>
               <label>コメント</label>
-              <md-textarea v-model="comment"></md-textarea>
+              <md-textarea v-model="housecomment"></md-textarea>
               <span class="md-helper-text">要望に関する補足情報</span>
             </md-field>
           </div>
         </div>
       </md-tab>
+      <md-tab md-label="お客さん属性">
+        <div class="md-layout md-gutter md-alignment-center">
+          <div class="md-layout-item md-size-50 md-small-size-100">
+            <md-field>
+              <label for="sex">性別</label>
+              <md-select v-model="sex" name="sex" id="sex">
+                <md-option value="1">男性</md-option>
+                <md-option value="2">女性</md-option>
+              </md-select>
+            </md-field>
+          </div>
+          <div class="md-layout-item md-size-50 md-small-size-100">
+            <md-field>
+              <label for="customerage">年齢</label>
+              <md-select v-model="customerage" name="customerage" id="customerage">
+                <md-option value="1">２０代</md-option>
+                <md-option value="2">３０代</md-option>
+                <md-option value="3">４０代</md-option>
+                <md-option value="4">５０代</md-option>
+                <md-option value="5">６０代以上</md-option>
+              </md-select>
+            </md-field>
+          </div>
+          <div class="md-layout-item md-size-50 md-small-size-100">
+            <md-field>
+              <label>国籍</label>
+              <md-input v-model="country" type="text"></md-input>
+              <span class="md-error">１０文字以内</span>
+            </md-field>
+          </div>
+          <div class="md-layout-item md-size-50 md-small-size-100">
+            <md-field>
+              <label>職業</label>
+              <md-input v-model="occupation" type="text"></md-input>
+              <span class="md-error">１０文字以内</span>
+            </md-field>
+          </div>
+          <div class="md-layout-item md-size-50 md-small-size-100">
+            <md-field>
+              <label for="employment_status">雇用形態</label>
+              <md-select v-model="employment_status" name="employment_status" id="employment_status" class="frontier">
+                <md-option value="0">正社員</md-option>
+                <md-option value="1">契約社員</md-option>
+                <md-option value="2">派遣</md-option>
+                <md-option value="3">アルバイト</md-option>
+                <md-option value="4">業務委託</md-option>
+                <md-option value="5">法人</md-option>
+                <md-option value="6">その他</md-option>
+              </md-select>
+            </md-field>
+          </div>
+          <div class="md-layout-item md-size-50 md-small-size-100">
+            <md-field>
+              <label for="income">収入</label>
+              <md-select v-model="income" name="income" id="income">
+                <md-option value="1">２００万以上</md-option>
+                <md-option value="2">３００万以上</md-option>
+                <md-option value="3">４００万以上</md-option>
+                <md-option value="4">５００万以上</md-option>
+                <md-option value="5">６００万以上</md-option>
+                <md-option value="6">その他</md-option>
+              </md-select>
+            </md-field>
+          </div>
 
-      <md-tab md-label="物件写真">
+          <div class="md-layout-item md-size-100">
+            <md-field>
+              <label>コメント</label>
+              <md-textarea v-model="customercomment"></md-textarea>
+              <span class="md-helper-text">要望に関する補足情報</span>
+            </md-field>
+          </div>
+        </div>
+      </md-tab>
+      <md-tab md-label="業者情報">
         <img src="../../../../static/user.jpg" alt="People">
       </md-tab>
-
-      <md-tab md-label="業者情報">
-        <p>会社員</p>
-        <p>30代</p>
-        <p>年収700万円</p>
-      </md-tab>
     </md-tabs>
+
   </md-dialog-content>
+
   <md-dialog-actions>
     <md-button class="md-primary" @click="publish()">公開</md-button>
     <md-button class="md-primary" @click="showPublishDialog = false">取消</md-button>
@@ -135,11 +203,18 @@ export default {
     price: null,
     percent: 0,
     amount: 500,
-    comment: null
+    housecomment: null,
+    sex: null,
+    customerage: null,
+    country: null,
+    occupation: null,
+    employment_status: null,
+    income: null,
+    customercomment: null
   }),
   created () {
     let self = this
-    utils.event.$on('SHOW_PUBLISH_DIALOG_SELL', () => {
+    utils.event.$on('SHOW_PUBLISH_DIALOG_BUY', () => {
       self.showPublishDialog = true
     })
   },
@@ -157,7 +232,7 @@ export default {
     }
   },
   beforeDestroy () {
-    utils.event.$off('SHOW_PUBLISH_DIALOG_SELL')
+    utils.event.$off('SHOW_PUBLISH_DIALOG_BUY')
   }
 }
 </script>
