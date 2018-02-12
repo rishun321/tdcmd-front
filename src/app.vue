@@ -20,17 +20,15 @@ export default {
 
 <style lang="scss">
 @import "~vue-material/dist/theme/engine";
-
 @include md-register-theme("default", (
   primary: md-get-palette-color(deeppurple, 400),
   accent: md-get-palette-color(red, A700)
 ));
-@import "~vue-material/dist/theme/all";
-
 @include md-register-theme("pink", (
   primary: #f1b5c7,
   accent: #e44071
 ));
+@import "~vue-material/dist/theme/all";
 @import "~vue-material/dist/base/theme";
 
 .page-container {

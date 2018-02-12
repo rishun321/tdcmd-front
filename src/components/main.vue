@@ -52,7 +52,6 @@ export default {
   }),
   methods: {
     search () {
-      console.log(this.selected)
     },
     logout () {
       utils.restGet('/logout').then(
