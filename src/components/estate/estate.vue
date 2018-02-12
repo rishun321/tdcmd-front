@@ -52,7 +52,4 @@ export default {
   border-radius: .2rem;
   font-weight: 600;
 }
-.md-button:hover{
-  padding: 0px 12px 3px 12px;
-}
 </style>
