@@ -117,10 +117,12 @@ export default {
     this.$refs.directChatMessages.scrollTop = this.$refs.directChatMessages.scrollHeight
     utils.event.$on('SCROLL_CHAT', () => {
       self.$nextTick(() => {
-        console.log('scroll')
         self.$refs.directChatMessages.scrollTop = self.$refs.directChatMessages.scrollHeight
       })
     })
+  },
+  beforeDestroy () {
+    utils.event.$off('SCROLL_CHAT')
   },
   methods: {
     joinRoom (room) {
