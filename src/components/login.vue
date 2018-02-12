@@ -21,7 +21,7 @@
     </md-card-content>
 
     <md-card-actions>
-      <md-button class="md-primary" @click.native="createAcount()">アカウント作成</md-button>
+      <md-button class="md-primary" @click.native="toRegister()">アカウント作成</md-button>
       <md-button class="md-primary" @click.native="login()">ログイン</md-button>
     </md-card-actions>
   </md-card>
@@ -71,7 +71,7 @@ export default {
         self.$refs.login_password.$el.focus()
       }
     },
-    createAcount () {
+    toRegister () {
       const self = this
       self.$router.push({name: 'register'})
     },
@@ -115,11 +115,15 @@ export default {
   align-items: center;
 }
 .md-card {
-  width: 320px;
+  width: 360px;
   height: 320px;
   padding: 10px;
 }
 .md-card-header {
   text-align: center;
+}
+
+.md-field{
+  margin: 0 0 30px 0;
 }
 </style>
