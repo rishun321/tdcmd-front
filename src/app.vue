@@ -22,20 +22,12 @@ export default {
 @import "~vue-material/dist/theme/engine";
 @include md-register-theme("default", (
   primary: md-get-palette-color(deeppurple, 400),
-  accent: md-get-palette-color(red, A200)
+  accent: md-get-palette-color(red, A700)
 ));
 
-@include md-register-theme("green-card", (
-  primary: md-get-palette-color(green, 500)
-));
-@include md-register-theme("black-card", (
-  primary: md-get-palette-color(black, 500)
-));
-@include md-register-theme("purple-card", (
-  primary: md-get-palette-color(purple, 500)
-));
-@include md-register-theme("orange-card", (
-  primary: md-get-palette-color(orange, 500)
+@include md-register-theme("business-card", (
+  primary: md-get-palette-color(red,100),
+  accent: md-get-palette-color(deeporange, 800)
 ));
 
 @import "~vue-material/dist/theme/all";
@@ -47,6 +39,7 @@ export default {
   width: 100vw;
   height: 100vh;
   position: relative;
+  background: #EEEEEE;
 }
 .md-select-menu {
   z-index: 10;

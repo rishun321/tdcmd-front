@@ -1,11 +1,12 @@
 <template>
 <div>
   <div class="md-layout md-gutter subclassify-waper">
-    <div :class="{ 'md-layout-item': true, 'subclassify': true,'selected': 'sell'== selectedClassify }" @click="go('sell')">売る</div>
-    <div :class="{ 'md-layout-item': true, 'subclassify': true,'selected': 'buy'== selectedClassify }" @click="go('buy')">買う</div>
-    <div :class="{ 'md-layout-item': true, 'subclassify': true,'selected': 'rent'== selectedClassify }" @click="go('rent')">貸す</div>
-    <div :class="{ 'md-layout-item': true, 'subclassify': true,'selected': 'lend'== selectedClassify }" @click="go('lend')">借り</div>
+      <md-button md-theme="business-card" :class="{ 'md-layout-item': true, 'md-raised': true, 'md-accent': 'sell'== selectedClassify, 'md-primary': 'sell'!= selectedClassify, 'md-elevation-6': true }" @click="go('sell')">売る</md-button>
+      <md-button md-theme="business-card" :class="{ 'md-layout-item': true, 'md-raised': true, 'md-accent': 'buy'== selectedClassify, 'md-primary': 'buy'!= selectedClassify, 'md-elevation-6': true }" @click="go('buy')">買う</md-button>
+      <md-button md-theme="business-card" :class="{ 'md-layout-item': true, 'md-raised': true, 'md-accent': 'rent'== selectedClassify, 'md-primary': 'rent'!= selectedClassify, 'md-elevation-6': true }" @click="go('rent')">貸す</md-button>
+      <md-button md-theme="business-card" :class="{ 'md-layout-item': true, 'md-raised': true, 'md-accent': 'lend'== selectedClassify, 'md-primary': 'lend'!= selectedClassify, 'md-elevation-6': true }" @click="go('lend')">借り</md-button>
   </div>
+
   <router-view :manager="manager"/>
 </div>
 </template>
@@ -44,49 +45,14 @@ export default {
   position: absolute;
   z-index: 100;
   width: 98%;
-  top: 70px;
-}
-.subclassify{
-  height: 40px;
-  margin: 10px 10px;
-  padding: 0 8px;
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-
-  background: #f1b5c7d5;/*背景色*/
-  border-radius: 5%;/*角丸く*/
-  transition: .3s;/*滑らかな動きに*/
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);/*影*/
-
-  color: rgba(68, 25, 30, 0.85);
-    font-weight: 600;
-}
-
-.subclassify:hover {/*ホバー時の影*/
-  margin: 5px 10px 15px 10px;
-  color: rgb(245, 229, 231);
-  background: #df4774bd;/*背景色*/
-  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
-}
-
-.subclassify.selected {/*ホバー時の影*/
-  color: rgb(245, 229, 231);
-  background: #e44071ea;/*背景色*/
-  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
-}
-
-.subclassify.selected:hover {/*ホバー時の影*/
-  color: rgb(245, 229, 231);
-  background: #df4774bd;/*背景色*/
-  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+  top: 80px;
 }
 
 .md-button{
-  width: 100%;
-  height: 100%;
-  background: #03a9f4;/*背景色*/
+  border-radius: .2rem;
+  font-weight: 600;
+}
+.md-button:hover{
+  padding: 0px 12px 3px 12px;
 }
 </style>
