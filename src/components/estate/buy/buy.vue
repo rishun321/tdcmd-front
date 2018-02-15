@@ -1,34 +1,28 @@
 <template>
-<div class="subPage">
-  <md-content>
-    <searchCard :manager="manager"/>
-  </md-content>
-  <md-content>
-    <requestList :manager="manager"/>
-  </md-content>
-  <requestDialog :manager="manager"/>
+<div>
+  <searchCard :manager="manager"/>
+  <pieceList :manager="manager"/>
+  <pieceDialog :manager="manager"/>
   <publishDialog :manager="manager"/>
 </div>
 </template>
 
 <script>
 import searchCard from './searchCard'
-import requestList from './requestList'
-import requestDialog from './requestDialog'
+import pieceList from './pieceList'
+import pieceDialog from './pieceDialog'
 import publishDialog from './publishDialog'
 export default {
   props: ['manager'],
   components: {
     searchCard,
-    requestList,
-    requestDialog,
+    pieceList,
+    pieceDialog,
     publishDialog
   }
 }
 </script>
 
 <style scoped>
-.subPage {
-  margin-top: 50px;
-}
+
 </style>

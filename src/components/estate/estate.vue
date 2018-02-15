@@ -1,21 +1,47 @@
 <template>
-<div>
-  <div class="md-layout md-gutter subclassify-waper">
-    <div class="md-layout-item">
-      <md-button md-theme="pink" :class="{'md-raised': true, 'md-accent': 'sell'== selectedClassify, 'md-primary': 'sell'!= selectedClassify, 'md-elevation-6': true}" @click="go('sell')">売る</md-button>
-    </div>
-    <div class="md-layout-item">
-      <md-button md-theme="pink" :class="{'md-raised': true, 'md-accent': 'buy'== selectedClassify, 'md-primary': 'buy'!= selectedClassify, 'md-elevation-6': true}" @click="go('buy')">買う</md-button>
-    </div>
-    <div class="md-layout-item">
-      <md-button md-theme="pink" :class="{'md-raised': true, 'md-accent': 'rent'== selectedClassify, 'md-primary': 'rent'!= selectedClassify, 'md-elevation-6': true}" @click="go('rent')">貸す</md-button>
-    </div>
-    <div class="md-layout-item">
-      <md-button md-theme="pink" :class="{'md-raised': true, 'md-accent': 'lend'== selectedClassify, 'md-primary': 'lend'!= selectedClassify, 'md-elevation-6': true}" @click="go('lend')">借り</md-button>
-    </div>
-  </div>
+<div class="full-screen">
+  <vue-headful title="ブドウさん - 物件取引"/>
+
+  <md-speed-dial class="md-top-left" md-direction="bottom" md-effect="scale">
+    <md-speed-dial-target class="md-accent">
+      <md-icon class="md-morph-initial">room</md-icon>
+      <md-icon class="md-morph-final">business</md-icon>
+    </md-speed-dial-target>
+
+    <md-speed-dial-content>
+      <md-button :class="{'md-icon-button': true, 'md-accent': route === 'sell'}" to="/estate/sell">
+        <md-icon>cloud</md-icon>
+        <label>売</label>
+      </md-button>
+      <md-button :class="{'md-icon-button': true, 'md-accent': route === 'buy'}" to="/estate/buy">
+        <md-icon>cloud</md-icon>
+        <label>買</label>
+      </md-button>
+      <md-button :class="{'md-icon-button': true, 'md-accent': route === 'rent'}" to="/estate/rent">
+        <md-icon>cloud</md-icon>
+        <label>貸</label>
+      </md-button>
+      <md-button :class="{'md-icon-button': true, 'md-accent': route === 'lend'}" to="/estate/lend">
+        <md-icon>cloud</md-icon>
+        <label>借</label>
+      </md-button>
+    </md-speed-dial-content>
+  </md-speed-dial>
 
   <router-view :manager="manager"/>
+
+  <div class="full-screen estate-guide" v-if="route === 'estate'">
+    <div>
+      <div>
+        <md-button class="md-raised md-accent button-guide" to="/estate/sell">物件を売る</md-button>
+        <md-button class="md-raised md-accent button-guide" to="/estate/buy">物件を買う</md-button>
+      </div>
+      <div>
+        <md-button class="md-raised md-accent button-guide" to="/estate/rent">物件を貸す</md-button>
+        <md-button class="md-raised md-accent button-guide" to="/estate/lend">物件を借りる</md-button>
+      </div>
+    </div>
+  </div>
 </div>
 </template>
 
@@ -24,38 +50,48 @@ import buy from './buy/buy'
 import lend from './lend/lend'
 import rent from './rent/rent'
 import sell from './sell/sell'
-
 export default {
   props: ['manager'],
-  data: () => ({
-    selectedClassify: null
-  }),
   components: {
     buy,
     lend,
     rent,
     sell
   },
-  methods: {
-    go (where) {
-      this.selectedClassify = where
-      this.$router.push({name: where})
+  computed: {
+    route () {
+      return this.$route.name
     }
   }
 }
 </script>
 
 <style scoped>
-.subclassify-waper {
-  position: absolute;
-  z-index: 100;
-  width: 100%;
-  top: 80px;
+.md-speed-dial {
+  z-index: 10;
+  top: 90px;
 }
-.md-button {
-  width: calc(100% - 16px);
-  border-radius: .2rem;
+label {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  color: #fff;
+  font-size: 11px;
   font-weight: 600;
-  height: 40px;
+  cursor: pointer;
+}
+.full-screen {
+  width: 100%;
+  height: 100%;
+}
+.estate-guide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-guide {
+  width: 120px;
+  height: 74px;
+  margin: 16px;
 }
 </style>

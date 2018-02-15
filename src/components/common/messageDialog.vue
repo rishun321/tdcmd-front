@@ -24,27 +24,26 @@ import manager from '@/store/manager.js'
 import utils from '@/tool/utils.js'
 export default {
   props: ['manager'],
-  data () {
-    return {
-      type: '',
-      title: '',
-      message: '',
-      detail: '',
-      yes: null,
-      no: null,
-      showDialog: false
-    }
-  },
+  data: () => ({
+    type: '',
+    title: '',
+    message: '',
+    detail: '',
+    yes: null,
+    no: null,
+    showDialog: false
+  }),
   mounted () {
     const self = this
     utils.event.$on('SHOW_MESSAGE', (error, yes, no) => {
-      const info = manager.const.messages[error.code] || manager.const.messages['S001']
+      const code = error ? (error.code ? error.code : 'S000') : 'S000'
+      const info = manager.const.messages[code]
       self.type = info.type
       self.title = info.title
       self.message = info.message
       self.detail = error.detail || ''
-      self.yes = yes
-      self.no = no
+      self.yes = yes || null
+      self.no = no || null
       self.showDialog = true
     })
   },

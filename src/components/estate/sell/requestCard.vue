@@ -1,5 +1,5 @@
 <template>
-<md-card md-with-hover>
+<md-card class="md-primary" md-theme="yellow" md-with-hover @click.native="showRequestDetail(request)">
     <md-ripple>
         <md-card-header>
           <md-avatar>
@@ -38,6 +38,9 @@ export default {
 </script>
 
 <style scoped>
+.md-card {
+  margin: 0px;
+}
 .md-title {
   opacity: 0.7;
   font-size: 12px;

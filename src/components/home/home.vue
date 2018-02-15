@@ -1,141 +1,80 @@
 <template>
 <div>
   <vue-headful title="ブドウさん - ホーム"/>
-  <div class="segment">
-    <md-card>
-      <md-card-header>
-        <div class="md-title">最近の連絡</div>
-      </md-card-header>
-      <md-card-content>
-        <div class="md-layout md-gutter">
-          <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="contact in contacts" :key="contact._id">
-            <contactCard :manager="manager" :contact="contact"/>
-          </div>
-        </div>
-      </md-card-content>
-    </md-card>
-  </div>
-  <div class="segment">
-    <md-card>
-      <md-card-header>
-        <div class="md-title">売却中物件</div>
-      </md-card-header>
-      <md-card-content>
-        <div class="md-layout md-gutter">
-          <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="request in requests" :key="request._id">
-            <requestCard :manager="manager" :request="request"/>
-          </div>
-        </div>
-      </md-card-content>
-    </md-card>
-  </div>
-  <div class="segment">
-    <md-card>
-      <md-card-header>
-        <div class="md-title">購入希望中物件</div>
-      </md-card-header>
-      <md-card-content>
-        <div class="md-layout md-gutter">
-          <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="request in requests" :key="request._id">
-            <requestCard :manager="manager" :request="request"/>
-          </div>
-        </div>
-      </md-card-content>
-    </md-card>
-  </div>
-  <div class="segment">
-    <md-card>
-      <md-card-header>
-        <div class="md-title">貸出中物件</div>
-      </md-card-header>
-      <md-card-content>
-        <div class="md-layout md-gutter">
-          <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="request in requests" :key="request._id">
-            <requestCard :manager="manager" :request="request"/>
-          </div>
-        </div>
-      </md-card-content>
-    </md-card>
-  </div>
-  <div class="segment">
-    <md-card>
-      <md-card-header>
-        <div class="md-title">借入希望中物件</div>
-      </md-card-header>
-      <md-card-content>
-        <div class="md-layout md-gutter">
-          <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="request in requests" :key="request._id">
-            <requestCard :manager="manager" :request="request"/>
-          </div>
-        </div>
-      </md-card-content>
-    </md-card>
-  </div>
+
+  <md-content class="md-primary md-title" md-theme="yellow">
+    お知らせ
+  </md-content>
+  <md-content class="md-primary md-scrollbar content-block" md-theme="green">
+    <md-toolbar class="md-medium">
+      Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them. Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them. Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them. Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them.
+    </md-toolbar>
+    <md-toolbar class="md-dense md-accent">
+      As the Toolbars are mostly used to hold actions that affects the entire application, you can create rows or sections inside of it.
+    </md-toolbar>
+    <md-toolbar class="md-large">
+      Although those rows works on every toolbar, they were created to separate contents for large toolbars. This element is represented by the md-toolbar-row class. A row can also have a md-toolbar-offset to add a little space on the left of it. This is commonly used inside the second row of an large toolbar. Although those rows works on every toolbar, they were created to separate contents for large toolbars. This element is represented by the md-toolbar-row class. A row can also have a md-toolbar-offset to add a little space on the left of it. This is commonly used inside the second row of an large toolbar.
+    </md-toolbar>
+    <md-toolbar class="md-dense">
+      As the Toolbars are mostly used to hold actions that affects the entire application, you can create rows or sections inside of it.
+    </md-toolbar>
+  </md-content>
+
+  <md-content class="md-primary md-title" md-theme="yellow">
+    新着情報
+  </md-content>
+  <md-content class="md-primary md-scrollbar content-block" md-theme="green">
+    <md-toolbar class="md-medium">
+      Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them. Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them. Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them. Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them.
+    </md-toolbar>
+    <md-toolbar class="md-dense md-accent">
+      As the Toolbars are mostly used to hold actions that affects the entire application, you can create rows or sections inside of it.
+    </md-toolbar>
+    <md-toolbar class="md-large">
+      Although those rows works on every toolbar, they were created to separate contents for large toolbars. This element is represented by the md-toolbar-row class. A row can also have a md-toolbar-offset to add a little space on the left of it. This is commonly used inside the second row of an large toolbar. Although those rows works on every toolbar, they were created to separate contents for large toolbars. This element is represented by the md-toolbar-row class. A row can also have a md-toolbar-offset to add a little space on the left of it. This is commonly used inside the second row of an large toolbar.
+    </md-toolbar>
+    <md-toolbar class="md-dense">
+      As the Toolbars are mostly used to hold actions that affects the entire application, you can create rows or sections inside of it.
+    </md-toolbar>
+  </md-content>
 </div>
 </template>
 
 <script>
 import utils from '@/tool/utils.js'
-import contactCard from '../contact/contactCard'
-import requestCard from '../estate/sell/requestCard'
 export default {
   props: ['manager'],
-  components: {
-    contactCard,
-    requestCard
+  mounted () {
+    utils.event.$emit('SHOW_SNACKBAR', 'I001', null, () => {
+      utils.event.$emit('SHOW_MESSAGE', {code: 'I001', detail: 'だから、なにを求めてんの？工事中だって！'})
+    })
   },
-  data: () => ({
-    requests: [
-      {_id: '1', name: 'ロマンチックアップル', text: '都内2000万円、シングル部屋'},
-      {_id: '2', name: 'リリナー', text: '投資用マーション、中古'},
-      {_id: '3', name: '田中竜', text: '3階建一軒家、新築'},
-      {_id: '4', name: '中田龍', text: '5000万以内であれば、なんでもいい'}
-    ],
-    contacts: [
-      {_id: '1', name: '田中竜', text: 'ABC屋'},
-      {_id: '2', name: '田中竜 ', text: '未来不動産'},
-      {_id: '3', name: '田中竜', text: '新希望不動産'},
-      {_id: '4', name: '中田龍', text: '学生寮専門店'}
-    ]
-  }),
-  methods: {
-    test () {
-      utils.restGet('/api/getData', {something: 'testdata'}).then(
-        response => {
-          console.log(JSON.stringify(response))
-        }
-      )
-    },
-    test2 () {
-      utils.restPost('/api/postData', {something: 'test2data'}).then(
-        response => {
-          console.log(JSON.stringify(response))
-        }
-      )
-    },
-    test3 () {
-      utils.restPut('/api/putData', {something: 'test3data'}).then(
-        response => {
-          console.log(JSON.stringify(response))
-        }
-      )
-    },
-    test4 () {
-      utils.restDelete('/api/deleteData', {something: 'test4data'}).then(
-        response => {
-          console.log(JSON.stringify(response))
-        }
-      )
-    }
+  beforeDestroy () {
+    utils.event.$emit('HIDE_SNACKBAR')
   }
 }
 </script>
 
-<style scoped>
-.segment {
-  margin: 10px 0px;
+<style scoped lang="scss">
+.md-title {
+  padding: 5px;
+  width: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.md-layout-item {
-  margin-bottom: 10px;
+.content-block {
+  width: 100%;
+  height: 300px;
+  overflow: auto;
+  padding: 10px;
+}
+.content-block + .md-title {
+  margin-top: 16px;
+}
+.md-toolbar + .md-toolbar {
+  margin-top: 16px;
 }
 </style>

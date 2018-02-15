@@ -1,11 +1,11 @@
 <template>
-<md-dialog :md-active.sync="showRequestDialog" v-if="request">
+<md-dialog :md-active.sync="showPieceDialog" v-if="piece">
   <md-dialog-title>物件情報</md-dialog-title>
 
   <md-tabs md-dynamic-height>
     <md-tab md-label="物件詳細">
-      <p>{{request.name}}</p>
-      <p>{{request.text}}</p>
+      <p>{{piece.name}}</p>
+      <p>{{piece.text}}</p>
     </md-tab>
 
     <md-tab md-label="物件写真">
@@ -18,7 +18,7 @@
   </md-tabs>
 
   <md-dialog-actions>
-    <md-button class="md-primary" @click="showRequestDialog = false">閉じる</md-button>
+    <md-button class="md-primary" @click="showPieceDialog = false">閉じる</md-button>
   </md-dialog-actions>
 </md-dialog>
 </template>
@@ -27,18 +27,18 @@
 import utils from '@/tool/utils.js'
 export default {
   data: () => ({
-    showRequestDialog: false,
-    request: null
+    showPieceDialog: false,
+    piece: null
   }),
   created () {
     let self = this
-    utils.event.$on('SHOW_REQUEST_DIALOG_BUY', request => {
-      self.request = request
-      self.showRequestDialog = true
+    utils.event.$on('SHOW_PIECE_DIALOG_BUY', piece => {
+      self.piece = piece
+      self.showPieceDialog = true
     })
   },
   beforeDestroy () {
-    utils.event.$off('SHOW_REQUEST_DIALOG_BUY')
+    utils.event.$off('SHOW_PIECE_DIALOG_BUY')
   }
 }
 </script>

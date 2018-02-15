@@ -1,7 +1,7 @@
 <template>
 <md-card>
   <md-card-header>
-    <div class="md-title">お客様を探す</div>
+    <div class="md-title give-space">お客様を探す</div>
   </md-card-header>
 
   <md-card-content>
@@ -86,16 +86,24 @@
         </md-field>
       </div>
       <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
-        <label>金額{{percent * amount}}万円以下</label>
-        <input type="range" v-model.number="percent">
+        <div class="item-lable">金額{{percent * amount}}万円以下</div>
+        <input class="item-input" type="range" v-model.number="percent">
       </div>
     </div>
   </md-card-content>
 
   <md-card-actions>
-    <md-button class="md-raised md-accent give-space" @click="showPublishDetail()">物件公開</md-button>
-    <md-switch v-model="isLatest" class="give-space">1週間以内に公開</md-switch>
-    <md-button class="md-raised md-primary">検索</md-button>
+    <div class="md-layout md-gutter md-alignment-center" style="width: 100%;">
+      <div class="md-layout-item md-size-60 md-small-size-100">
+        <md-button class="md-raised md-accent" @click="showPublishDetail()">希望公開</md-button>
+      </div>
+      <div class="md-layout-item md-size-20 md-small-size-50">
+        <md-switch v-model="isLatest">1週間以内</md-switch>
+      </div>
+      <div class="md-layout-item md-size-20 md-small-size-50">
+        <md-button class="md-raised md-primary">検索</md-button>
+      </div>
+    </div>
   </md-card-actions>
 </md-card>
 </template>
@@ -133,8 +141,17 @@ export default {
 </script>
 
 <style scoped>
+.md-card {
+  margin-bottom: 10px;
+}
 .give-space {
-  margin-right: 50px;
   margin-left: 50px;
+}
+.item-lable {
+  opacity: 0.54;
+  font-size: 16px;
+}
+.item-input {
+  width: 100%;
 }
 </style>

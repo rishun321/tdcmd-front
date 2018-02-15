@@ -1,19 +1,22 @@
 <template>
 <div class="page-container">
   <router-view :manager="manager"/>
-  <lockScreen :manager="manager"></lockScreen>
-  <messageDialog :manager="manager"></messageDialog>
+  <lockScreen :manager="manager"/>
+  <messageDialog :manager="manager"/>
+  <snackBar :manager="manager"/>
 </div>
 </template>
 
 <script>
 import lockScreen from '@/components/common/lockScreen'
 import messageDialog from '@/components/common/messageDialog'
+import snackBar from '@/components/common/snackBar'
 export default {
   props: ['manager'],
   components: {
     lockScreen,
-    messageDialog
+    messageDialog,
+    snackBar
   }
 }
 </script>
@@ -21,12 +24,20 @@ export default {
 <style lang="scss">
 @import "~vue-material/dist/theme/engine";
 @include md-register-theme("default", (
-  primary: md-get-palette-color(deeppurple, 400),
-  accent: md-get-palette-color(red, A700)
+  primary: #664eae,
+  accent: #dc66a0
 ));
-@include md-register-theme("pink", (
-  primary: #f1b5c7,
-  accent: #e44071
+@include md-register-theme("green", (
+  primary: #4ea07c,
+  accent: #dc66a0
+));
+@include md-register-theme("yellow", (
+  primary: #ebe48b,
+  accent: #dc66a0
+));
+@include md-register-theme("black", (
+  primary: #323232,
+  accent: #dc66a0
 ));
 @import "~vue-material/dist/theme/all";
 @import "~vue-material/dist/base/theme";
@@ -39,5 +50,8 @@ export default {
 }
 .md-select-menu {
   z-index: 10;
+}
+.md-table-content {
+  max-height: none !important;
 }
 </style>

@@ -90,7 +90,7 @@
               <span class="md-helper-text">単位・万</span>
             </md-field>
           </div>
-          <div class="md-layout-item md-size-100">
+          <div class="md-layout-item md-size-95">
             <md-field>
               <label>コメント</label>
               <md-textarea v-model="housecomment"></md-textarea>
@@ -99,7 +99,7 @@
           </div>
         </div>
       </md-tab>
-      <md-tab md-label="お客さん属性">
+      <md-tab md-label="お客様属性">
         <div class="md-layout md-gutter md-alignment-center">
           <div class="md-layout-item md-size-50 md-small-size-100">
             <md-field>
@@ -163,8 +163,7 @@
               </md-select>
             </md-field>
           </div>
-
-          <div class="md-layout-item md-size-100">
+          <div class="md-layout-item md-size-95">
             <md-field>
               <label>コメント</label>
               <md-textarea v-model="customercomment"></md-textarea>
@@ -238,5 +237,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+textarea {
+  resize: none !important;
+}
 </style>

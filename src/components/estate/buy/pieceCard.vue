@@ -1,5 +1,5 @@
 <template>
-  <md-card md-with-hover @click.native="showRequestDetail(request)">
+  <md-card class="md-primary" md-theme="yellow" md-with-hover @click.native="showPieceDetail(piece)">
     <md-ripple>
         <md-card-header>
           <md-avatar>
@@ -19,7 +19,7 @@
         </md-card-content>
 
         <md-card-actions>
-          <md-button @click.stop="contact(request)">連絡</md-button>
+          <md-button @click.stop="contact(piece)">連絡</md-button>
           <md-button>詳細</md-button>
         </md-card-actions>
     </md-ripple>
@@ -29,19 +29,22 @@
 <script>
 import utils from '@/tool/utils.js'
 export default {
-  props: ['manager', 'request'],
+  props: ['manager', 'piece'],
   methods: {
-    contact (request) {
+    contact (piece) {
       this.$router.push({name: 'chat'})
     },
-    showRequestDetail (request) {
-      utils.event.$emit('SHOW_REQUEST_DIALOG_BUY', request)
+    showPieceDetail (piece) {
+      utils.event.$emit('SHOW_PIECE_DIALOG_BUY', piece)
     }
   }
 }
 </script>
 
 <style scoped>
+.md-card {
+  margin: 0px;
+}
 .md-title {
   opacity: 0.7;
   font-size: 12px;

@@ -1,4 +1,5 @@
 {
+  "S000": {"type": "error", "title": "ERROR", "message": "予期せぬエラー(クライアント)"},
   "S001": {"type": "error", "title": "ERROR", "message": "ネットワークエラー"},
   "S002": {"type": "error", "title": "ERROR", "message": "予期せぬエラー(ロジック)"},
   "S003": {"type": "error", "title": "ERROR", "message": "予期せぬエラー(データベース)"},
@@ -8,5 +9,6 @@
   "B001": {"type": "error", "title": "ERROR", "message": "データがありません。"},
   "B002": {"type": "error", "title": "ERROR", "message": "アカウント名もしくはパスワードに誤りがあります。"},
   "B003": {"type": "error", "title": "ERROR", "message": "アカウントはすでに存在しています。"},
-  "B004": {"type": "error", "title": "ERROR", "message": "アカウントとパスワードを入力してください。"}
+  "B004": {"type": "error", "title": "ERROR", "message": "アカウントとパスワードを入力してください。"},
+  "I001": {"type": "info", "title": "INFO", "message": "工事中です。"}
 }

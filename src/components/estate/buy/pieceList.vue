@@ -2,8 +2,8 @@
 <md-card>
   <md-card-content>
     <div class="md-layout md-gutter">
-      <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="request in requests" :key="request._id">
-        <requestCard :manager="manager" :request="request"/>
+      <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="piece in pieces" :key="piece._id">
+        <pieceCard :manager="manager" :piece="piece"/>
       </div>
     </div>
   </md-card-content>
@@ -11,14 +11,14 @@
 </template>
 
 <script>
-import requestCard from './requestCard'
+import pieceCard from './pieceCard'
 export default {
   props: ['manager'],
   components: {
-    requestCard
+    pieceCard
   },
   data: () => ({
-    requests: [
+    pieces: [
       {_id: '1', name: '亀戸富士マンション', text: 'ＪＲ総武線 / 亀戸駅 徒歩10分、4階、南向き、２５００万、専有面積、25.51m²'},
       {_id: '2', name: 'リリナー', text: '投資用マーション、中古'},
       {_id: '3', name: '田中竜', text: '3階建一軒家、新築'},

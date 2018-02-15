@@ -1,11 +1,7 @@
 <template>
-<div class="subPage">
-  <md-content>
-    <searchCard :manager="manager"/>
-  </md-content>
-  <md-content>
-    <requestList :manager="manager"/>
-  </md-content>
+<div>
+  <searchCard :manager="manager"/>
+  <requestList :manager="manager"/>
   <requestDialog :manager="manager"/>
   <publishDialog :manager="manager"/>
 </div>
@@ -28,7 +24,5 @@ export default {
 </script>
 
 <style scoped>
-.subPage {
-  margin-top: 50px;
-}
+
 </style>

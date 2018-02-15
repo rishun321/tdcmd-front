@@ -91,7 +91,7 @@
               <span class="md-helper-text">単位・万</span>
             </md-field>
           </div>
-          <div class="md-layout-item md-size-100">
+          <div class="md-layout-item md-size-95">
             <md-field>
               <label>コメント</label>
               <md-textarea v-model="comment"></md-textarea>
@@ -163,5 +163,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+textarea {
+  resize: none !important;
+}
 </style>
