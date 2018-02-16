@@ -23,19 +23,6 @@ import utils from '@/tool/utils.js'
 
 Vue.use(Router)
 
-const preloadHome = (to, from, next) => {
-  if (!manager.controller.checkAuth(to)) {
-    return
-  }
-  // utils.restGet('/api/getHomeData', {}).then(
-  //   response => {
-  //     if (response) {
-  //       manager.initDepartmentDashboard(response)
-  next()
-  //     }
-  //   }
-  // )
-}
 const preloadSell = (to, from, next) => {
   if (!manager.controller.checkAuth(to)) {
     return
@@ -43,8 +30,9 @@ const preloadSell = (to, from, next) => {
   utils.restGet('/api/initEstateSell', {}).then(
     response => {
       if (response) {
-        manager.buyRequestService.buyRequests = response.buyRequests
+        manager.buyRequestService.init()
         manager.buyRequestService.count = response.count
+        manager.buyRequestService.buyRequests = response.buyRequests
         next()
       }
     }
@@ -68,7 +56,7 @@ export default new Router({
       path: '/',
       component: main,
       children: [
-        {path: '/', name: 'home', component: home, beforeEnter: preloadHome},
+        {path: '/', name: 'home', component: home, beforeEnter: nonePreload},
         {path: '/chat', name: 'chat', component: chat, beforeEnter: nonePreload},
         {path: '/contact', name: 'contact', component: contact, beforeEnter: nonePreload},
         {

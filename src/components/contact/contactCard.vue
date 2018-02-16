@@ -1,5 +1,5 @@
 <template>
-<md-card>
+<md-card md-theme="warm">
   <md-card-header>
     <md-avatar>
       <img :src="contact.avatar" alt="Avatar">
@@ -47,7 +47,7 @@
   </md-card-content>
 
   <md-card-actions>
-    <md-button class="md-icon-button">
+    <md-button class="md-icon-button md-primary">
       <md-icon>delete_forever</md-icon>
     </md-button>
     <md-button class="md-icon-button md-primary">

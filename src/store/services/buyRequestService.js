@@ -9,9 +9,8 @@ class BuyRequestService {
   get buyRequests () {
     return this._buyRequests
   }
-  set buyRequests (data) {
-    this._buyRequests = []
-    data.forEach(one => {
+  set buyRequests (requests) {
+    requests.forEach(one => {
       this._buyRequests.push(new BuyRequest(one))
     })
   }
@@ -22,18 +21,12 @@ class BuyRequestService {
     this._count = this._buyRequests.length + parseInt(data)
   }
 
-  async sendBuyRequest (request) {
-    const self = this
-    await utils.restPut('/api/insertBuyRequest', request).then(
-      response => {
-        if (response) {
-          self.addBuyRequest(response)
-        }
-      }
-    )
+  init () {
+    this._count = 0
+    this._buyRequests = []
   }
-  addBuyRequest (request) {
-    this._buyRequests.push(new BuyRequest(request))
+  async sendBuyRequest (request) {
+    await utils.restPut('/api/insertBuyRequest', request)
   }
 }
 

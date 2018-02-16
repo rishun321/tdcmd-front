@@ -95,13 +95,13 @@
   <md-card-actions>
     <div class="md-layout md-gutter md-alignment-center" style="width: 100%;">
       <div class="md-layout-item md-size-60 md-small-size-100">
-        <md-button class="md-raised md-accent" @click="showPublishDetail()">希望公開</md-button>
+        <md-button class="md-raised md-accent" @click="showPublishDetail()">売出希望を掲載</md-button>
       </div>
       <div class="md-layout-item md-size-20 md-small-size-50">
         <md-switch v-model="isLatest">1週間以内</md-switch>
       </div>
       <div class="md-layout-item md-size-20 md-small-size-50">
-        <md-button class="md-raised md-primary">検索</md-button>
+        <md-button class="md-raised md-primary">買取希望を検索</md-button>
       </div>
     </div>
   </md-card-actions>

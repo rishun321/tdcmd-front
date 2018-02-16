@@ -27,15 +27,15 @@ export default {
   primary: #664eae,
   accent: #dc66a0
 ));
-@include md-register-theme("green", (
+@include md-register-theme("warm", (
   primary: #4ea07c,
   accent: #dc66a0
 ));
-@include md-register-theme("yellow", (
+@include md-register-theme("light", (
   primary: #ebe48b,
   accent: #dc66a0
 ));
-@include md-register-theme("black", (
+@include md-register-theme("dark", (
   primary: #323232,
   accent: #dc66a0
 ));

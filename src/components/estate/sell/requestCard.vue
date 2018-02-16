@@ -1,5 +1,5 @@
 <template>
-<md-card class="md-primary" md-theme="yellow" md-with-hover @click.native="showRequestDetail(request)">
+<md-card md-with-hover @click.native="showRequestDetail(request)">
   <md-ripple>
     <md-card-header>
       <md-avatar>

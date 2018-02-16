@@ -129,7 +129,7 @@ export default {
       this.selected = room
     },
     sendChat () {
-      manager.socketer.emit('sendChat', {_id: '' + (manager.chatService.getChats().length + 1), text: this.chatText, chatTime: 1518241737198})
+      manager.socketService.emit('sendChat', {_id: '' + (manager.chatService.getChats().length + 1), text: this.chatText, chatTime: 1518241737198})
       this.chatText = ''
     }
   }
