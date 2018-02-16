@@ -19,7 +19,7 @@ import manage from '@/components/my/manage/manage'
 import publish from '@/components/my/publish/publish'
 
 import manager from '@/store/manager.js'
-// import utils from '@/tool/utils.js'
+import utils from '@/tool/utils.js'
 
 Vue.use(Router)
 
@@ -35,6 +35,20 @@ const preloadHome = (to, from, next) => {
   //     }
   //   }
   // )
+}
+const preloadSell = (to, from, next) => {
+  if (!manager.controller.checkAuth(to)) {
+    return
+  }
+  utils.restGet('/api/initEstateSell', {}).then(
+    response => {
+      if (response) {
+        manager.buyRequestService.buyRequests = response.buyRequests
+        manager.buyRequestService.count = response.count
+        next()
+      }
+    }
+  )
 }
 const nonePreload = (to, from, next) => {
   if (!manager.controller.checkAuth(to)) {
@@ -62,7 +76,7 @@ export default new Router({
           name: 'estate',
           component: estate,
           children: [
-            {path: '/estate/sell', name: 'sell', component: sell, beforeEnter: nonePreload},
+            {path: '/estate/sell', name: 'sell', component: sell, beforeEnter: preloadSell},
             {path: '/estate/buy', name: 'buy', component: buy, beforeEnter: nonePreload},
             {path: '/estate/rent', name: 'rent', component: rent, beforeEnter: nonePreload},
             {path: '/estate/lend', name: 'lend', component: lend, beforeEnter: nonePreload}

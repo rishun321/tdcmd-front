@@ -3,7 +3,8 @@ import Controller from './models/controller.js'
 import Socketer from './models/socketer.js'
 import User from './models/user.js'
 
-import ChatService from './chatService.js'
+import chatService from './chatService.js'
+import buyRequestService from './buyRequestService.js'
 
 class Manager {
   constructor () {
@@ -11,7 +12,8 @@ class Manager {
     this.controller = new Controller()
     this.socketer = new Socketer()
     this.user = new User()
-    this.chatService = new ChatService()
+    this.chatService = chatService
+    this.buyRequestService = buyRequestService
   }
   login (data, next) {
     this.user.login(data.user)

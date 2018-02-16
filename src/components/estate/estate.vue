@@ -46,18 +46,8 @@
 </template>
 
 <script>
-import buy from './buy/buy'
-import lend from './lend/lend'
-import rent from './rent/rent'
-import sell from './sell/sell'
 export default {
   props: ['manager'],
-  components: {
-    buy,
-    lend,
-    rent,
-    sell
-  },
   computed: {
     route () {
       return this.$route.name

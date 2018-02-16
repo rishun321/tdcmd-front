@@ -29,7 +29,7 @@
           <div class="md-layout-item md-size-50 md-small-size-100">
             <md-field>
               <label for="layout">間取り</label>
-              <md-select v-model="layout" name="layout" id="layout" class="frontier">
+              <md-select v-model="layout" name="layout" id="layout">
                 <md-option value="0">1R</md-option>
                 <md-option value="1">1DK</md-option>
                 <md-option value="2">2DK</md-option>
@@ -43,7 +43,7 @@
           <div class="md-layout-item md-size-50 md-small-size-100">
             <md-field>
               <label for="area">面積</label>
-              <md-select v-model="area" name="area" id="area" class="frontier">
+              <md-select v-model="area" name="area" id="area">
                 <md-option value="0">20m²以上</md-option>
                 <md-option value="1">30m²以上</md-option>
                 <md-option value="2">40m²以上</md-option>
@@ -56,8 +56,8 @@
           </div>
           <div class="md-layout-item md-size-50 md-small-size-100">
             <md-field>
-              <label for="housetype">建物種別</label>
-              <md-select v-model="housetype" name="housetype" id="housetype" class="frontier">
+              <label for="houseType">建物種別</label>
+              <md-select v-model="houseType" name="houseType" id="houseType">
                 <md-option value="0">マンション</md-option>
                 <md-option value="1">一戸建</md-option>
                 <md-option value="2">アパート</md-option>
@@ -68,7 +68,7 @@
           <div class="md-layout-item md-size-50 md-small-size-100">
             <md-field>
               <label for="structure">建物構造</label>
-              <md-select v-model="structure" name="structure" id="structure" class="frontier">
+              <md-select v-model="structure" name="structure" id="structure">
                 <md-option value="0">鉄筋系</md-option>
                 <md-option value="1">鉄骨系</md-option>
                 <md-option value="2">木造</md-option>
@@ -79,7 +79,7 @@
           <div class="md-layout-item md-size-50 md-small-size-100">
             <md-field :class="{'md-invalid': !isMinuteValid}">
               <label>築年数</label>
-              <md-input v-model="houseage" type="number"></md-input>
+              <md-input v-model="houseAge" type="number"></md-input>
               <span class="md-helper-text">単位・年</span>
             </md-field>
           </div>
@@ -93,7 +93,7 @@
           <div class="md-layout-item md-size-95">
             <md-field>
               <label>コメント</label>
-              <md-textarea v-model="housecomment"></md-textarea>
+              <md-textarea v-model="houseComment"></md-textarea>
               <span class="md-helper-text">要望に関する補足情報</span>
             </md-field>
           </div>
@@ -112,8 +112,8 @@
           </div>
           <div class="md-layout-item md-size-50 md-small-size-100">
             <md-field>
-              <label for="customerage">年齢</label>
-              <md-select v-model="customerage" name="customerage" id="customerage">
+              <label for="customerAge">年齢</label>
+              <md-select v-model="customerAge" name="customerAge" id="customerAge">
                 <md-option value="1">２０代</md-option>
                 <md-option value="2">３０代</md-option>
                 <md-option value="3">４０代</md-option>
@@ -138,8 +138,8 @@
           </div>
           <div class="md-layout-item md-size-50 md-small-size-100">
             <md-field>
-              <label for="employment_status">雇用形態</label>
-              <md-select v-model="employment_status" name="employment_status" id="employment_status" class="frontier">
+              <label for="employmentStatus">雇用形態</label>
+              <md-select v-model="employmentStatus" name="employmentStatus" id="employmentStatus">
                 <md-option value="0">正社員</md-option>
                 <md-option value="1">契約社員</md-option>
                 <md-option value="2">派遣</md-option>
@@ -166,7 +166,7 @@
           <div class="md-layout-item md-size-95">
             <md-field>
               <label>コメント</label>
-              <md-textarea v-model="customercomment"></md-textarea>
+              <md-textarea v-model="customerComment"></md-textarea>
               <span class="md-helper-text">要望に関する補足情報</span>
             </md-field>
           </div>
@@ -187,6 +187,7 @@
 </template>
 
 <script>
+import manager from '@/store/manager.js'
 import utils from '@/tool/utils.js'
 export default {
   data: () => ({
@@ -196,23 +197,23 @@ export default {
     minute: null,
     layout: null,
     area: null,
-    housetype: null,
+    houseType: null,
     structure: null,
-    houseage: null,
+    houseAge: null,
     price: null,
     percent: 0,
     amount: 500,
-    housecomment: null,
+    houseComment: null,
     sex: null,
-    customerage: null,
+    customerAge: null,
     country: null,
     occupation: null,
-    employment_status: null,
+    employmentStatus: null,
     income: null,
-    customercomment: null
+    customerComment: null
   }),
   created () {
-    let self = this
+    const self = this
     utils.event.$on('SHOW_PUBLISH_DIALOG_BUY', () => {
       self.showPublishDialog = true
     })
@@ -227,7 +228,15 @@ export default {
   },
   methods: {
     publish () {
-      this.$router.push({name: 'buy'})
+      const self = this
+      manager.buyRequestService.sendBuyRequest({
+        user: manager.user._id,
+        houseComment: this.houseComment
+      }).then(
+        () => {
+          self.$router.push({name: 'sell'})
+        }
+      )
     }
   },
   beforeDestroy () {

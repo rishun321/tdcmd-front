@@ -1,5 +1,5 @@
 <template>
-<md-dialog :md-active.sync="showDialog" :md-click-outside-to-close="false">
+<md-dialog :md-active.sync="showDialog" :md-click-outside-to-close="false" :md-fullscreen="false">
   <md-dialog-title>
     {{title}}
   </md-dialog-title>

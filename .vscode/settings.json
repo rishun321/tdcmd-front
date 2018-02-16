@@ -26,6 +26,5 @@
     "javascript",
     {"autoFix": true, "language": "vue"}
   ],
-  "git.autofetch": true,
-  "workbench.colorTheme": "Solarized Light"
+  "git.autofetch": true
 }

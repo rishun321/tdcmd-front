@@ -1,10 +1,15 @@
 <template>
 <div class="full-screen">
-  <vue-headful title="ブドウさん - 連絡先"/>
+  <vue-headful title="ブドウさん - 連絡帳"/>
   <md-table style="height: 100%;" v-model="searched" md-sort="_id" md-sort-order="asc" md-card md-fixed-header @md-selected="onSelect">
     <md-table-toolbar>
       <div class="md-toolbar-section-start">
-        <h1 class="md-title">連絡先</h1>
+        <div class="title-content">
+          <h1 class="md-title">連絡先</h1>
+          <md-button class="md-icon-button md-accent md-raised" @click="findUser">
+            <md-icon>person_add</md-icon>
+          </md-button>
+        </div>
       </div>
 
       <md-field md-clearable class="md-toolbar-section-end">
@@ -13,9 +18,9 @@
     </md-table-toolbar>
 
     <md-table-empty-state
-      md-label="No users found"
-      :md-description="`No user found for this '${search}' query. Try a different search term or create a new user.`">
-      <md-button class="md-primary md-raised" @click="newUser">探す</md-button>
+      md-label="見つかりませんでした。"
+      :md-description="`あなたの連絡帳に'${search}'にヒットするアカウントが見つかりませんでした。新たに登録しますか？`">
+      <md-button class="md-primary md-raised" @click="findUser">探す</md-button>
     </md-table-empty-state>
 
     <md-table-row slot="md-table-row" slot-scope="{item}" md-selectable="single">
@@ -26,17 +31,23 @@
       </md-table-cell>
       <md-table-cell md-label="アカウント" md-sort-by="_id">{{item._id}}</md-table-cell>
       <md-table-cell md-label="ニックネーム" md-sort-by="nickname">{{item.nickname}}</md-table-cell>
-      <md-table-cell md-label="Email" md-sort-by="email">{{item.email}}</md-table-cell>
-      <md-table-cell md-label="Gender" md-sort-by="gender">{{item.gender}}</md-table-cell>
-      <md-table-cell md-label="Job Title" md-sort-by="title">{{item.title}}</md-table-cell>
+      <md-table-cell md-label="会社" md-sort-by="company">{{item.company}}</md-table-cell>
+      <md-table-cell md-label="電話番号" md-sort-by="phone">{{item.phone}}</md-table-cell>
+      <md-table-cell md-label="コメント" md-sort-by="comment">{{item.comment}}</md-table-cell>
     </md-table-row>
   </md-table>
+  <contactDialog :manager="manager"/>
 </div>
 </template>
 
 <script>
+import contactDialog from './contactDialog'
+import utils from '@/tool/utils.js'
 export default {
   props: ['manager'],
+  components: {
+    contactDialog
+  },
   data: () => ({
     search: null,
     searched: [],
@@ -45,173 +56,176 @@ export default {
         avatar: '../../../static/user.jpg',
         _id: 'vv',
         nickname: '田中　祐一',
-        email: 'sdubbin0@geocities.com',
-        gender: 'Male',
-        title: 'Assistant Media Planner'
+        company: '未来夢株式会社',
+        phone: '08099997777',
+        comment: '頑張ります！'
       },
       {
         avatar: '../../../static/user.jpg',
         _id: 'bb',
         nickname: '小村　寛人',
-        email: 'odemageard1@spotify.com',
-        gender: 'Female',
-        title: 'Account Coordinator'
+        company: 'カプコン',
+        phone: '08099997777',
+        comment: '売り尽くします！'
       },
       {
         avatar: '../../../static/user.jpg',
         _id: 'aa',
         nickname: 'エリサベト　カテリラ',
-        email: 'vtaleworth2@google.ca',
-        gender: 'Male',
-        title: 'Community Outreach Specialist'
+        company: 'スクエアエニックス',
+        phone: '08099997777',
+        comment: '働きます！'
       },
       {
         avatar: '../../../static/user.jpg',
         _id: 'cc',
         nickname: '田中　助っ人',
-        email: 'lizkovitz3@youtu.be',
-        gender: 'Female',
-        title: 'Operator'
+        company: 'IBM',
+        phone: '08099997777',
+        comment: 'えっ！？'
       },
       {
         avatar: '../../../static/user.jpg',
-        _id: 'tt',
+        _id: 'qoo',
         nickname: 'Thatcher Stave',
-        email: 'tstave4@reference.com',
-        gender: 'Male',
-        title: 'Software Test Engineer III'
+        company: 'Micro Soft',
+        phone: '08099997777',
+        comment: ''
       },
       {
         avatar: '../../../static/user.jpg',
-        _id: 'tt',
+        _id: 'buuu',
         nickname: 'Karim Chipping',
-        email: 'kchipping5@scribd.com',
-        gender: 'Female',
-        title: 'Safety Technician II'
+        company: '未来夢株式会社',
+        phone: '08099997777',
+        comment: ''
       },
       {
         avatar: '../../../static/user.jpg',
-        _id: 'tt',
-        nickname: 'Helge Holyard',
-        email: 'hholyard6@howstuffworks.com',
-        gender: 'Female',
-        title: 'Internal Auditor'
+        _id: 'kero',
+        nickname: '佐助',
+        company: '未来夢株式会社',
+        phone: '08099997777',
+        comment: '途切れないようにしようぜ！'
       },
       {
         avatar: '../../../static/user.jpg',
-        _id: 'tt',
-        nickname: 'Rod Titterton',
-        email: 'rtitterton7@nydailynews.com',
-        gender: 'Male',
-        title: 'Technical Writer'
+        _id: 'ninja',
+        nickname: 'フルル',
+        company: '未来夢株式会社',
+        phone: '08099997777',
+        comment: ''
       },
       {
         avatar: '../../../static/user.jpg',
-        _id: 'tt',
-        nickname: 'Gawen Applewhite',
-        email: 'gapplewhite8@reverbnation.com',
-        gender: 'Female',
-        title: 'GIS Technical Architect'
+        _id: 'miko',
+        nickname: 'ガベリオ',
+        company: '未来夢株式会社',
+        phone: '08099997777',
+        comment: '途切れた。。。'
       },
       {
         avatar: '../../../static/user.jpg',
-        _id: 'tt',
-        nickname: 'Nero Mulgrew',
-        email: 'nmulgrew9@plala.or.jp',
-        gender: 'Female',
-        title: 'Staff Scientist'
+        _id: 'ten',
+        nickname: '信長',
+        company: 'NTT',
+        phone: '08099997777',
+        comment: 'おっ、おう'
       },
       {
         avatar: '../../../static/user.jpg',
-        _id: 'tt',
+        _id: 'bus',
         nickname: 'Cybill Rimington',
-        email: 'crimingtona@usnews.com',
-        gender: 'Female',
-        title: 'Assistant Professor'
+        company: '未来夢株式会社',
+        phone: '08099997777',
+        comment: 'じゃ〜長いコメントをつけて、途切れないように繋げていきましょう！'
       },
       {
         avatar: '../../../static/user.jpg',
-        _id: 'tt',
-        nickname: 'Maureene Eggleson',
-        email: 'megglesonb@elpais.com',
-        gender: 'Male',
-        title: 'Recruiting Manager'
+        _id: 'loki',
+        nickname: '井上',
+        company: 'Bust group',
+        phone: '08099997777',
+        comment: ''
       },
       {
         avatar: '../../../static/user.jpg',
-        _id: 'tt',
-        nickname: 'Cortney Caulket',
-        email: 'ccaulketc@cbsnews.com',
-        gender: 'Male',
-        title: 'Safety Technician IV'
+        _id: 't44t',
+        nickname: 'ガスト',
+        company: '未来夢株式会社',
+        phone: '08099997777',
+        comment: ''
       },
       {
         avatar: '../../../static/user.jpg',
-        _id: 'tt',
-        nickname: 'Selig Swynfen',
-        email: 'sswynfend@cpanel.net',
-        gender: 'Female',
-        title: 'Environmental Specialist'
+        _id: '3ff',
+        nickname: 'リナ',
+        company: 'ななこ株式会社',
+        phone: '08099997777',
+        comment: ''
       },
       {
         avatar: '../../../static/user.jpg',
-        _id: 'tt',
+        _id: 'sdffff',
         nickname: 'Ingar Raggles',
-        email: 'iragglese@cbc.ca',
-        gender: 'Female',
-        title: 'VP Sales'
+        company: '未来夢株式会社',
+        phone: '08099997777',
+        comment: ''
       },
       {
         avatar: '../../../static/user.jpg',
-        _id: 'tt',
-        nickname: 'Karmen Mines',
-        email: 'kminesf@topsy.com',
-        gender: 'Male',
-        title: 'Administrative Officer'
+        _id: '1407',
+        nickname: 'レベーカ',
+        company: '未来夢株式会社',
+        phone: '08099997777',
+        comment: 'まあ、いいや'
       },
       {
         avatar: '../../../static/user.jpg',
-        _id: 'tt',
+        _id: '9087',
         nickname: 'Salome Judron',
-        email: 'sjudrong@jigsy.com',
-        gender: 'Male',
-        title: 'Staff Scientist'
+        company: 'IBM',
+        phone: '08099997777',
+        comment: ''
       },
       {
         avatar: '../../../static/user.jpg',
-        _id: 'tt',
-        nickname: 'Clarinda Marieton',
-        email: 'cmarietonh@theatlantic.com',
-        gender: 'Male',
-        title: 'Paralegal'
+        _id: 'itit',
+        nickname: '田中　トトロ',
+        company: 'Micro Soft',
+        phone: '08099997777',
+        comment: ''
       },
       {
         avatar: '../../../static/user.jpg',
-        _id: 'tt',
-        nickname: 'Paxon Lotterington',
-        email: 'plotteringtoni@netvibes.com',
-        gender: 'Female',
-        title: 'Marketing Assistant'
+        _id: 'rrsrr',
+        nickname: '遠藤　冴え',
+        company: 'King Stone',
+        phone: '08099997777',
+        comment: ''
       },
       {
         avatar: '../../../static/user.jpg',
-        _id: 'tt',
-        nickname: 'Maura Thoms',
-        email: 'mthomsj@webeden.co.uk',
-        gender: 'Male',
-        title: 'Actuary'
+        _id: 'sdf',
+        nickname: '御手洗　遊助',
+        company: 'IBM',
+        phone: '08099997777',
+        comment: 'おしまいです〜'
       }
     ]
   }),
+  created () {
+    this.searched = this.users
+  },
   methods: {
-    newUser () {
-      window.alert('Noop')
+    findUser () {
+      console.log('find')
     },
     onSelect (user) {
       if (!user) {
         return
       }
-      console.log(user.nickname)
+      utils.event.$emit('SHOW_CONTACT', user)
     },
     searchOnTable () {
       if (this.search) {
@@ -223,6 +237,9 @@ export default {
             if (user.nickname.toString().toLowerCase().includes(this.search.toString().toLowerCase())) {
               return true
             }
+            if (user.company.toString().toLowerCase().includes(this.search.toString().toLowerCase())) {
+              return true
+            }
             return false
           }
         )
@@ -230,9 +247,6 @@ export default {
         this.searched = this.users
       }
     }
-  },
-  created () {
-    this.searched = this.users
   }
 }
 </script>
@@ -241,6 +255,13 @@ export default {
 .full-screen {
   width: 100%;
   height: 100%;
+}
+.title-content {
+  display: flex;
+  align-items: center;
+}
+.md-title {
+  margin-right: 20px;
 }
 .md-field {
   max-width: 300px;

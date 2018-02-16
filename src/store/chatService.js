@@ -22,4 +22,4 @@ class ChatService {
   }
 }
 
-export default ChatService
+export default new ChatService()
