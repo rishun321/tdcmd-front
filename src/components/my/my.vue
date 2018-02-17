@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="app-content-auto-height">
   <fileuploader :manager="manager"/>
   <router-view :manager="manager"/>
 </div>

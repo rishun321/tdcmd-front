@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="app-content-auto-height">
   <vue-headful title="ブドウさん - ホーム"/>
 
   <md-content class="md-primary md-title" md-theme="light">
@@ -67,7 +67,7 @@ export default {
 }
 .content-block {
   width: 100%;
-  height: 300px;
+  height: 700px;
   overflow: auto;
   padding: 10px;
 }
