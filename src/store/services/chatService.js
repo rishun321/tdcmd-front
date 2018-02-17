@@ -1,24 +1,23 @@
+// import utils from '@/tool/utils.js'
+import ChatRoom from '@/store/models/chatRoom.js'
+
 class ChatService {
   constructor () {
-    this.chats = [
-      {_id: '1', text: 'これはテストです。', user: 'rrrr', chatTime: 1518241737198},
-      {_id: '2', text: 'これはテスト2です。', user: 'sss', chatTime: 1518241737198},
-      {_id: '3', text: 'これはテスト3です。', user: 'rrrr', chatTime: 1518241737198},
-      {_id: '4', text: 'これはテスト3です。', user: 'rrrr', chatTime: 1518241737198},
-      {_id: '5', text: 'これはテスト3です。', user: 'rrrr', chatTime: 1518241737198},
-      {_id: '6', text: 'これはテスト3です。', user: 'rrrr', chatTime: 1518241737198},
-      {_id: '7', text: 'これはテスト3です。', user: 'rrrr', chatTime: 1518241737198},
-      {_id: '8', text: 'これはテスト3です。', user: 'rrrr', chatTime: 1518241737198},
-      {_id: '9', text: 'これはテスト3です。', user: 'rrrr', chatTime: 1518241737198},
-      {_id: '10', text: 'これはテスト3です。', user: 'rrrr', chatTime: 1518241737198},
-      {_id: '11', text: 'これはテスト3です。', user: 'rrrr', chatTime: 1518241737198}
-    ]
+    this._rooms = []
+    this.room = null
   }
-  getChats () {
-    return this.chats
+  get rooms () {
+    return this._rooms
   }
-  addChat (chat) {
-    this.chats.push(chat)
+  set rooms (rooms) {
+    rooms.forEach(one => {
+      this._rooms.push(new ChatRoom(one))
+    })
+  }
+
+  init () {
+    this.room = null
+    this._rooms.splice(0, this._rooms.length)
   }
 }
 

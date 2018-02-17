@@ -25,6 +25,7 @@ class BuyRequestService {
     this._count = 0
     this._buyRequests = []
   }
+
   async sendBuyRequest (request) {
     await utils.restPut('/api/insertBuyRequest', request)
   }

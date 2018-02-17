@@ -1,5 +1,5 @@
 <template>
-<div class="full-screen">
+<div class="app-content-auto-height">
   <vue-headful title="ブドウさん - 物件取引"/>
 
   <md-speed-dial class="md-top-left" md-direction="bottom" md-effect="scale">
@@ -69,10 +69,6 @@ label {
   font-size: 11px;
   font-weight: 600;
   cursor: pointer;
-}
-.full-screen {
-  width: 100%;
-  height: 100%;
 }
 .estate-guide {
   display: flex;

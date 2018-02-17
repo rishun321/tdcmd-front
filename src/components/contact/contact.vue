@@ -1,5 +1,5 @@
 <template>
-<div class="full-screen">
+<div class="app-content-fix-height">
   <vue-headful title="ブドウさん - 連絡帳"/>
   <md-table style="height: 100%;" v-model="searched" md-sort="_id" md-sort-order="asc" md-card md-fixed-header @md-selected="onSelect">
     <md-table-toolbar>
@@ -252,9 +252,8 @@ export default {
 </script>
 
 <style scoped>
-.full-screen {
-  width: 100%;
-  height: 100%;
+.app-content-fix-height {
+  padding: 15px;
 }
 .title-content {
   display: flex;
