@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="app-content-auto-height">
   my
   <router-view :manager="manager"/>
 </div>

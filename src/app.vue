@@ -27,15 +27,15 @@ export default {
   primary: #664eae,
   accent: #dc66a0
 ));
-@include md-register-theme("green", (
+@include md-register-theme("warm", (
   primary: #4ea07c,
   accent: #dc66a0
 ));
-@include md-register-theme("yellow", (
+@include md-register-theme("light", (
   primary: #ebe48b,
   accent: #dc66a0
 ));
-@include md-register-theme("black", (
+@include md-register-theme("dark", (
   primary: #323232,
   accent: #dc66a0
 ));
@@ -46,7 +46,21 @@ export default {
   width: 100vw;
   height: 100vh;
   position: relative;
-  background: #eee;
+}
+.md-app-content {
+  padding: 0px;
+  border: none;
+}
+.app-content-auto-height {
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  overflow: hidden;
+}
+.app-content-fix-height {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
 }
 .md-select-menu {
   z-index: 10;

@@ -6,4 +6,4 @@ class Const {
   }
 }
 
-export default Const
+export default new Const()

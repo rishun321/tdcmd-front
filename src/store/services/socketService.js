@@ -2,7 +2,7 @@ import manager from '@/store/manager.js'
 import utils from '@/tool/utils.js'
 import io from 'socket.io-client/dist/socket.io.js'
 
-class Socketer {
+class SocketService {
   constructor () {
     this.socket = null
     this.oldSocketID = null
@@ -54,4 +54,4 @@ class Socketer {
   }
 }
 
-export default Socketer
+export default new SocketService()

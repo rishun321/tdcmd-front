@@ -19,22 +19,52 @@ import manage from '@/components/my/manage/manage'
 import publish from '@/components/my/publish/publish'
 
 import manager from '@/store/manager.js'
-// import utils from '@/tool/utils.js'
+import utils from '@/tool/utils.js'
 
 Vue.use(Router)
 
-const preloadHome = (to, from, next) => {
+const preloadSell = (to, from, next) => {
   if (!manager.controller.checkAuth(to)) {
     return
   }
-  // utils.restGet('/api/getHomeData', {}).then(
-  //   response => {
-  //     if (response) {
-  //       manager.initDepartmentDashboard(response)
+  utils.restGet('/api/initEstateSell', {}).then(
+    response => {
+      if (response) {
+        manager.buyRequestService.init()
+        manager.buyRequestService.count = response.count
+        manager.buyRequestService.buyRequests = response.buyRequests
+        next()
+      }
+    }
+  )
+}
+const preloadChat = (to, from, next) => {
+  if (!manager.controller.checkAuth(to)) {
+    return
+  }
+  manager.chatService.init()
+  manager.chatService.rooms = [
+    {_id: '1', name: 'ロマンチックアップルロマンチックアップルロマンチックアップルロマンチックアップル'},
+    {_id: '2', name: 'リリナー'},
+    {_id: '3', name: '田中竜'},
+    {_id: '4', name: '中田龍'},
+    {_id: '5', name: 'ナースカリスマ'},
+    {_id: '6', name: 'おたくの神'},
+    {_id: '7', name: '五十嵐東海林太郎'},
+    {_id: '8', name: 'ハウスマン'},
+    {_id: '10', name: '五十嵐東海林太郎'},
+    {_id: '11', name: 'おたくの神'},
+    {_id: '12', name: '中田龍'},
+    {_id: '13', name: 'ハウスマン'},
+    {_id: '14', name: 'ロマンチックアップルロマンチックアップルロマンチックアップルロマンチックアップル'},
+    {_id: '15', name: '五十嵐東海林太郎'},
+    {_id: '16', name: 'おたくの神'},
+    {_id: '17', name: 'ナースカリスマ'},
+    {_id: '18', name: 'ナースカリスマ'},
+    {_id: '19', name: 'ハウスマン'},
+    {_id: '20', name: '中田龍'}
+  ]
   next()
-  //     }
-  //   }
-  // )
 }
 const nonePreload = (to, from, next) => {
   if (!manager.controller.checkAuth(to)) {
@@ -54,15 +84,15 @@ export default new Router({
       path: '/',
       component: main,
       children: [
-        {path: '/', name: 'home', component: home, beforeEnter: preloadHome},
-        {path: '/chat', name: 'chat', component: chat, beforeEnter: nonePreload},
+        {path: '/', name: 'home', component: home, beforeEnter: nonePreload},
+        {path: '/chat', name: 'chat', component: chat, beforeEnter: preloadChat},
         {path: '/contact', name: 'contact', component: contact, beforeEnter: nonePreload},
         {
           path: '/estate',
           name: 'estate',
           component: estate,
           children: [
-            {path: '/estate/sell', name: 'sell', component: sell, beforeEnter: nonePreload},
+            {path: '/estate/sell', name: 'sell', component: sell, beforeEnter: preloadSell},
             {path: '/estate/buy', name: 'buy', component: buy, beforeEnter: nonePreload},
             {path: '/estate/rent', name: 'rent', component: rent, beforeEnter: nonePreload},
             {path: '/estate/lend', name: 'lend', component: lend, beforeEnter: nonePreload}

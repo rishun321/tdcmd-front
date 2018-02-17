@@ -1,5 +1,5 @@
 <template>
-<div class="full-screen">
+<div class="app-content-auto-height">
   <vue-headful title="ブドウさん - 物件取引"/>
 
   <md-speed-dial class="md-top-left" md-direction="bottom" md-effect="scale">
@@ -46,18 +46,8 @@
 </template>
 
 <script>
-import buy from './buy/buy'
-import lend from './lend/lend'
-import rent from './rent/rent'
-import sell from './sell/sell'
 export default {
   props: ['manager'],
-  components: {
-    buy,
-    lend,
-    rent,
-    sell
-  },
   computed: {
     route () {
       return this.$route.name
@@ -79,10 +69,6 @@ label {
   font-size: 11px;
   font-weight: 600;
   cursor: pointer;
-}
-.full-screen {
-  width: 100%;
-  height: 100%;
 }
 .estate-guide {
   display: flex;

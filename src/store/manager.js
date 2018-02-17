@@ -1,25 +1,28 @@
-import Const from './consts'
-import Controller from './models/controller.js'
-import Socketer from './models/socketer.js'
-import User from './models/user.js'
+import consts from './consts'
+import controller from './controller.js'
+import user from './user.js'
 
-import ChatService from './chatService.js'
+import socketService from './services/socketService.js'
+import chatService from './services/chatService.js'
+import buyRequestService from './services/buyRequestService.js'
 
 class Manager {
   constructor () {
-    this.const = new Const()
-    this.controller = new Controller()
-    this.socketer = new Socketer()
-    this.user = new User()
-    this.chatService = new ChatService()
+    this.const = consts
+    this.controller = controller
+    this.user = user
+
+    this.socketService = socketService
+    this.chatService = chatService
+    this.buyRequestService = buyRequestService
   }
   login (data, next) {
     this.user.login(data.user)
-    this.socketer.on(next)
+    this.socketService.on(next)
   }
   logout () {
     this.user.logout()
-    this.socketer.off()
+    this.socketService.off()
   }
 }
 

@@ -1,11 +1,11 @@
 <template>
-<div>
+<div class="app-content-auto-height">
   <vue-headful title="ブドウさん - ホーム"/>
 
-  <md-content class="md-primary md-title" md-theme="yellow">
+  <md-content class="md-primary md-title" md-theme="light">
     お知らせ
   </md-content>
-  <md-content class="md-primary md-scrollbar content-block" md-theme="green">
+  <md-content class="md-primary md-scrollbar content-block" md-theme="warm">
     <md-toolbar class="md-medium">
       Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them. Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them. Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them. Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them.
     </md-toolbar>
@@ -20,10 +20,10 @@
     </md-toolbar>
   </md-content>
 
-  <md-content class="md-primary md-title" md-theme="yellow">
+  <md-content class="md-primary md-title" md-theme="light">
     新着情報
   </md-content>
-  <md-content class="md-primary md-scrollbar content-block" md-theme="green">
+  <md-content class="md-primary md-scrollbar content-block" md-theme="warm">
     <md-toolbar class="md-medium">
       Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them. Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them. Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them. Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them.
     </md-toolbar>
@@ -67,7 +67,7 @@ export default {
 }
 .content-block {
   width: 100%;
-  height: 300px;
+  height: 700px;
   overflow: auto;
   padding: 10px;
 }

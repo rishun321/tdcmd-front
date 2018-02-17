@@ -30,7 +30,7 @@
           <div class="md-layout-item md-size-50 md-small-size-100">
             <md-field>
               <label for="layout">間取り</label>
-              <md-select v-model="layout" name="layout" id="layout" class="frontier">
+              <md-select v-model="layout" name="layout" id="layout">
                 <md-option value="0">1R</md-option>
                 <md-option value="1">1DK</md-option>
                 <md-option value="2">2DK</md-option>
@@ -44,7 +44,7 @@
           <div class="md-layout-item md-size-50 md-small-size-100">
             <md-field>
               <label for="area">面積</label>
-              <md-select v-model="area" name="area" id="area" class="frontier">
+              <md-select v-model="area" name="area" id="area">
                 <md-option value="0">20m²以上</md-option>
                 <md-option value="1">30m²以上</md-option>
                 <md-option value="2">40m²以上</md-option>
@@ -57,8 +57,8 @@
           </div>
           <div class="md-layout-item md-size-50 md-small-size-100">
             <md-field>
-              <label for="housetype">建物種別</label>
-              <md-select v-model="housetype" name="housetype" id="housetype" class="frontier">
+              <label for="houseType">建物種別</label>
+              <md-select v-model="houseType" name="houseType" id="houseType">
                 <md-option value="0">マンション</md-option>
                 <md-option value="1">一戸建</md-option>
                 <md-option value="2">アパート</md-option>
@@ -69,7 +69,7 @@
           <div class="md-layout-item md-size-50 md-small-size-100">
             <md-field>
               <label for="structure">建物構造</label>
-              <md-select v-model="structure" name="structure" id="structure" class="frontier">
+              <md-select v-model="structure" name="structure" id="structure">
                 <md-option value="0">鉄筋系</md-option>
                 <md-option value="1">鉄骨系</md-option>
                 <md-option value="2">木造</md-option>
@@ -80,7 +80,7 @@
           <div class="md-layout-item md-size-50 md-small-size-100">
             <md-field :class="{'md-invalid': !isMinuteValid}">
               <label>築年数</label>
-              <md-input v-model="houseage" type="number"></md-input>
+              <md-input v-model="houseAge" type="number"></md-input>
               <span class="md-helper-text">単位・年</span>
             </md-field>
           </div>
@@ -129,9 +129,9 @@ export default {
     minute: null,
     layout: null,
     area: null,
-    housetype: null,
+    houseType: null,
     structure: null,
-    houseage: null,
+    houseAge: null,
     price: null,
     percent: 0,
     amount: 500,

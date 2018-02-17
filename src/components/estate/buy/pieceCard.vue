@@ -1,5 +1,5 @@
 <template>
-  <md-card class="md-primary" md-theme="yellow" md-with-hover @click.native="showPieceDetail(piece)">
+  <md-card class="md-primary" md-theme="light" md-with-hover @click.native="showPieceDetail(piece)">
     <md-ripple>
         <md-card-header>
           <md-avatar>
