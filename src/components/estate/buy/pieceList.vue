@@ -24,8 +24,8 @@ export default {
       {_id: '3', name: '田中竜', preview: 'sechelt', text: '3階建一軒家、新築'},
       {_id: '4', name: '中田龍', preview: 'beach', text: '5000万以内であれば、なんでもいい'},
       {_id: '5', name: 'ナースカリスマ', preview: 'shop', text: '居間は畳、北向き'},
-      {_id: '6', name: 'おたくの神', preview: 'beach', text: '東陽町付近、マンション'},
-      {_id: '7', name: '中田龍', preview: 'city', text: 'ワンルーム、貸し出し安いマンション'},
+      {_id: '6', name: 'おたくの神', preview: 'star', text: '東陽町付近、マンション'},
+      {_id: '7', name: '中田龍', preview: 'mountain', text: 'ワンルーム、貸し出し安いマンション'},
       {_id: '8', name: 'ハウスマン', preview: 'cubes', text: '3LDK以上'},
       {_id: '9', name: 'リリナー', preview: 'sechelt', text: '1000万円以内、茨城県'},
       {_id: '10', name: '五十嵐東海林太郎', preview: 'shop', text: '富士山麓、交通便利、贅沢を尽くす別荘'}

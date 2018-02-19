@@ -4,11 +4,11 @@
     <a-scene embedded>
       <a-assets>
         <img id="photo-view" :src="view">
-        <!-- <img id="photo-info" :src="info"> -->
+        <img id="photo-info" :src="info">
       </a-assets>
       <a-sky id="image-360" radius="10" src="#photo-view"></a-sky>
-      <!-- <a-entity class="link" geometry="primitive: plane; height: 1; width: 1" material="shader: flat; src: #photo-info" position="0 0 -5"> -->
-      <a-entity class="link" geometry="primitive: plane; height: 1; width: 1" position="0 0 0">
+      <a-entity class="link" geometry="primitive: plane; height: 1; width: 1" material="shader: flat; src: #photo-info" position="5 5 -5">
+      <!-- <a-entity class="link" geometry="primitive: plane; height: 1; width: 1" position="0 0 0"> -->
       </a-entity>
       <a-camera>
         <a-cursor id="cursor">
@@ -30,23 +30,31 @@ export default {
   created () {
     if (this.$route.params.id === 'city') {
       this.view = '../../../static/city.jpg'
-      this.info = '../../../static/thumb-city.jpg'
+      this.info = '../../../static/miraimon.png'
     }
     if (this.$route.params.id === 'cubes') {
       this.view = '../../../static/cubes.jpg'
-      this.info = '../../../static/thumb-cubes.jpg'
+      this.info = '../../../static/miraimon.png'
     }
     if (this.$route.params.id === 'sechelt') {
       this.view = '../../../static/sechelt.jpg'
-      this.info = '../../../static/thumb-sechelt.jpg'
+      this.info = '../../../static/miraimon.png'
     }
     if (this.$route.params.id === 'beach') {
       this.view = '../../../static/beach.jpg'
-      this.info = null
+      this.info = '../../../static/miraimon.png'
     }
     if (this.$route.params.id === 'shop') {
       this.view = '../../../static/shop.jpg'
-      this.info = null
+      this.info = '../../../static/miraimon.png'
+    }
+    if (this.$route.params.id === 'star') {
+      this.view = '../../../static/star.jpg'
+      this.info = '../../../static/miraimon.png'
+    }
+    if (this.$route.params.id === 'mountain') {
+      this.view = '../../../static/mountain.jpg'
+      this.info = '../../../static/miraimon.png'
     }
   }
 }

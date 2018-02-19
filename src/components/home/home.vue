@@ -67,7 +67,7 @@ export default {
 }
 .content-block {
   width: 100%;
-  height: 700px;
+  height: 300px;
   overflow: auto;
   padding: 10px;
 }

@@ -109,7 +109,6 @@ export default new Router({
             {path: '/my/publish', name: 'publish', component: publish, beforeEnter: nonePreload}
           ]
         },
-        {path: '/preview', name: 'preview', component: preview, beforeEnter: nonePreload},
         {path: '/preview/:id', name: 'preview', component: preview, beforeEnter: nonePreload}
       ]
     },
