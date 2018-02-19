@@ -13,12 +13,13 @@
 
 <script>
 import manager from '@/store/manager.js'
-// import utils from '@/tool/utils.js'
+import utils from '@/tool/utils.js'
 export default {
   props: ['manager'],
   methods: {
     joinRoom (room) {
       manager.chatService.room = room
+      utils.event.$emit('SCROLL_CHAT')
     }
   }
 }

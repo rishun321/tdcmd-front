@@ -4,9 +4,9 @@
     <md-button class="md-icon-button" @click="toggleMenu" v-if="!menuVisible">
       <md-icon>keyboard_arrow_right</md-icon>
     </md-button>
-    <md-menu md-align-trigger>
+    <md-menu class="absolute-bar" md-align-trigger v-if="manager.chatService.room">
       <md-button md-menu-trigger>
-        五十嵐東海林太郎, ナースカリスマ <md-icon>keyboard_arrow_down</md-icon>
+        五十嵐東海林太郎, ナースカリスマ, リリナー <md-icon>keyboard_arrow_down</md-icon>
       </md-button>
 
       <md-menu-content>
@@ -74,6 +74,15 @@ export default {
 .md-toolbar {
   background: #f5f5f5 !important;
   border-bottom: 1px solid rgba(0, 0, 0, .12);
+}
+.absolute-bar {
+  position: absolute;
+  left: 66px;
+}
+@media (max-width: 944px) {
+  .absolute-bar {
+    left: 46px;
+  }
 }
 .room-list {
   height: calc(100% - 48px);

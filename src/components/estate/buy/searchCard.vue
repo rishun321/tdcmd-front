@@ -21,24 +21,33 @@
         </md-field>
       </div>
       <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
-        <md-field :class="{'md-invalid': !isMinuteValid}">
+        <md-field>
           <label>徒歩時間</label>
-          <md-input v-model="minute" type="number"></md-input>
-          <span class="md-error">1以上の整数を入力してください。</span>
-          <span class="md-helper-text">駅から物件までの徒歩時間（分）</span>
+          <md-select v-model="minute">
+            <md-option value="0">指定なし</md-option>
+            <md-option value="1">1分以内</md-option>
+            <md-option value="2">5分以内</md-option>
+            <md-option value="3">10分以内</md-option>
+            <md-option value="4">15分以内</md-option>
+            <md-option value="5">20分以内</md-option>
+            <md-option value="6">30分以内</md-option>
+            <md-option value="7">30分以上</md-option>
+          </md-select>
+          <span class="md-helper-text">駅から物件までの徒歩時間</span>
         </md-field>
       </div>
       <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
         <md-field>
           <label>間取り</label>
           <md-select v-model="layout">
-            <md-option value="0">1R</md-option>
-            <md-option value="1">1DK</md-option>
-            <md-option value="2">2DK</md-option>
-            <md-option value="3">2LDK</md-option>
-            <md-option value="4">3DK</md-option>
-            <md-option value="5">3LDK</md-option>
-            <md-option value="6">4DK以上</md-option>
+            <md-option value="0">指定なし</md-option>
+            <md-option value="1">1R</md-option>
+            <md-option value="2">1DK</md-option>
+            <md-option value="3">2DK</md-option>
+            <md-option value="4">2LDK</md-option>
+            <md-option value="5">3DK</md-option>
+            <md-option value="6">3LDK</md-option>
+            <md-option value="7">4DK以上</md-option>
           </md-select>
         </md-field>
       </div>
@@ -46,13 +55,14 @@
         <md-field>
           <label>面積</label>
           <md-select v-model="area">
-            <md-option value="0">20m²以上</md-option>
-            <md-option value="1">30m²以上</md-option>
-            <md-option value="2">40m²以上</md-option>
-            <md-option value="3">50m²以上</md-option>
-            <md-option value="4">60m²以上</md-option>
-            <md-option value="5">70m²以上</md-option>
-            <md-option value="6">80m²以上</md-option>
+            <md-option value="0">指定なし</md-option>
+            <md-option value="1">20m²以上</md-option>
+            <md-option value="2">30m²以上</md-option>
+            <md-option value="3">40m²以上</md-option>
+            <md-option value="4">50m²以上</md-option>
+            <md-option value="5">60m²以上</md-option>
+            <md-option value="6">70m²以上</md-option>
+            <md-option value="7">80m²以上</md-option>
           </md-select>
         </md-field>
       </div>
@@ -60,10 +70,11 @@
         <md-field>
           <label>建物種類</label>
           <md-select v-model="housetype">
-            <md-option value="0">マンション</md-option>
-            <md-option value="1">一戸建</md-option>
-            <md-option value="2">アパート</md-option>
-            <md-option value="3">その他</md-option>
+            <md-option value="0">指定なし</md-option>
+            <md-option value="1">マンション</md-option>
+            <md-option value="2">一戸建</md-option>
+            <md-option value="3">アパート</md-option>
+            <md-option value="4">その他</md-option>
           </md-select>
         </md-field>
       </div>
@@ -71,18 +82,30 @@
         <md-field>
           <label>建物構造</label>
           <md-select v-model="structure">
-            <md-option value="0">鉄筋系</md-option>
-            <md-option value="1">鉄骨系</md-option>
-            <md-option value="2">木造</md-option>
-            <md-option value="3">その他</md-option>
+            <md-option value="0">指定なし</md-option>
+            <md-option value="1">鉄筋系</md-option>
+            <md-option value="2">鉄骨系</md-option>
+            <md-option value="3">木造</md-option>
+            <md-option value="4">その他</md-option>
           </md-select>
         </md-field>
       </div>
       <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
         <md-field>
           <label>築年数</label>
-          <md-input v-model="Age" type="number"></md-input>
-          <span class="md-helper-text">単位・年</span>
+          <md-select v-model="Age">
+            <md-option value="0">指定なし</md-option>
+            <md-option value="1">1年以内</md-option>
+            <md-option value="2">3年以内</md-option>
+            <md-option value="3">5年以内</md-option>
+            <md-option value="4">7年以内</md-option>
+            <md-option value="5">10年以内</md-option>
+            <md-option value="6">15年以内</md-option>
+            <md-option value="7">20年以内</md-option>
+            <md-option value="8">25年以内</md-option>
+            <md-option value="9">30年以内</md-option>
+            <md-option value="10">30年以上</md-option>
+          </md-select>
         </md-field>
       </div>
       <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">

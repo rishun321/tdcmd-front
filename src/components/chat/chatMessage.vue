@@ -6,8 +6,13 @@
     </md-avatar>
   </div>
   <div class="chat-message-container">
+    <div class="chat-user" v-if="chat.user !== manager.user._id">
+      {{chat.user}}
+    </div>
     <md-content md-theme="warm" :class="{'md-primary': chat.user === manager.user._id, 'chat-message-text': true, 'chat-balloon-left': chat.user !== manager.user._id, 'chat-balloon-right': chat.user === manager.user._id, 'md-elevation-5': true}">
-      {{chat.text}}
+      <div class="one-line" v-for="(text, index) in chat.texts" :key="'text-' + chat._id + '-' + index">
+        {{text}}
+      </div>
     </md-content>
   </div>
   <div v-if="chat.user === manager.user._id">
@@ -25,6 +30,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.chat-user {
+  width: 100%;
+  padding-left: 20px;
+}
 .chat-message + .chat-message {
   width: 100%;
   padding-top: 20px;
@@ -50,6 +59,9 @@ export default {
   min-height: 40px;
   padding: 10px;
   border-radius: 5px;
+}
+.one-line {
+  min-height: 20px;
 }
 
 .chat-balloon-left {

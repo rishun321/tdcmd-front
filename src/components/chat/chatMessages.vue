@@ -1,8 +1,13 @@
 <template>
-<div class="chat-messages md-scrollbar">
-  <div class="messages-containner" ref="chatMessages">
-    <template v-if="manager.chatService.room">
-      <chatMessage :manager="manager" :chat="chat" v-for="chat in manager.chatService.room.chats" :key="chat._id"/>
+<div class="chat-messages md-scrollbar" ref="chatMessages">
+  <div class="messages-containner" v-if="manager.chatService.room">
+    <template v-for="chat in manager.chatService.room.chats">
+      <div class="chat-time-container" :key="chat._id + '-time'" v-if="chat.chatTime">
+        <div class="chat-time">
+          {{chat.chatTime}}
+        </div>
+      </div>
+      <chatMessage :manager="manager" :chat="chat" :key="chat._id"/>
     </template>
   </div>
 </div>
@@ -21,26 +26,55 @@ export default {
     const self = this
     utils.event.$on('SCROLL_CHAT', () => {
       self.$nextTick(() => {
-        self.$refs.chatMessages.scrollTop = self.$refs.chatMessages.scrollHeight
+        self.scrollTo(self.$refs.chatMessages.scrollHeight, 100)
       })
     })
   },
   beforeDestroy () {
     utils.event.$off('SCROLL_CHAT')
+  },
+  methods: {
+    scrollTo (to, duration) {
+      const self = this
+      if (duration <= 0) return
+      let element = this.$refs.chatMessages
+      let difference = to - element.scrollTop - element.clientHeight
+      let perTick = difference / duration * 10
+
+      setTimeout(() => {
+        element.scrollTop = element.scrollTop + perTick
+        if (element.scrollTop === to) return
+        self.scrollTo(to, duration - 10)
+      }, 10)
+    }
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .chat-messages {
   margin-left: 20px;
   margin-right: 20px;
-  height: calc(100% - 180px);
+  height: calc(100% - 168px);
   overflow-y: scroll;
   border-bottom: 1px solid rgba(0, 0, 0, .12);
 }
 .messages-containner {
   padding: 10px;
   height: auto;
+}
+.chat-message + .chat-time-container {
+  margin-top: 30px;
+}
+.chat-time-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.chat-time {
+  border-radius: 5px;
+  background: #ddd;
+  padding: 5px;
+  color: #fff;
 }
 </style>

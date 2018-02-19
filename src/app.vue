@@ -42,14 +42,11 @@ export default {
 @import "~vue-material/dist/theme/all";
 @import "~vue-material/dist/base/theme";
 
+// common
 .page-container {
   width: 100vw;
   height: 100vh;
   position: relative;
-}
-.md-app-content {
-  padding: 0px;
-  border: none;
 }
 .app-content-auto-height {
   width: 100%;
@@ -62,10 +59,25 @@ export default {
   height: 100%;
   overflow: scroll;
 }
+
+// dialog selection
 .md-select-menu {
   z-index: 10;
 }
+
+// contact
 .md-table-content {
   max-height: none !important;
+}
+
+// chat
+@media (max-width: 600px) {
+  .md-app-container {
+    padding-left: 0px !important;
+  }
+}
+.md-app-content {
+  padding: 0px;
+  border: none;
 }
 </style>

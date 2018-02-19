@@ -30,7 +30,7 @@
 
   <router-view :manager="manager"/>
 
-  <div class="full-screen estate-guide" v-if="route === 'estate'">
+  <div class="estate-guide" v-if="route === 'estate'">
     <div>
       <div>
         <md-button class="md-raised md-accent button-guide" to="/estate/sell">物件を売る</md-button>
@@ -71,13 +71,14 @@ label {
   cursor: pointer;
 }
 .estate-guide {
+  margin-top: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .button-guide {
-  width: 120px;
-  height: 74px;
+  width: 110px;
+  height: 64px;
   margin: 16px;
 }
 </style>

@@ -21,7 +21,7 @@
 
       <div class="md-toolbar-section-end">
         <span class="md-title md-small-hide">ブドウさん</span>
-        <md-button class="md-icon-button" @click="logout()">
+        <md-button class="md-icon-button md-xsmall-hide" @click="logout()">
           <md-icon>power_settings_new</md-icon>
         </md-button>
       </div>

@@ -42,17 +42,10 @@
             </md-field>
           </div>
           <div class="md-layout-item md-size-50 md-small-size-100">
-            <md-field>
-              <label for="area">面積</label>
-              <md-select v-model="area" name="area" id="area">
-                <md-option value="0">20m²以上</md-option>
-                <md-option value="1">30m²以上</md-option>
-                <md-option value="2">40m²以上</md-option>
-                <md-option value="3">50m²以上</md-option>
-                <md-option value="4">60m²以上</md-option>
-                <md-option value="5">70m²以上</md-option>
-                <md-option value="6">80m²以上</md-option>
-              </md-select>
+            <md-field :class="{'md-invalid': !isMinuteValid}">
+              <label>面積</label>
+              <md-input v-model="area" type="number"></md-input>
+              <span class="md-helper-text">単位・m²</span>
             </md-field>
           </div>
           <div class="md-layout-item md-size-50 md-small-size-100">
@@ -79,9 +72,9 @@
           </div>
           <div class="md-layout-item md-size-50 md-small-size-100">
             <md-field :class="{'md-invalid': !isMinuteValid}">
-              <label>築年数</label>
+              <label>築年月</label>
               <md-input v-model="houseAge" type="number"></md-input>
-              <span class="md-helper-text">単位・年</span>
+              <span class="md-helper-text">例：199901</span>
             </md-field>
           </div>
           <div class="md-layout-item md-size-50 md-small-size-100">

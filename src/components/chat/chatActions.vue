@@ -1,6 +1,11 @@
 <template>
-<div class="chat-actions">
+<div class="chat-actions" v-if="manager.chatService.room">
   <div class="chat-text-input">
+    <md-field>
+      <label>チャット本文</label>
+      <md-textarea v-model="text" @keyup.enter="send" @keydown.ctrl="ctrl = true" @keyup.ctrl="ctrl = false"></md-textarea>
+      <span class="md-helper-text">Ctrl + Enter で改行</span>
+    </md-field>
   </div>
   <div class="chat-button">
     <div class="chat-tools">
@@ -18,7 +23,7 @@
       </div>
     </div>
     <div class="chat-send">
-      <md-button class="md-primary md-raised">
+      <md-button class="md-primary md-raised" @click="send">
         <div class="button-text">
           <md-icon>send</md-icon><p>送信</p>
         </div>
@@ -29,23 +34,29 @@
 </template>
 
 <script>
-// import manager from '@/store/manager.js'
-// import utils from '@/tool/utils.js'
+import manager from '@/store/manager.js'
 export default {
   props: ['manager'],
-  mounted () {
-    // const self = this
-    // this.$refs.directChatMessages.scrollTop = this.$refs.directChatMessages.scrollHeight
-    // utils.event.$on('SCROLL_CHAT', () => {
-    //   self.$nextTick(() => {
-    //     self.$refs.directChatMessages.scrollTop = self.$refs.directChatMessages.scrollHeight
-    //   })
-    // })
-  },
+  data: () => ({
+    text: null,
+    ctrl: false
+  }),
   methods: {
-    sendChat () {
-      // manager.socketService.emit('sendChat', {_id: '' + (manager.chatService.getChats().length + 1), text: this.chatText, chatTime: 1518241737198})
-      // this.chatText = ''
+    send () {
+      if (this.ctrl) {
+        this.text = this.text + '\n'
+        return
+      }
+      this.text = this.text.trim()
+      if (!this.text || this.text === '') return
+      let now = new Date()
+      manager.socketService.emit('sendChat', {
+        _id: '' + (manager.chatService.room.chats.length + 1),
+        text: this.text,
+        chatTime: now.valueOf(),
+        user: 'rrrr'
+      })
+      this.text = ''
     }
   }
 }
@@ -54,7 +65,7 @@ export default {
 <style scoped lang="scss">
 .chat-actions {
   width: 100%;
-  height: 180px;
+  height: 168px;
   padding: 10px;
   overflow-y: hidden;
   display: flex;
@@ -62,7 +73,14 @@ export default {
 }
 .chat-text-input {
   width: calc(100% - 104px);
-  background: #f00;
+}
+textarea {
+  resize: none !important;
+}
+.md-helper-text {
+  width: 100%;
+  text-align: right;
+  padding-right: 5px;
 }
 .chat-button {
   width: 104px;

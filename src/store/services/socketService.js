@@ -11,6 +11,7 @@ class SocketService {
     if (!this.isOnline()) {
       return
     }
+    utils.event.$emit('LOCK_SCREEN', 'lock')
     this.socket.emit(event, params)
   }
   isOnline () {
@@ -31,9 +32,11 @@ class SocketService {
       // utils.event.$emit('SHOW_MESSAGE', {code: 'S005'})
     })
     self.socket.on('processError', (error) => {
+      utils.event.$emit('LOCK_SCREEN', 'unlock')
       utils.event.$emit('SHOW_MESSAGE', error)
     })
     self.socket.on('authenticateError', () => {
+      utils.event.$emit('LOCK_SCREEN', 'unlock')
       utils.router.push({name: 'error'})
     })
     self.socket.on('reinited', () => {
@@ -41,7 +44,8 @@ class SocketService {
     })
 
     self.socket.on('receiveChat', (chat) => {
-      manager.chatService.addChat(chat)
+      utils.event.$emit('LOCK_SCREEN', 'unlock')
+      manager.chatService.room.chat(chat)
       utils.event.$emit('SCROLL_CHAT')
     })
   }
