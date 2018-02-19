@@ -7,7 +7,7 @@
           </md-avatar>
 
           <div class="md-title">住友不動産株式会社</div>
-          <div class="md-subhead">売買担当：五十嵐</div>
+          <div class="md-subhead">売買担当：{{piece.name}}</div>
         </md-card-header>
 
         <md-card-media>
@@ -15,12 +15,13 @@
         </md-card-media>
 
         <md-card-content>
-          亀戸富士マンション,ＪＲ総武線 / 亀戸駅 徒歩10分、4階、南向き、２５００万、専有面積、25.51m²
+          {{piece.text}}
         </md-card-content>
 
         <md-card-actions>
           <md-button @click.stop="contact(piece)">連絡</md-button>
           <md-button>詳細</md-button>
+          <md-button @click.stop="preview(piece)">内覧</md-button>
         </md-card-actions>
     </md-ripple>
   </md-card>
@@ -36,6 +37,9 @@ export default {
     },
     showPieceDetail (piece) {
       utils.event.$emit('SHOW_PIECE_DIALOG_BUY', piece)
+    },
+    preview (piece) {
+      this.$router.push({path: '/preview/' + piece.preview})
     }
   }
 }

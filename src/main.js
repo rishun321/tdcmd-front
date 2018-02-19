@@ -7,6 +7,7 @@
 import 'vue-material/dist/vue-material.min.css'
 
 import 'es6-promise/auto'
+import 'aframe'
 // import 'jquery/dist/jquery.min.js'
 // import 'jquery-ui/ui/core.js'
 // import 'jquery-ui/ui/widgets/selectable.js'

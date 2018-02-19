@@ -1,5 +1,5 @@
 <template>
-<div class="room-list">
+<md-content class="room-list md-scrollbar">
   <md-list>
     <md-list-item v-for="room in manager.chatService.rooms" :key="room._id" :class="{'active': manager.chatService.room && room._id === manager.chatService.room._id}" @click="joinRoom(room)">
       <md-avatar>
@@ -8,7 +8,7 @@
       <span class="md-list-item-text">{{room.name}}</span>
     </md-list-item>
   </md-list>
-</div>
+</md-content>
 </template>
 
 <script>
@@ -28,7 +28,7 @@ export default {
 <style scoped>
 .room-list {
   height: calc(100% - 48px);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .active {
   background: #ddd;

@@ -1,5 +1,5 @@
 <template>
-<div class="chat-messages md-scrollbar" ref="chatMessages">
+<md-content class="chat-messages md-scrollbar" ref="chatMessages">
   <div class="messages-containner" v-if="manager.chatService.room">
     <template v-for="chat in manager.chatService.room.chats">
       <div class="chat-time-container" :key="chat._id + '-time'" v-if="chat.chatTime">
@@ -10,12 +10,11 @@
       <chatMessage :manager="manager" :chat="chat" :key="chat._id"/>
     </template>
   </div>
-</div>
+</md-content>
 </template>
 
 <script>
 import chatMessage from './chatMessage'
-// import manager from '@/store/manager.js'
 import utils from '@/tool/utils.js'
 export default {
   props: ['manager'],
@@ -26,7 +25,7 @@ export default {
     const self = this
     utils.event.$on('SCROLL_CHAT', () => {
       self.$nextTick(() => {
-        self.scrollTo(self.$refs.chatMessages.scrollHeight, 100)
+        self.scrollTo(self.$refs.chatMessages.$el.scrollHeight, 100)
       })
     })
   },
@@ -37,7 +36,7 @@ export default {
     scrollTo (to, duration) {
       const self = this
       if (duration <= 0) return
-      let element = this.$refs.chatMessages
+      let element = this.$refs.chatMessages.$el
       let difference = to - element.scrollTop - element.clientHeight
       let perTick = difference / duration * 10
 
@@ -53,13 +52,13 @@ export default {
 
 <style scoped lang="scss">
 .chat-messages {
-  margin-left: 20px;
-  margin-right: 20px;
   height: calc(100% - 168px);
-  overflow-y: scroll;
+  overflow: auto;
   border-bottom: 1px solid rgba(0, 0, 0, .12);
 }
 .messages-containner {
+  margin-left: 20px;
+  margin-right: 20px;
   padding: 10px;
   height: auto;
 }

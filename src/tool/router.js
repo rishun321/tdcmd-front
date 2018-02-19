@@ -17,6 +17,7 @@ import my from '@/components/my/my'
 import favorite from '@/components/my/favorite/favorite'
 import manage from '@/components/my/manage/manage'
 import publish from '@/components/my/publish/publish'
+import preview from '@/components/preview/preview'
 
 import manager from '@/store/manager.js'
 import utils from '@/tool/utils.js'
@@ -107,7 +108,9 @@ export default new Router({
             {path: '/my/manage', name: 'manage', component: manage, beforeEnter: nonePreload},
             {path: '/my/publish', name: 'publish', component: publish, beforeEnter: nonePreload}
           ]
-        }
+        },
+        {path: '/preview', name: 'preview', component: preview, beforeEnter: nonePreload},
+        {path: '/preview/:id', name: 'preview', component: preview, beforeEnter: nonePreload}
       ]
     },
     {path: '*', redirect: '/'}
