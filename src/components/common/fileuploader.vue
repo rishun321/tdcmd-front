@@ -1,6 +1,5 @@
 <template>
 <div>
-  <vue-headful title="上传文件"/>
   <file-upload
     ref="upload"
     :custom-action="postaction"

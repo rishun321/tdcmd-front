@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import contactCard from './contactCard'
+import contactCard from '@/components/shared/contactCard'
 import utils from '@/tool/utils.js'
 export default {
   props: ['manager'],

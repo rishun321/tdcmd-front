@@ -3,7 +3,7 @@
   <md-card-content>
     <div class="md-layout md-gutter">
       <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="piece in pieces" :key="piece._id">
-        <pieceCard :manager="manager" :piece="piece"/>
+        <sellPieceCard :manager="manager" :piece="piece"/>
       </div>
     </div>
   </md-card-content>
@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import pieceCard from './pieceCard'
+import sellPieceCard from '@/components/shared/sellPieceCard'
 export default {
   props: ['manager'],
   components: {
-    pieceCard
+    sellPieceCard
   },
   data: () => ({
     pieces: [

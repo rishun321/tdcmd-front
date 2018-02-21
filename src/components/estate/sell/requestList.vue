@@ -10,7 +10,7 @@
         </md-toolbar>
       </div>
       <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="request in manager.buyRequestService.buyRequests" :key="request._id">
-        <requestCard :manager="manager" :request="request"/>
+        <buyRequestCard :manager="manager" :request="request"/>
       </div>
       <div class="md-layout-item md-size-100 more-container" v-if="manager.buyRequestService.buyRequests.length < manager.buyRequestService.count">
         <md-button class="md-primary more-button" @click="more()">結果をもっと表示 ({{manager.buyRequestService.buyRequests.length}} / {{manager.buyRequestService.count}})</md-button>
@@ -23,11 +23,11 @@
 <script>
 import utils from '@/tool/utils.js'
 import manager from '@/store/manager.js'
-import requestCard from './requestCard'
+import buyRequestCard from '@/components/shared/buyRequestCard'
 export default {
   props: ['manager'],
   components: {
-    requestCard
+    buyRequestCard
   },
   methods: {
     more () {

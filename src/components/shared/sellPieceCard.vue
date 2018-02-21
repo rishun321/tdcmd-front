@@ -3,7 +3,7 @@
     <md-ripple>
         <md-card-header>
           <md-avatar>
-            <img src="../../../../static/user.jpg" alt="Avatar">
+            <img src="../../../static/user.jpg" alt="Avatar">
           </md-avatar>
 
           <div class="md-title">住友不動産株式会社</div>
@@ -11,7 +11,7 @@
         </md-card-header>
 
         <md-card-media>
-          <img src="../../../../static/sample1.jpg" alt="People">
+          <img src="../../../static/sample1.jpg" alt="People">
         </md-card-media>
 
         <md-card-content>

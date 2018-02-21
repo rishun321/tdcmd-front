@@ -23,7 +23,7 @@ class Utils {
     const self = this
     let responseData = null
     self.event.$emit('LOCK_SCREEN', 'lock')
-    await this.api.get(api, { params: params }).then(
+    await this.api.get(api, {params: params}).then(
       response => {
         responseData = self.processResponse(response)
       }
@@ -68,7 +68,7 @@ class Utils {
     const self = this
     let responseData = null
     self.event.$emit('LOCK_SCREEN', 'lock')
-    await this.api.delete(api, { params: params }).then(
+    await this.api.delete(api, {params: params}).then(
       response => {
         responseData = self.processResponse(response)
       }
@@ -80,43 +80,39 @@ class Utils {
     return responseData
   }
   async uploadFile (files, fileNames, next) {
-    let uploadUrl = '/uploadFiles'
-
-    console.log('files')
-    console.log(files)
-
+    const self = this
+    const uploadUrl = '/uploadFiles'
+    let responseData = null
     let param = new FormData()
     for (let i = 0; i < files.length; i++) {
       param.append('file[' + i + ']', files[i], fileNames[i])
     }
-
     let config = {
-      headers: { 'Content-Type': 'multipart/form-data' }
+      headers: {'Content-Type': 'multipart/form-data'}
     }
+    self.event.$emit('LOCK_SCREEN', 'lock')
     await this.api.post(uploadUrl, param, config).then(
       response => {
-        if (response.data.error) {
-          self.event.$emit('SHOW_MESSAGE', response.data.error)
-        } else if (response.data.data && response.data.data.length > 0) {
-          next(null, response.data.data)
-        }
+        responseData = self.processResponse(response)
       }
     ).catch(
       error => {
         self.processError(error)
       }
     )
+    return responseData
   }
   processResponse (response) {
-    this.event.$emit('LOCK_SCREEN', 'unlock')
     if (response.status === 200 && response.data && response.data.error) {
+      this.event.$emit('LOCK_SCREEN', 'unlock')
       if (response.data.error.code === 'B002') {
-        this.router.push({ name: 'error' })
+        this.router.push({name: 'error'})
       } else {
         this.event.$emit('SHOW_MESSAGE', response.data.error)
       }
       return null
     } else if (response.status === 200 && response.data && !response.data.error) {
+      this.event.$emit('LOCK_SCREEN', 'unlock')
       return response.data.data || {}
     } else {
       this.processError(response)

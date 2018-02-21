@@ -237,7 +237,7 @@ export default {
   }),
   created () {
     const self = this
-    utils.event.$on('SHOW_PUBLISH_DIALOG_BUY', () => {
+    utils.event.$on('SHOW_BUY_PUBLISH_DIALOG', () => {
       self.showPublishDialog = true
     })
   },
@@ -263,7 +263,7 @@ export default {
     }
   },
   beforeDestroy () {
-    utils.event.$off('SHOW_PUBLISH_DIALOG_BUY')
+    utils.event.$off('SHOW_BUY_PUBLISH_DIALOG')
   }
 }
 </script>

@@ -19,7 +19,7 @@
 
     <md-table-empty-state
       md-label="見つかりませんでした。"
-      :md-description="`あなたの連絡帳に'${search}'にヒットするアカウントが見つかりませんでした。新たに登録しますか？`">
+      :md-description="`あなたの連絡帳に'${search}'にヒットするアカウントが見つかりませんでした。探してみますか？`">
       <md-button class="md-primary md-raised" @click="findUser">探す</md-button>
     </md-table-empty-state>
 

@@ -132,7 +132,7 @@ export default {
   }),
   created () {
     let self = this
-    utils.event.$on('SHOW_PUBLISH_DIALOG_SELL', () => {
+    utils.event.$on('SHOW_SELL_PUBLISH_DIALOG', () => {
       self.showPublishDialog = true
     })
   },
@@ -150,7 +150,7 @@ export default {
     }
   },
   beforeDestroy () {
-    utils.event.$off('SHOW_PUBLISH_DIALOG_SELL')
+    utils.event.$off('SHOW_SELL_PUBLISH_DIALOG')
   }
 }
 </script>
