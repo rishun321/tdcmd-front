@@ -48,9 +48,9 @@ export default {
 }
 </script>
 
-<style scoped>
-.md-layout-item {
-  margin-bottom: 10px;
+<style scoped lang="scss">
+.md-layout-item + .md-layout-item {
+  margin-top: 10px;
 }
 .more-container {
   display: flex;

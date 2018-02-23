@@ -15,7 +15,7 @@ import buy from '@/components/estate/buy/buy'
 import sell from '@/components/estate/sell/sell'
 import my from '@/components/my/my'
 import favorite from '@/components/my/favorite/favorite'
-import manage from '@/components/my/manage/manage'
+import account from '@/components/my/account/account'
 import publish from '@/components/my/publish/publish'
 import preview from '@/components/preview/preview'
 
@@ -25,7 +25,7 @@ import utils from '@/tool/utils.js'
 Vue.use(Router)
 
 const preloadSell = (to, from, next) => {
-  if (!manager.controller.checkAuth(to)) {
+  if (!manager.checkAuth(to)) {
     return
   }
   utils.restGet('/api/initEstateSell', {}).then(
@@ -40,7 +40,7 @@ const preloadSell = (to, from, next) => {
   )
 }
 const preloadChat = (to, from, next) => {
-  if (!manager.controller.checkAuth(to)) {
+  if (!manager.checkAuth(to)) {
     return
   }
   manager.chatService.init()
@@ -68,7 +68,7 @@ const preloadChat = (to, from, next) => {
   next()
 }
 const nonePreload = (to, from, next) => {
-  if (!manager.controller.checkAuth(to)) {
+  if (!manager.checkAuth(to)) {
     return
   }
   next()
@@ -101,11 +101,10 @@ export default new Router({
         },
         {
           path: '/my',
-          name: 'my',
           component: my,
           children: [
+            {path: '/my', name: 'my', component: account, beforeEnter: nonePreload},
             {path: '/my/favorite', name: 'favorite', component: favorite, beforeEnter: nonePreload},
-            {path: '/my/manage', name: 'manage', component: manage, beforeEnter: nonePreload},
             {path: '/my/publish', name: 'publish', component: publish, beforeEnter: nonePreload}
           ]
         },

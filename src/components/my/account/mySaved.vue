@@ -1,13 +1,9 @@
 <template>
-<md-card>
-  <md-card-content>
-    <div class="md-layout md-gutter">
-      <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="piece in pieces" :key="piece._id">
-        <sellPieceCard :manager="manager" :piece="piece"/>
-      </div>
-    </div>
-  </md-card-content>
-</md-card>
+<div class="md-layout md-gutter">
+  <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="piece in pieces" :key="piece._id">
+    <sellPieceCard :manager="manager" :piece="piece"/>
+  </div>
+</div>
 </template>
 
 <script>

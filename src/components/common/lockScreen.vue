@@ -1,5 +1,5 @@
 <template>
-<div :class="{'lock-screen-hide': manager.controller.locker === 'unlock', 'lock-screen-show': manager.controller.locker === 'lock'}">
+<div :class="{'lock-screen-hide': manager.locker === 'unlock', 'lock-screen-show': manager.locker === 'lock'}">
   <!-- <div class="load-animation">
     <md-progress-spinner :md-diameter="100" :md-stroke="10" md-mode="indeterminate"></md-progress-spinner>
   </div> -->

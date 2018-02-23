@@ -31,5 +31,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.md-dialog {
+  min-width: 337px;
+}
 </style>

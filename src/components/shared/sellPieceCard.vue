@@ -1,5 +1,5 @@
 <template>
-  <md-card class="md-primary" md-theme="light" md-with-hover @click.native="showPieceDetail(piece)">
+  <md-card md-with-hover @click.native="showPieceDetail(piece)">
     <md-ripple>
         <md-card-header>
           <md-avatar>
@@ -57,9 +57,5 @@ export default {
   font-size: 12px;
   opacity: 1;
   color: #111;
-  display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
 }
 </style>

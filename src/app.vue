@@ -42,7 +42,14 @@ export default {
 @import "~vue-material/dist/theme/all";
 @import "~vue-material/dist/base/theme";
 
+// @import url('https://fonts.googleapis.com/earlyaccess/notosansjapanese.css');
+@import url('https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css');
+
 // common
+html, body {
+  // font-family: 'Noto Sans Japanese';
+  font-family: 'Rounded Mplus 1c';
+}
 .page-container {
   width: 100vw;
   height: 100vh;

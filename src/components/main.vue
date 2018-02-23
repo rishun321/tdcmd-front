@@ -7,11 +7,11 @@
 
       <div class="md-toolbar-section-start">
         <md-tabs class="md-primary" :md-active-tab="route">
-          <md-tab id="route-home" md-icon="home" md-label="HOME" to="/"></md-tab>
-          <md-tab id="route-contact" md-icon="recent_actors" md-label="CONTACT" to="/contact"></md-tab>
-          <md-tab id="route-chat" md-icon="chat" md-label="CHAT" to="/chat"></md-tab>
-          <md-tab id="route-estate" md-icon="account_balance" md-label="ESTATE" to="/estate"></md-tab>
-          <md-tab id="route-my" md-icon="accessibility" md-label="MY" to="/my"></md-tab>
+          <md-tab id="route-home" md-icon="home" md-label="ホーム" to="/"></md-tab>
+          <md-tab id="route-contact" md-icon="recent_actors" md-label="連絡帳" to="/contact"></md-tab>
+          <md-tab id="route-chat" md-icon="chat" md-label="チャット" to="/chat"></md-tab>
+          <md-tab id="route-estate" md-icon="account_balance" md-label="物件" to="/estate"></md-tab>
+          <md-tab id="route-my" md-icon="accessibility" md-label="本人" to="/my"></md-tab>
         </md-tabs>
       </div>
 
