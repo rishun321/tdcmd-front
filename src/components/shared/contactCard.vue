@@ -4,8 +4,9 @@
     <md-avatar>
       <img :src="contact.avatar" alt="Avatar">
     </md-avatar>
-    <div class="md-title">{{contact._id}} ({{contact.nickname}})</div>
-    <div class="md-subhead">{{contact.company}} - 雑用</div>
+    <div class="md-title" v-if="contact.nickname">{{contact.nickname}}</div>
+    <div class="md-title" v-else>{{contact._id}}</div>
+    <div class="md-subhead">{{contact.company}}</div>
   </md-card-header>
 
   <md-card-content>
@@ -14,6 +15,14 @@
     </div>
     <div class="contact-detail-comment md-elevation-5" v-if="contact.comment">
       <p>{{contact.comment}}</p>
+    </div>
+    <div class="contact-detail-row contact-detail-right">
+      <div>
+        <md-icon class="md-primary">business_center</md-icon>
+      </div>
+      <div class="contact-text">
+        {{contact.position ? contact.position : '雑用'}}
+      </div>
     </div>
     <div class="contact-detail-row contact-detail-right">
       <div>
@@ -28,15 +37,7 @@
         <md-icon class="md-primary">email</md-icon>
       </div>
       <div class="contact-text">
-        sample@miraimon.com
-      </div>
-    </div>
-    <div class="contact-detail-row contact-detail-right">
-      <div>
-        <md-icon class="md-primary">markunread_mailbox</md-icon>
-      </div>
-      <div class="contact-text">
-        114-0012
+        {{contact.email ? contact.email : 'sample@miraimon.com'}}
       </div>
     </div>
     <div class="contact-detail-row contact-detail-right">
@@ -44,7 +45,7 @@
         <md-icon class="md-primary">room</md-icon>
       </div>
       <div class="contact-text">
-        東京都北区田端新町1-7-14ビズフィールド西日暮里107
+        {{contact.address ? contact.address : '〒114-0012 東京都北区田端新町1-7-14ビズフィールド西日暮里107'}}
       </div>
     </div>
   </md-card-content>
@@ -78,6 +79,9 @@ export default {
 .md-card-content {
   position: relative;
   padding-bottom: 0px;
+}
+.md-subhead {
+  font-size: 12px;
 }
 .contact-detail-logo {
   position: absolute;

@@ -9,20 +9,17 @@
       <md-field md-clearable :class="{'md-invalid': !isAccountValid}">
         <label>アカウント名</label>
         <md-input ref="login_user" v-model="account" @keyup.tab.native="foucusPassword()"></md-input>
-        <span class="md-error">4〜20文字にしてください。</span>
-        <span class="md-helper-text">※4〜20文字</span>
+        <span class="md-error">4〜10文字</span>
       </md-field>
       <md-field md-clearable :class="{'md-invalid': !isPasswordValid}" :md-toggle-password="false">
         <label>パスワード</label>
         <md-input ref="login_password" v-model="password" type="password" @keyup.tab.native="foucusRetype()"></md-input>
-        <span class="md-error">英数字6〜20文字にしてください。</span>
-        <span class="md-helper-text">※英数字6〜20文字</span>
+        <span class="md-error">英数字6〜20文字</span>
       </md-field>
       <md-field md-clearable :class="{'md-invalid': !isRetypeValid}" :md-toggle-password="false">
         <label>パスワード再入力</label>
         <md-input ref="retype" v-model="retype" type="password" @keyup.enter.native="register()"></md-input>
-        <span class="md-error">英数字6〜20文字にしてください。</span>
-        <span class="md-helper-text">※英数字6〜20文字</span>
+        <span class="md-error">英数字6〜20文字</span>
       </md-field>
     </md-card-content>
 
@@ -58,7 +55,7 @@ export default {
   },
   watch: {
     account () {
-      if (this.account !== null && (this.account.length < 4 || this.account.length > 20)) {
+      if (this.account !== null && (this.account.length < 4 || this.account.length > 10)) {
         this.isAccountValid = false
       } else {
         this.isAccountValid = true
@@ -77,6 +74,8 @@ export default {
       if (this.retype !== null && (this.retype.length < 6 || this.retype.length > 20)) {
         this.isRetypeValid = false
       } else if (this.retype !== null && this.retype.match(/[^A-Za-z0-9]+/)) {
+        this.isRetypeValid = false
+      } else if (this.retype && this.password && (this.password !== this.retype)) {
         this.isRetypeValid = false
       } else {
         this.isRetypeValid = true

@@ -9,14 +9,12 @@
       <md-field md-clearable :class="{'md-invalid': !isAccountValid}">
         <label>アカウント名</label>
         <md-input ref="login_user" v-model="account" @keyup.tab.native="foucusPassword()"></md-input>
-        <span class="md-error">4〜20文字にしてください。</span>
-        <span class="md-helper-text">※4〜20文字</span>
+        <span class="md-error">4〜10文字</span>
       </md-field>
       <md-field md-clearable :class="{'md-invalid': !isPasswordValid}" :md-toggle-password="false">
         <label>パスワード</label>
         <md-input ref="login_password" v-model="password" type="password" @keyup.enter.native="login()"></md-input>
-        <span class="md-error">英数字6〜20文字にしてください。</span>
-        <span class="md-helper-text">※英数字6〜20文字</span>
+        <span class="md-error">英数字6〜20文字</span>
       </md-field>
     </md-card-content>
 
@@ -48,7 +46,7 @@ export default {
   },
   watch: {
     account () {
-      if (this.account !== null && (this.account.length < 4 || this.account.length > 20)) {
+      if (this.account !== null && (this.account.length < 4 || this.account.length > 10)) {
         this.isAccountValid = false
       } else {
         this.isAccountValid = true
