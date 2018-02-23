@@ -87,9 +87,4 @@ html, body {
   padding: 0px;
   border: none;
 }
-
-// my
-.md-tabs-content {
-  height: auto !important;
-}
 </style>

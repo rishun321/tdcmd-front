@@ -74,6 +74,7 @@ export default {
 <style scoped lang="scss">
 .md-card {
   min-width: 337px;
+  max-width: 420px;
   margin: 0px;
 }
 .md-card-content {
@@ -96,11 +97,10 @@ export default {
   height: auto;
 }
 .contact-detail-comment {
-  margin-bottom: 20px;
   position: absolute;
   top: -15px;
   padding: 8px;
-  width: 130px;
+  width: calc(100% - 205px);
   background: #eee;
   border-radius: 2px;
   p {

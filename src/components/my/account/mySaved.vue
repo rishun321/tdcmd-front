@@ -1,9 +1,13 @@
 <template>
-<div class="md-layout md-gutter">
-  <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="piece in pieces" :key="piece._id">
-    <sellPieceCard :manager="manager" :piece="piece"/>
+<md-content>
+  <div class="md-layout md-alignment-top">
+    <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="piece in pieces" :key="piece._id">
+      <div class="one-saved">
+        <sellPieceCard :manager="manager" :piece="piece"/>
+      </div>
+    </div>
   </div>
-</div>
+</md-content>
 </template>
 
 <script>
@@ -31,7 +35,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.md-layout-item + .md-layout-item {
-  margin-top: 10px;
+.one-saved {
+  padding: 10px;
 }
 </style>

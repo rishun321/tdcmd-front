@@ -1,44 +1,47 @@
 <template>
 <div>
   <vue-headful title="ブドウさん - 本人"/>
-  <div class="my-card">
-    <contactCard :manager="manager" :contact="manager.user"/>
+  <div class="md-layout md-gutter md-alignment-center">
+    <div class="md-layout-item md-size-30 md-medium-size-40 md-small-size-100">
+      <contactCard :manager="manager" :contact="manager.user"/>
+    </div>
+    <div class="md-layout-item md-size-70 md-medium-size-60 md-small-size-100">
+      <myPublish :manager="manager"/>
+    </div>
   </div>
   <md-content>
     <md-tabs class="md-primary md-elevation-1" md-alignment="right">
 
       <md-tab id="tab-card" md-label="名刺">
         <div class="md-layout md-gutter md-alignment-top">
-          <div class="md-layout-item md-size-30 md-medium-size-40 md-small-size-50 md-xsmall-size-75">
+          <div class="md-layout-item md-size-30 md-medium-size-40 md-small-size-50 md-xsmall-size-100">
             <md-card>
-              <md-card-media-cover md-solid>
-                <md-card-media>
-                  <img src="static/avatar.png">
+              <md-card-header>
+                <md-card-header-text>
+                  <div class="md-title">アバター</div>
+                </md-card-header-text>
+                <md-card-media md-medium>
+                  <img class="thumbnail" src="static/avatar.png">
                 </md-card-media>
-                <md-card-area>
-                  <md-card-header>
-                    <span class="md-title">アバター</span>
-                  </md-card-header>
-                  <md-card-actions>
-                    <md-button class="md-icon-button">
-                      <md-icon>file_upload</md-icon>
-                    </md-button>
-                  </md-card-actions>
-                </md-card-area>
-              </md-card-media-cover>
+              </md-card-header>
+              <md-card-actions>
+                <md-button class="md-primary">クリア</md-button>
+                <md-button class="md-primary">アップロード</md-button>
+              </md-card-actions>
             </md-card>
           </div>
-          <div class="md-layout-item md-size-30 md-medium-size-40 md-small-size-50 md-xsmall-size-75">
+          <div class="md-layout-item md-size-30 md-medium-size-40 md-small-size-50 md-xsmall-size-100">
             <md-card>
               <md-card-header>
                 <md-card-header-text>
                   <div class="md-title">会社ロゴ</div>
                 </md-card-header-text>
                 <md-card-media md-medium>
-                  <img class="logo" src="static/miraimon.png">
+                  <img class="thumbnail" src="static/miraimon.png">
                 </md-card-media>
               </md-card-header>
               <md-card-actions>
+                <md-button class="md-primary">クリア</md-button>
                 <md-button class="md-primary">アップロード</md-button>
               </md-card-actions>
             </md-card>
@@ -112,7 +115,7 @@
       </md-tab>
 
       <md-tab id="tab-personal" md-label="個人ページ">
-        gegegeg
+        <mySaved :manager="manager"/>
       </md-tab>
 
       <md-tab id="tab-company" md-label="会社ページ">
@@ -166,9 +169,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.my-card {
-  width: 337px;
-  margin: 15px;
+.md-layout + .md-content {
+  margin-top: 20px;
 }
 .md-layout + .md-layout {
   margin-top: 20px;
@@ -176,7 +178,7 @@ export default {
 .md-layout-item {
   margin-top: 10px;
 }
-.logo {
+.thumbnail {
   max-width: 150px;
   height: auto;
 }
