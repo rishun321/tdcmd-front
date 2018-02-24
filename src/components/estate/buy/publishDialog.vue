@@ -252,7 +252,7 @@ export default {
   methods: {
     publish () {
       const self = this
-      manager.buyRequestService.sendBuyRequest({
+      manager.buyRequestService.publishBuyRequest({
         user: manager.user._id,
         houseComment: this.houseComment
       }).then(

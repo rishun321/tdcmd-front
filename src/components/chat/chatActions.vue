@@ -47,7 +47,7 @@ export default {
         this.text = this.text + '\n'
         return
       }
-      this.text = this.text.trim()
+      if (this.text) this.text = this.text.trim()
       if (!this.text || this.text === '') return
       let now = new Date()
       manager.socketService.emit('sendChat', {

@@ -4,7 +4,7 @@ import BuyRequest from '@/store/models/buyRequest.js'
 class BuyRequestService {
   constructor () {
     this._buyRequests = []
-    this._count = null
+    this._count = 0
   }
   get buyRequests () {
     return this._buyRequests
@@ -22,11 +22,11 @@ class BuyRequestService {
   }
 
   init () {
+    this._buyRequests.splice(0, this._buyRequests.length)
     this._count = 0
-    this._buyRequests = []
   }
 
-  async sendBuyRequest (request) {
+  async publishBuyRequest (request) {
     await utils.restPut('/api/insertBuyRequest', request)
   }
 }
