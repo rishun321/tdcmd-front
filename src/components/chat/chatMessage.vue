@@ -2,7 +2,7 @@
 <div :class="{'chat-message': true, 'pull-left': chat.user !== manager.user._id, 'pull-right': chat.user === manager.user._id}">
   <div v-if="chat.user !== manager.user._id">
     <md-avatar>
-      <img :src="chat.avatar" alt="Avatar">
+      <img :src="chat.avatar">
     </md-avatar>
   </div>
   <div class="chat-message-container">
@@ -17,7 +17,7 @@
   </div>
   <div v-if="chat.user === manager.user._id">
     <md-avatar>
-      <img :src="chat.avatar" alt="Avatar">
+      <img :src="chat.avatar">
     </md-avatar>
   </div>
 </div>

@@ -41,6 +41,6 @@ new Vue({
     }
   },
   router,
-  components: { app },
+  components: {app},
   template: '<app :manager="manager"/>'
 })

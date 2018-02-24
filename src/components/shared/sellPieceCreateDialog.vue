@@ -95,7 +95,7 @@
       </md-tab>
 
       <md-tab md-label="物件写真">
-        <img src="../../../../static/user.jpg" alt="People">
+        <img src="../../../static/user.jpg">
       </md-tab>
 
       <md-tab md-label="業者情報">
@@ -132,7 +132,7 @@ export default {
   }),
   created () {
     let self = this
-    utils.event.$on('SHOW_SELL_PUBLISH_DIALOG', () => {
+    utils.event.$on('SHOW_CREATE_SELL_PEICE_DIALOG', () => {
       self.showPublishDialog = true
     })
   },
@@ -150,7 +150,7 @@ export default {
     }
   },
   beforeDestroy () {
-    utils.event.$off('SHOW_SELL_PUBLISH_DIALOG')
+    utils.event.$off('SHOW_CREATE_SELL_PEICE_DIALOG')
   }
 }
 </script>

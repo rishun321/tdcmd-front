@@ -3,7 +3,7 @@
   <md-ripple>
     <md-card-header>
       <md-avatar>
-        <img src="../../../static/user.jpg" alt="Avatar">
+        <img src="../../../static/user.jpg">
       </md-avatar>
       <div class="md-title">住友不動産株式会社</div>
       <div class="md-subhead">売買担当：{{request.user}}</div>

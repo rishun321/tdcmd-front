@@ -196,7 +196,7 @@
         </div>
       </md-tab>
       <md-tab md-label="業者情報">
-        <img src="../../../../static/user.jpg" alt="People">
+        <img src="../../../static/user.jpg">
       </md-tab>
     </md-tabs>
 
@@ -237,7 +237,7 @@ export default {
   }),
   created () {
     const self = this
-    utils.event.$on('SHOW_BUY_PUBLISH_DIALOG', () => {
+    utils.event.$on('SHOW_CREATE_BUY_REQUEST_DIALOG', () => {
       self.showPublishDialog = true
     })
   },
@@ -252,7 +252,7 @@ export default {
   methods: {
     publish () {
       const self = this
-      manager.buyRequestService.sendBuyRequest({
+      manager.buyRequestService.publishBuyRequest({
         user: manager.user._id,
         houseComment: this.houseComment
       }).then(
@@ -263,7 +263,7 @@ export default {
     }
   },
   beforeDestroy () {
-    utils.event.$off('SHOW_BUY_PUBLISH_DIALOG')
+    utils.event.$off('SHOW_CREATE_BUY_REQUEST_DIALOG')
   }
 }
 </script>
