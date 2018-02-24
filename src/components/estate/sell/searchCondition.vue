@@ -7,18 +7,7 @@
   <md-card-content>
     <div class="md-layout md-gutter md-alignment-center">
       <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
-        <md-field>
-          <label>最寄り駅</label>
-          <md-select v-model="stations" multiple>
-            <md-option value="1">東京</md-option>
-            <md-option value="2">銀座</md-option>
-            <md-option value="3">新宿</md-option>
-            <md-option value="4">渋谷</md-option>
-            <md-option value="5">横浜</md-option>
-            <md-option value="6">亀戸</md-option>
-            <md-option value="7">船橋</md-option>
-          </md-select>
-        </md-field>
+        <bdsMdChips v-model="stations" md-placeholder="最寄り駅" :md-format="filterStation" :mdSelections="selections"></bdsMdChips>
       </div>
       <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
         <md-field>
@@ -133,9 +122,19 @@
 
 <script>
 import utils from '@/tool/utils.js'
+import bdsMdChips from '@/components/common/vue-material/bdsMdChips'
 export default {
   props: ['manager'],
+  components: {
+    bdsMdChips
+  },
   data: () => ({
+    selections: [
+      '東京',
+      '横浜',
+      '千葉',
+      '東京2'
+    ],
     stations: [],
     minute: null,
     layout: null,
@@ -148,6 +147,20 @@ export default {
     isLatest: true
   }),
   methods: {
+    filterStation (input) {
+      if (!input) return
+      let selection = null
+      this.selections.some(one => {
+        const isAdded = this.stations.some(station => {
+          if (station === one) return true
+        })
+        if (!isAdded && one.indexOf(input) >= 0) {
+          selection = one
+          return true
+        }
+      })
+      return selection
+    },
     showPublishDetail () {
       utils.event.$emit('SHOW_CREATE_BUY_REQUEST_DIALOG')
     }
