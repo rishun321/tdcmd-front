@@ -4,6 +4,7 @@
     <slot />
 
     <md-chip
+      class="md-primary"
       v-for="(chip, key) in value"
       :key="chip"
       :md-deletable="!mdStatic"
@@ -12,8 +13,8 @@
       @keydown.enter="$emit('md-click', chip, key)"
       @click.native="$emit('md-click', chip, key)"
       @md-delete.stop="removeChip(chip)">
-      <slot name="md-chip" :chip="chip" v-if="$scopedSlots['md-chip']">{{ chip }}</slot>
-      <template v-else>{{ chip }}</template>
+      <slot name="md-chip" :chip="chip" v-if="$scopedSlots['md-chip']">{{chip}}</slot>
+      <template v-else>{{chip}}</template>
     </md-chip>
 
     <md-input
@@ -28,15 +29,16 @@
       @keydown.8="handleBackRemove"
       md-menu-trigger>
     </md-input>
+    <span class="md-helper-text">{{mdHelper}}</span>
   </md-field>
 
   <md-menu-content v-if="mdSelections">
     <md-menu-item
-      v-for="selection in mdSelections"
-      :key="selection"
-      @click="select(selection)"
-      v-if="inputValue && selection.indexOf(inputValue) >= 0 && !value.includes(selection)">
-      {{selection}}
+      v-for="(selection) in mdSelections"
+      :key="selection.name"
+      @click="select(selection.value)"
+      v-if="inputValue && selection.name.indexOf(inputValue) >= 0 && !value.includes(selection.value)">
+      {{selection.name}}
     </md-menu-item>
   </md-menu-content>
 </md-menu>
@@ -52,6 +54,10 @@ export default new MdComponent({
     id: {
       type: [String, Number],
       default: () => 'bds-md-chips-' + uuid.v4()
+    },
+    mdHelper: {
+      type: String,
+      default: null
     },
     mdInputType: {
       type: [String, Number],
@@ -125,6 +131,7 @@ export default new MdComponent({
       this.value.push(selection)
       this.$emit('input', this.value)
       this.$emit('md-insert', selection)
+      this.inputValue = ''
     },
     handleBackRemove () {
       if (!this.inputValue) {

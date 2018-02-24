@@ -7,7 +7,7 @@
   <md-card-content>
     <div class="md-layout md-gutter md-alignment-center">
       <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
-        <bdsMdChips v-model="stations" md-placeholder="最寄り駅" :md-format="filterStation" :mdSelections="selections"></bdsMdChips>
+        <bdsMdChips v-model="stations" :md-format="filterStation" :mdSelections="selections" mdHelper="最寄り駅"></bdsMdChips>
       </div>
       <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
         <md-field>
@@ -122,6 +122,7 @@
 
 <script>
 import utils from '@/tool/utils.js'
+import manager from '@/store/manager.js'
 import bdsMdChips from '@/components/common/vue-material/bdsMdChips'
 export default {
   props: ['manager'],
@@ -130,10 +131,10 @@ export default {
   },
   data: () => ({
     selections: [
-      '東京',
-      '横浜',
-      '千葉',
-      '東京2'
+      {value: '東京', name: '東京-東京'},
+      {value: '横浜', name: '横浜-横浜'},
+      {value: '千葉', name: '千葉-千葉'},
+      {value: '東京2', name: '東京2-東京'}
     ],
     stations: [],
     minute: null,
@@ -146,16 +147,24 @@ export default {
     amount: 500,
     isLatest: true
   }),
+  created () {
+    this.selections.splice(0, this.selections.length)
+    for (let line in manager.const.stations) {
+      manager.const.stations[line].forEach(station => {
+        this.selections.push({value: station.sn, name: line + '-' + station.sn})
+      })
+    }
+  },
   methods: {
     filterStation (input) {
       if (!input) return
       let selection = null
       this.selections.some(one => {
         const isAdded = this.stations.some(station => {
-          if (station === one) return true
+          if (station === one.value) return true
         })
-        if (!isAdded && one.indexOf(input) >= 0) {
-          selection = one
+        if (!isAdded && one.name.indexOf(input) >= 0) {
+          selection = one.value
           return true
         }
       })
