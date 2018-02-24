@@ -9,11 +9,11 @@
     </md-tab>
 
     <md-tab md-label="物件写真">
-      <img src="../../../static/sample1.jpg" alt="People">
+      <img src="../../../static/sample1.jpg">
     </md-tab>
 
     <md-tab md-label="業者情報">
-      <img src="../../../static/user.jpg" alt="People">
+      <img src="../../../static/user.jpg">
     </md-tab>
   </md-tabs>
 

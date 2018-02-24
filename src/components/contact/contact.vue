@@ -26,7 +26,7 @@
     <md-table-row slot="md-table-row" slot-scope="{item}" md-selectable="single">
       <md-table-cell md-label="">
         <md-avatar>
-          <img :src="item.avatar" alt="Avatar">
+          <img :src="item.avatar">
         </md-avatar>
       </md-table-cell>
       <md-table-cell md-label="アカウント" md-sort-by="_id">{{item._id}}</md-table-cell>

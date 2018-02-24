@@ -2,7 +2,7 @@
 <md-card class="md-elevation-10">
   <md-card-header>
     <md-avatar>
-      <img :src="contact.avatar" alt="Avatar">
+      <img :src="contact.avatar">
     </md-avatar>
     <div class="md-title" v-if="contact.nickname">{{contact.nickname}}</div>
     <div class="md-title" v-else>{{contact._id}}</div>

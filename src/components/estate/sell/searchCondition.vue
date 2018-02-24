@@ -149,7 +149,7 @@ export default {
   }),
   methods: {
     showPublishDetail () {
-      utils.event.$emit('SHOW_SELL_PUBLISH_DIALOG')
+      utils.event.$emit('SHOW_CREATE_BUY_REQUEST_DIALOG')
     }
   },
   computed: {

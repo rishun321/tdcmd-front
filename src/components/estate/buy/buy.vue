@@ -1,24 +1,24 @@
 <template>
 <div>
-  <searchCard :manager="manager"/>
+  <searchCondition :manager="manager"/>
   <pieceList :manager="manager"/>
-  <sellPieceDialog :manager="manager"/>
-  <publishDialog :manager="manager"/>
+  <sellPieceDetailDialog :manager="manager"/>
+  <sellPieceCreateDialog :manager="manager"/>
 </div>
 </template>
 
 <script>
-import searchCard from './searchCard'
+import searchCondition from './searchCondition'
 import pieceList from './pieceList'
-import sellPieceDialog from '@/components/shared/sellPieceDialog'
-import publishDialog from './publishDialog'
+import sellPieceDetailDialog from '@/components/shared/sellPieceDetailDialog'
+import sellPieceCreateDialog from '@/components/shared/sellPieceCreateDialog'
 export default {
   props: ['manager'],
   components: {
-    searchCard,
+    searchCondition,
     pieceList,
-    sellPieceDialog,
-    publishDialog
+    sellPieceDetailDialog,
+    sellPieceCreateDialog
   }
 }
 </script>
