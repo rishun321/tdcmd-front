@@ -21,12 +21,12 @@
                   <div class="md-title">アバター</div>
                 </md-card-header-text>
                 <md-card-media md-medium>
-                  <img class="thumbnail" src="static/avatar.png">
+                  <fileuploader ref="uploadCard" name = "uploadCard" :manager="manager" :onSendCompleted="showlog" :showUploadButton="false"/>
                 </md-card-media>
               </md-card-header>
               <md-card-actions>
                 <md-button class="md-primary">クリア</md-button>
-                <md-button class="md-primary">アップロード</md-button>
+                <md-button class="md-primary" @click.native="doUploadCard">アップロード</md-button>
               </md-card-actions>
             </md-card>
           </div>
@@ -37,12 +37,17 @@
                   <div class="md-title">会社ロゴ</div>
                 </md-card-header-text>
                 <md-card-media md-medium>
-                  <img class="thumbnail" src="static/miraimon.png">
+                  <fileuploader ref="uploadCard2"
+                    name = "uploadCard2"
+                    :manager="manager"
+                    :onSendCompleted="showlog"
+                    :showUploadButton="false"
+                    :defaultBackGroundImage="'static/miraimon.png'"/>
                 </md-card-media>
               </md-card-header>
               <md-card-actions>
                 <md-button class="md-primary">クリア</md-button>
-                <md-button class="md-primary">アップロード</md-button>
+                <md-button class="md-primary" @click.native="doUploadCard2">アップロード</md-button>
               </md-card-actions>
             </md-card>
           </div>
@@ -132,12 +137,14 @@ import manager from '@/store/manager.js'
 import contactCard from '@/components/shared/contactCard'
 import myPublish from './myPublish'
 import mySaved from './mySaved'
+import fileuploader from '@/components/common/fileuploader'
 export default {
   props: ['manager'],
   components: {
     contactCard,
     myPublish,
-    mySaved
+    mySaved,
+    fileuploader
   },
   data: () => ({
     tab: 'tab-card'
@@ -163,6 +170,21 @@ export default {
     },
     isAddressValid () {
       return manager.user.address.length <= 60
+    }
+  },
+  methods: {
+    showlog () {
+      console.log('custome completed method')
+    },
+    doUploadCard () {
+      console.log('begin upload1')
+      this.$refs.uploadCard.doUpload()
+    },
+    doUploadCard2 () {
+      console.log('begin upload2')
+      let file = this.$refs.uploadCard2.getSelectedFile()
+      console.log(file)
+      this.$refs.uploadCard2.doUpload()
     }
   }
 }
