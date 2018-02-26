@@ -179,14 +179,16 @@ export default {
       // }
 
       return new Promise((resolve, reject) => {
-        utils.uploadFile(uploadfiles, uploadfilenames)
-          .then(() => {
+        utils.uploadFiles(uploadfiles, uploadfilenames)
+          .then((response) => {
             console.log('end')
+            console.log(response)
+
             console.log(this.onSendCompleted)
             console.log('onSendCompleted begin')
             if (this.onSendCompleted !== null) {
               console.log('onSendCompleted end')
-              this.onSendCompleted(uploadfilenames)
+              this.onSendCompleted(response)
             }
           })
       })
