@@ -6,21 +6,20 @@
 
   <md-card-content>
     <div class="md-layout md-gutter md-alignment-center">
-      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
-        <bdsMdChips v-model="stations" :md-format="filterStation" :mdSelections="selections" mdHelper="最寄り駅"></bdsMdChips>
+      <div class="md-layout-item md-size-100">
+        <bdsMdChips v-model="stations" :md-format="filterStation" :mdSelections="selections" mdHelper="最寄り駅(線路名もしくは駅名で検索)"></bdsMdChips>
       </div>
       <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
         <md-field>
           <label>徒歩時間</label>
           <md-select v-model="minute">
-            <md-option value="0">指定なし</md-option>
+            <md-option value="">指定なし</md-option>
             <md-option value="1">1分以内</md-option>
-            <md-option value="2">5分以内</md-option>
-            <md-option value="3">10分以内</md-option>
-            <md-option value="4">15分以内</md-option>
-            <md-option value="5">20分以内</md-option>
-            <md-option value="6">30分以内</md-option>
-            <md-option value="7">30分以上</md-option>
+            <md-option value="5">5分以内</md-option>
+            <md-option value="10">10分以内</md-option>
+            <md-option value="15">15分以内</md-option>
+            <md-option value="20">20分以内</md-option>
+            <md-option value="30">30分以内</md-option>
           </md-select>
           <span class="md-helper-text">駅から物件までの徒歩時間</span>
         </md-field>
@@ -29,14 +28,14 @@
         <md-field>
           <label>間取り</label>
           <md-select v-model="layout">
-            <md-option value="0">指定なし</md-option>
-            <md-option value="1">1R</md-option>
-            <md-option value="2">1DK</md-option>
-            <md-option value="3">2DK</md-option>
-            <md-option value="4">2LDK</md-option>
-            <md-option value="5">3DK</md-option>
-            <md-option value="6">3LDK</md-option>
-            <md-option value="7">4DK以上</md-option>
+            <md-option value="">指定なし</md-option>
+            <md-option value="1R">1R</md-option>
+            <md-option value="1DK">1DK</md-option>
+            <md-option value="2DK">2DK</md-option>
+            <md-option value="2LDK">2LDK</md-option>
+            <md-option value="3DK">3DK</md-option>
+            <md-option value="3LDK">3LDK</md-option>
+            <md-option value="LARGE">4DK以上</md-option>
           </md-select>
         </md-field>
       </div>
@@ -44,7 +43,7 @@
         <md-field>
           <label>面積</label>
           <md-select v-model="area">
-            <md-option value="0">指定なし</md-option>
+            <md-option value="">指定なし</md-option>
             <md-option value="1">20m²以上</md-option>
             <md-option value="2">30m²以上</md-option>
             <md-option value="3">40m²以上</md-option>
@@ -59,7 +58,7 @@
         <md-field>
           <label>建物種別</label>
           <md-select v-model="housetype">
-            <md-option value="0">指定なし</md-option>
+            <md-option value="">指定なし</md-option>
             <md-option value="1">マンション</md-option>
             <md-option value="2">一戸建</md-option>
             <md-option value="3">アパート</md-option>
@@ -71,7 +70,7 @@
         <md-field>
           <label>建物構造</label>
           <md-select v-model="structure">
-            <md-option value="0">指定なし</md-option>
+            <md-option value="">指定なし</md-option>
             <md-option value="1">鉄筋系</md-option>
             <md-option value="2">鉄骨系</md-option>
             <md-option value="3">木造</md-option>
@@ -83,23 +82,25 @@
         <md-field>
           <label>築年数</label>
           <md-select v-model="Age">
-            <md-option value="0">指定なし</md-option>
+            <md-option value="">指定なし</md-option>
             <md-option value="1">1年以内</md-option>
-            <md-option value="2">3年以内</md-option>
-            <md-option value="3">5年以内</md-option>
-            <md-option value="4">7年以内</md-option>
-            <md-option value="5">10年以内</md-option>
-            <md-option value="6">15年以内</md-option>
-            <md-option value="7">20年以内</md-option>
-            <md-option value="8">25年以内</md-option>
-            <md-option value="9">30年以内</md-option>
-            <md-option value="10">30年以上</md-option>
+            <md-option value="3">3年以内</md-option>
+            <md-option value="5">5年以内</md-option>
+            <md-option value="7">7年以内</md-option>
+            <md-option value="10">10年以内</md-option>
+            <md-option value="15">15年以内</md-option>
+            <md-option value="20">20年以内</md-option>
+            <md-option value="25">25年以内</md-option>
+            <md-option value="30">30年以内</md-option>
           </md-select>
         </md-field>
       </div>
-      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
-        <div class="item-lable">金額{{percent * amount}}万円以下</div>
-        <input class="item-input" type="range" v-model.number="percent">
+      <div class="md-layout-item md-size-50 md-xsmall-size-100">
+        <div class="item-lable">金額：{{min * scale}}万円〜{{max * scale}}万円</div>
+        <div class="range-frame">
+          <input class="item-input" type="range" v-model.number="min">
+          <input class="item-input" type="range" v-model.number="max">
+        </div>
       </div>
     </div>
   </md-card-content>
@@ -143,8 +144,9 @@ export default {
     housetype: null,
     structure: null,
     Age: null,
-    percent: 16,
-    amount: 500,
+    min: 0,
+    max: 10,
+    scale: 500,
     isLatest: true
   }),
   created () {
@@ -153,6 +155,14 @@ export default {
       manager.const.stations[line].forEach(station => {
         this.selections.push({value: station.sn, name: line + '-' + station.sn})
       })
+    }
+  },
+  watch: {
+    min () {
+      if (this.min > this.max) this.max = this.min
+    },
+    max () {
+      if (this.max < this.min) this.min = this.max
     }
   },
   methods: {
@@ -195,6 +205,9 @@ export default {
 .item-lable {
   opacity: 0.54;
   font-size: 16px;
+}
+.range-frame {
+  width: 100%;
 }
 .item-input {
   width: 100%;

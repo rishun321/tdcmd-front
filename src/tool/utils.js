@@ -79,7 +79,7 @@ class Utils {
     )
     return responseData
   }
-  async uploadFile (files, fileNames) {
+  async uploadFiles (files, fileNames) {
     const self = this
     const uploadUrl = '/uploadFiles'
     let responseData = null

@@ -1,14 +1,14 @@
 <template>
 <div>
   <vue-headful title="ブドウさん - 本人"/>
-  <div class="md-layout md-gutter md-alignment-center">
+  <!-- <div class="md-layout md-gutter md-alignment-center">
     <div class="md-layout-item md-size-30 md-medium-size-40 md-small-size-100">
       <contactCard :manager="manager" :contact="manager.user"/>
     </div>
     <div class="md-layout-item md-size-70 md-medium-size-60 md-small-size-100">
       <myPublish :manager="manager"/>
     </div>
-  </div>
+  </div> -->
   <md-content>
     <md-tabs class="md-primary md-elevation-1" md-alignment="right">
 
@@ -21,12 +21,12 @@
                   <div class="md-title">アバター</div>
                 </md-card-header-text>
                 <md-card-media md-medium>
-                  <fileuploader ref="uploadCard" name = "uploadCard" :manager="manager" :onSendCompleted="showlog" :showUploadButton="false"/>
+                  <uploadThumbnail ref="avatarUploader" name="avatarUploader" :manager="manager"/>
                 </md-card-media>
               </md-card-header>
               <md-card-actions>
                 <md-button class="md-primary">クリア</md-button>
-                <md-button class="md-primary" @click.native="doUploadCard">アップロード</md-button>
+                <md-button class="md-primary" @click.native="uploadAvatar">アップロード</md-button>
               </md-card-actions>
             </md-card>
           </div>
@@ -37,17 +37,12 @@
                   <div class="md-title">会社ロゴ</div>
                 </md-card-header-text>
                 <md-card-media md-medium>
-                  <fileuploader ref="uploadCard2"
-                    name = "uploadCard2"
-                    :manager="manager"
-                    :onSendCompleted="showlog"
-                    :showUploadButton="false"
-                    :defaultBackGroundImage="'static/miraimon.png'"/>
+                  <uploadThumbnail ref="logoUploader" name="logoUploader" :manager="manager" :defaultBackGroundImage="'static/miraimon.png'"/>
                 </md-card-media>
               </md-card-header>
               <md-card-actions>
                 <md-button class="md-primary">クリア</md-button>
-                <md-button class="md-primary" @click.native="doUploadCard2">アップロード</md-button>
+                <md-button class="md-primary" @click.native="uploadLogo">アップロード</md-button>
               </md-card-actions>
             </md-card>
           </div>
@@ -137,18 +132,15 @@ import manager from '@/store/manager.js'
 import contactCard from '@/components/shared/contactCard'
 import myPublish from './myPublish'
 import mySaved from './mySaved'
-import fileuploader from '@/components/common/fileuploader'
+import uploadThumbnail from '@/components/common/uploadThumbnail'
 export default {
   props: ['manager'],
   components: {
     contactCard,
     myPublish,
     mySaved,
-    fileuploader
+    uploadThumbnail
   },
-  data: () => ({
-    tab: 'tab-card'
-  }),
   computed: {
     isNicknameValid () {
       return manager.user.nickname.length <= 10
@@ -173,18 +165,16 @@ export default {
     }
   },
   methods: {
-    showlog () {
-      console.log('custome completed method')
+    showlog (files) {
+      console.log('ok:', JSON.stringify(files))
     },
-    doUploadCard () {
-      console.log('begin upload1')
-      this.$refs.uploadCard.doUpload()
+    uploadAvatar () {
+      this.$refs.avatarUploader.doUpload(this.showlog)
     },
-    doUploadCard2 () {
-      console.log('begin upload2')
-      let file = this.$refs.uploadCard2.getSelectedFile()
-      console.log(file)
-      this.$refs.uploadCard2.doUpload()
+    uploadLogo () {
+      // let file = this.$refs.uploadCard2.getSelectedFile()
+      // console.log(file)
+      this.$refs.logoUploader.doUpload(this.showlog)
     }
   }
 }

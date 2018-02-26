@@ -8,7 +8,7 @@
     <md-card-content>
       <md-field md-clearable :class="{'md-invalid': !isAccountValid}">
         <label>アカウント名</label>
-        <md-input ref="login_user" v-model="account" @keyup.tab.native="foucusPassword()"></md-input>
+        <md-input ref="login_user" v-model="account"></md-input>
         <span class="md-error">4〜10文字</span>
       </md-field>
       <md-field md-clearable :class="{'md-invalid': !isPasswordValid}" :md-toggle-password="false">
@@ -19,7 +19,7 @@
     </md-card-content>
 
     <md-card-actions>
-      <md-button class="md-primary" @click.native="toRegister()">アカウント作成</md-button>
+      <md-button class="md-primary" to="/register">アカウント作成</md-button>
       <md-button class="md-primary" @click.native="login()">ログイン</md-button>
     </md-card-actions>
   </md-card>
@@ -63,20 +63,10 @@ export default {
     }
   },
   methods: {
-    foucusPassword () {
-      const self = this
-      if (self.account !== '') {
-        self.$refs.login_password.$el.focus()
-      }
-    },
-    toRegister () {
-      const self = this
-      self.$router.push({name: 'register'})
-    },
     login () {
       const self = this
       const path = self.$route.query.path
-      if (self.account === '' || self.password === '') {
+      if (!self.account || !self.password) {
         utils.event.$emit('SHOW_MESSAGE', {code: 'B004'}, () => {
           if (self.account === '') {
             this.$refs.login_user.$el.focus()
