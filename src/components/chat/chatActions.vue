@@ -96,12 +96,4 @@ textarea {
 .chat-tools {
   height: calc(100% - 48px);
 }
-.button-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .md-icon {
-    margin-right: 5px;
-  }
-}
 </style>

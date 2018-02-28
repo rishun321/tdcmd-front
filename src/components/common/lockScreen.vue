@@ -28,8 +28,8 @@ export default {
   width: 100%;
   height: 100%;
   z-index: 99999;
-  animation: show .1s linear 0s;
-  -webkit-animation: show .1s linear 0s;
+  animation: show .2s linear 0s;
+  -webkit-animation: show .2s linear 0s;
 }
 @-webkit-keyframes show {
   from {opacity: 0;}

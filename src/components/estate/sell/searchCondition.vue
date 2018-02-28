@@ -1,15 +1,11 @@
 <template>
 <md-card>
-  <md-card-header>
-    <div class="md-title give-space">お客様を探す</div>
-  </md-card-header>
-
   <md-card-content>
     <div class="md-layout md-gutter md-alignment-center">
-      <div class="md-layout-item md-size-100">
-        <bdsMdChips v-model="stations" :md-format="filterStation" :mdSelections="selections" mdHelper="最寄り駅(線路名もしくは駅名で検索)"></bdsMdChips>
+      <div class="md-layout-item md-size-75 md-small-size-100">
+        <bdsMdChips v-model="stations" :md-format="filterStation" :mdSelections="selections" mdHelper="線路名もしくは駅名で曖昧検索" mdPlaceholder="最寄り駅"></bdsMdChips>
       </div>
-      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
+      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-100">
         <md-field>
           <label>徒歩時間</label>
           <md-select v-model="minute">
@@ -24,7 +20,7 @@
           <span class="md-helper-text">駅から物件までの徒歩時間</span>
         </md-field>
       </div>
-      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
+      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-100">
         <md-field>
           <label>間取り</label>
           <md-select v-model="layout">
@@ -39,25 +35,25 @@
           </md-select>
         </md-field>
       </div>
-      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
+      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-100">
         <md-field>
           <label>面積</label>
           <md-select v-model="area">
             <md-option value="">指定なし</md-option>
-            <md-option value="1">20m²以上</md-option>
-            <md-option value="2">30m²以上</md-option>
-            <md-option value="3">40m²以上</md-option>
-            <md-option value="4">50m²以上</md-option>
-            <md-option value="5">60m²以上</md-option>
-            <md-option value="6">70m²以上</md-option>
-            <md-option value="7">80m²以上</md-option>
+            <md-option value="20">20m²以上</md-option>
+            <md-option value="30">30m²以上</md-option>
+            <md-option value="40">40m²以上</md-option>
+            <md-option value="50">50m²以上</md-option>
+            <md-option value="60">60m²以上</md-option>
+            <md-option value="70">70m²以上</md-option>
+            <md-option value="80">80m²以上</md-option>
           </md-select>
         </md-field>
       </div>
-      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
+      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-100">
         <md-field>
           <label>建物種別</label>
-          <md-select v-model="housetype">
+          <md-select v-model="type">
             <md-option value="">指定なし</md-option>
             <md-option value="1">マンション</md-option>
             <md-option value="2">一戸建</md-option>
@@ -66,7 +62,7 @@
           </md-select>
         </md-field>
       </div>
-      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
+      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-100">
         <md-field>
           <label>建物構造</label>
           <md-select v-model="structure">
@@ -78,10 +74,10 @@
           </md-select>
         </md-field>
       </div>
-      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100">
+      <div class="md-layout-item md-size-25 md-small-size-33 md-xsmall-size-100">
         <md-field>
           <label>築年数</label>
-          <md-select v-model="Age">
+          <md-select v-model="age">
             <md-option value="">指定なし</md-option>
             <md-option value="1">1年以内</md-option>
             <md-option value="3">3年以内</md-option>
@@ -95,10 +91,14 @@
           </md-select>
         </md-field>
       </div>
-      <div class="md-layout-item md-size-50 md-xsmall-size-100">
+      <div class="md-layout-item md-size-75 md-small-size-100">
         <div class="item-lable">金額：{{min * scale}}万円〜{{max * scale}}万円</div>
         <div class="range-frame">
+          <label class="item-lable">From:</label>
           <input class="item-input" type="range" v-model.number="min">
+        </div>
+        <div class="range-frame">
+          <label class="item-lable">To:</label>
           <input class="item-input" type="range" v-model.number="max">
         </div>
       </div>
@@ -106,17 +106,12 @@
   </md-card-content>
 
   <md-card-actions>
-    <div class="md-layout md-gutter md-alignment-center" style="width: 100%;">
-      <div class="md-layout-item md-size-60 md-small-size-100">
-        <md-button class="md-raised md-accent" @click="showPublishDetail()">物件公開</md-button>
+    <md-switch v-model="isLatest">1週間以内</md-switch>
+    <md-button class="md-primary md-raised">
+      <div class="button-text">
+        <md-icon>search</md-icon><p>買取希望を検索</p>
       </div>
-      <div class="md-layout-item md-size-20 md-small-size-50">
-        <md-switch v-model="isLatest">1週間以内</md-switch>
-      </div>
-      <div class="md-layout-item md-size-20 md-small-size-50">
-        <md-button class="md-raised md-primary">買取希望を検索</md-button>
-      </div>
-    </div>
+    </md-button>
   </md-card-actions>
 </md-card>
 </template>
@@ -131,19 +126,14 @@ export default {
     bdsMdChips
   },
   data: () => ({
-    selections: [
-      {value: '東京', name: '東京-東京'},
-      {value: '横浜', name: '横浜-横浜'},
-      {value: '千葉', name: '千葉-千葉'},
-      {value: '東京2', name: '東京2-東京'}
-    ],
+    selections: [],
     stations: [],
-    minute: null,
-    layout: null,
-    area: null,
-    housetype: null,
-    structure: null,
-    Age: null,
+    minute: '',
+    layout: '',
+    area: '',
+    type: '',
+    structure: '',
+    age: '',
     min: 0,
     max: 10,
     scale: 500,
@@ -159,10 +149,18 @@ export default {
   },
   watch: {
     min () {
-      if (this.min > this.max) this.max = this.min
+      if (this.min === 100) {
+        this.min = 99
+      } else if (this.min >= this.max) {
+        this.max = this.min + 1
+      }
     },
     max () {
-      if (this.max < this.min) this.min = this.max
+      if (this.max === 0) {
+        this.max = 1
+      } else if (this.max <= this.min) {
+        this.min = this.max - 1
+      }
     }
   },
   methods: {
@@ -183,24 +181,13 @@ export default {
     showPublishDetail () {
       utils.event.$emit('SHOW_CREATE_BUY_REQUEST_DIALOG')
     }
-  },
-  computed: {
-    isMinuteValid () {
-      if (this.minute === null || this.minute === '') return true
-      if (parseFloat(this.minute) <= 0) return false
-      if (Math.round(parseFloat(this.minute)) === parseFloat(this.minute)) return true
-      return false
-    }
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .md-card {
   margin-bottom: 10px;
-}
-.give-space {
-  margin-left: 50px;
 }
 .item-lable {
   opacity: 0.54;
@@ -208,6 +195,10 @@ export default {
 }
 .range-frame {
   width: 100%;
+  display: flex;
+  label {
+    width: 50px;
+  }
 }
 .item-input {
   width: 100%;

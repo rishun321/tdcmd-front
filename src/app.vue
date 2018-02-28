@@ -67,6 +67,16 @@ html, body {
   overflow: scroll;
 }
 
+// button icon
+.button-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .md-icon {
+    margin-right: 5px;
+  }
+}
+
 // dialog selection
 .md-select-menu {
   z-index: 10;

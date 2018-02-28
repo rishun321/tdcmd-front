@@ -59,7 +59,8 @@ export default {
 <style scoped>
 .md-speed-dial {
   z-index: 10;
-  top: 90px;
+  top: 75px;
+  left: 5px;
 }
 label {
   position: absolute;

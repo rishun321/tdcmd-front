@@ -1,5 +1,8 @@
 <template>
 <div class="wrapper">
+  <md-content class="md-primary app-title md-elevation-8">
+    ブドウさん
+  </md-content>
   <md-card class=" md-elevation-8">
     <md-card-header>
       <div class="md-title">アカウント作成</div>
@@ -25,7 +28,7 @@
 
     <md-card-actions>
       <md-button class="md-primary" to="/login">既存アカウントでログイン</md-button>
-      <md-button class="md-primary" @click.native="register()">作成</md-button>
+      <md-button class="md-primary md-raised" @click.native="register()" :disabled="!isAccountValid || !isPasswordValid || !isRetypeValid">作成</md-button>
     </md-card-actions>
   </md-card>
 </div>
@@ -87,9 +90,9 @@ export default {
       const self = this
       if (!self.account || !self.password || self.password !== this.retype) {
         utils.event.$emit('SHOW_MESSAGE', {code: 'B004'}, () => {
-          if (self.account === '') {
+          if (!self.account) {
             self.$refs.register_user.$el.focus()
-          } else if (self.password === '') {
+          } else if (!self.password) {
             self.$refs.register_password.$el.focus()
           } else if (self.password !== this.retype) {
             self.$refs.retype.$el.focus()
@@ -117,7 +120,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .wrapper {
   width: 100%;
   height: 100%;
@@ -126,15 +129,35 @@ export default {
   align-items: center;
 }
 .md-card {
-  width: 320px;
-  height: 400px;
+  width: 350px;
   padding: 10px;
 }
 .md-card-header {
   text-align: center;
 }
 
-.md-field{
-  margin: 0 0 30px 0;
+.app-title {
+  position: absolute;
+  left: -500px;
+  top: -500px;
+  left: calc(50% - 140px);
+  top: calc(50% - 215px);
+  padding: 30px 80px;
+  z-index: 10;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size:24px;
+  background: -webkit-linear-gradient(bottom, #563e9e, #7e71ab);
+  background: linear-gradient(to top right, #563e9e, #7e71ab);
+  background: -ms-linear-gradient(bottom, #563e9e, #7e71ab) !important;
+  background: -moz-linear-gradient(center bottom, #563e9e 0%, #7e71ab 100%) !important;
+  background: -o-linear-gradient(#563e9e, #7e71ab) !important;
+}
+
+.md-field + .md-field {
+  margin-top: 40px;
+}
+.md-button + .md-button {
+  margin-left: 20px;
 }
 </style>

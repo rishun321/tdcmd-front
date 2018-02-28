@@ -2,19 +2,19 @@
 <div>
   <vue-headful title="ブドウさん - 本人"/>
   <!-- <div class="md-layout md-gutter md-alignment-center">
-    <div class="md-layout-item md-size-30 md-medium-size-40 md-small-size-100">
-      <contactCard :manager="manager" :contact="manager.user"/>
-    </div>
     <div class="md-layout-item md-size-70 md-medium-size-60 md-small-size-100">
       <myPublish :manager="manager"/>
     </div>
   </div> -->
   <md-content>
-    <md-tabs class="md-primary md-elevation-1" md-alignment="right">
+    <md-tabs class="md-elevation-1">
 
-      <md-tab id="tab-card" md-label="名刺">
+      <md-tab id="tab-card" md-label="アカウント情報">
         <div class="md-layout md-gutter md-alignment-top">
-          <div class="md-layout-item md-size-30 md-medium-size-40 md-small-size-50 md-xsmall-size-100">
+          <div class="md-layout-item md-size-30 md-medium-size-40 md-small-size-100">
+            <contactCard :manager="manager" :contact="manager.user"/>
+          </div>
+          <div class="md-layout-item md-size-30 md-small-size-50 md-xsmall-size-100">
             <md-card>
               <md-card-header>
                 <md-card-header-text>
@@ -30,7 +30,7 @@
               </md-card-actions>
             </md-card>
           </div>
-          <div class="md-layout-item md-size-30 md-medium-size-40 md-small-size-50 md-xsmall-size-100">
+          <div class="md-layout-item md-size-30 md-small-size-50 md-xsmall-size-100">
             <md-card>
               <md-card-header>
                 <md-card-header-text>
@@ -105,7 +105,7 @@
         </div>
         <div class="md-layout">
           <div class="md-layout-item md-size-100 action-container">
-            <md-button class="md-accent md-raised">
+            <md-button class="md-accent md-raised" @click="save">
               <div class="button-text">
                 <md-icon>save</md-icon><p>保存</p>
               </div>
@@ -114,11 +114,19 @@
         </div>
       </md-tab>
 
-      <md-tab id="tab-personal" md-label="個人ページ">
+      <md-tab id="tab-sell" md-label="売り出し">
         <mySaved :manager="manager"/>
       </md-tab>
 
-      <md-tab id="tab-company" md-label="会社ページ">
+      <md-tab id="tab-buy" md-label="買い入れ">
+        eeeee
+      </md-tab>
+
+      <md-tab id="tab-rent" md-label="貸し付け">
+        eeeee
+      </md-tab>
+
+      <md-tab id="tab-lend" md-label="借り入り">
         eeeee
       </md-tab>
 
@@ -128,6 +136,7 @@
 </template>
 
 <script>
+import utils from '@/tool/utils.js'
 import manager from '@/store/manager.js'
 import contactCard from '@/components/shared/contactCard'
 import myPublish from './myPublish'
@@ -175,6 +184,12 @@ export default {
       // let file = this.$refs.uploadCard2.getSelectedFile()
       // console.log(file)
       this.$refs.logoUploader.doUpload(this.showlog)
+    },
+    save () {
+      utils.event.$emit('LOCK_SCREEN', 'lock')
+      setTimeout(() => {
+        utils.event.$emit('LOCK_SCREEN', 'unlock')
+      }, 3000)
     }
   }
 }
@@ -197,13 +212,5 @@ export default {
 .action-container {
   display: flex;
   justify-content: center;
-}
-.button-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .md-icon {
-    margin-right: 5px;
-  }
 }
 </style>
