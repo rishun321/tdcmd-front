@@ -1,33 +1,52 @@
 <template>
 <md-app md-waterfall md-mode="fixed">
-  <vue-headful title="ブドウさん"/>
+  <vue-headful title="サンダーコマンドス"/>
 
-  <md-app-toolbar class="md-primary">
+  <md-app-toolbar class="md-dense md-primary">
     <div class="md-toolbar-row">
-
       <div class="md-toolbar-section-start">
-        <md-tabs class="md-primary" :md-active-tab="route">
+        <md-button class="md-icon-button show-lt-small" @click="menuVisible = !menuVisible">
+          <md-icon>menu</md-icon>
+        </md-button>
+        <img class="resize-picture" src="static/THUNDER-COMMANDOS.png">
+      </div>
+      <div class="md-toolbar-section-end">
+        <md-tabs class="md-primary show-gt-small">
           <md-tab id="route-home" md-icon="home" md-label="ホーム" to="/"></md-tab>
-          <md-tab id="route-contact" md-icon="recent_actors" md-label="連絡帳" to="/contact"></md-tab>
-          <md-tab id="route-chat" md-icon="chat" md-label="チャット" to="/chat"></md-tab>
-          <md-tab id="route-estate" md-icon="account_balance" md-label="物件" to="/estate"></md-tab>
-          <md-tab id="route-my" md-icon="accessibility" md-label="本人" to="/my"></md-tab>
+          <md-tab id="route-field" md-icon="filter_hdr" md-label="フィールド" to="/field"></md-tab>
+          <md-tab id="route-event" md-icon="whatshot" md-label="イベント" to="/event"></md-tab>
+          <md-tab id="route-reserve" md-icon="date_range" md-label="予約" to="/reserve"></md-tab>
+          <md-tab id="route-access" md-icon="directions_car" md-label="アクセス" to="/access"></md-tab>
         </md-tabs>
       </div>
-
-      <md-autocomplete class="search md-xsmall-hide custom-search" v-model="selected" :md-options="selections" md-layout="box" :md-selected="search()" @keyup.enter.native="search()">
-        <label>Search...</label>
-      </md-autocomplete>
-
-      <div class="md-toolbar-section-end">
-        <span class="md-title md-small-hide">ブドウさん</span>
-        <md-button class="md-icon-button md-xsmall-hide" @click="logout()">
-          <md-icon>power_settings_new</md-icon>
-        </md-button>
-      </div>
-
     </div>
   </md-app-toolbar>
+
+  <md-app-drawer :md-active.sync="menuVisible">
+    <md-toolbar class="md-transparent" md-elevation="0">サンダーコマンドス</md-toolbar>
+    <md-list md-theme="reverse">
+      <md-list-item to="/">
+        <md-icon>home</md-icon>
+        <span class="md-list-item-text">ホーム</span>
+      </md-list-item>
+      <md-list-item to="/field">
+        <md-icon>filter_hdr</md-icon>
+        <span class="md-list-item-text">フィールド</span>
+      </md-list-item>
+      <md-list-item to="/event">
+        <md-icon>whatshot</md-icon>
+        <span class="md-list-item-text">イベント</span>
+      </md-list-item>
+      <md-list-item to="/reserve">
+        <md-icon>date_range</md-icon>
+        <span class="md-list-item-text">予約</span>
+      </md-list-item>
+      <md-list-item to="/access">
+        <md-icon>directions_car</md-icon>
+        <span class="md-list-item-text">アクセス</span>
+      </md-list-item>
+    </md-list>
+  </md-app-drawer>
 
   <md-app-content>
     <router-view :manager="manager"/>
@@ -37,46 +56,22 @@
 </template>
 
 <script>
-import utils from '@/tool/utils.js'
+// import utils from '@/tool/utils.js'
 export default {
   props: ['manager'],
-  computed: {
-    route () {
-      if (this.$route.name === 'home') {
-        return 'route-home'
-      } else if (this.$route.name === 'contact') {
-        return 'route-contact'
-      } else if (this.$route.name === 'chat') {
-        return 'route-chat'
-      } else if (this.$route.name === 'estate' || this.$route.name === 'sell' || this.$route.name === 'buy' || this.$route.name === 'rent' || this.$route.name === 'lend') {
-        return 'route-estate'
-      } else if (this.$route.name === 'my') {
-        return 'route-my'
-      }
-    }
-  },
   data: () => ({
-    selected: null,
-    selections: [
-      '安い物件',
-      '都内',
-      'シェアハウス',
-      '一軒家',
-      '中古物件'
-    ]
+    menuVisible: false
   }),
   methods: {
-    search () {
-    },
-    logout () {
-      utils.restGet('/logout').then(
-        response => {
-          if (response) {
-            utils.router.push({name: 'login'})
-          }
-        }
-      )
-    }
+    // logout () {
+    //   utils.restGet('/logout').then(
+    //     response => {
+    //       if (response) {
+    //         utils.router.push({name: 'login'})
+    //       }
+    //     }
+    //   )
+    // }
   }
 }
 </script>
@@ -87,12 +82,29 @@ export default {
   height: 100%;
   position: relative;
 }
-.md-title {
-  margin-left: 30px;
-  margin-right: 30px;
+.md-drawer {
+  width: 230px;
+  max-width: calc(100vw - 125px);
 }
-.custom-search {
-  max-width: 350px;
-  margin-left: 30px !important;
+.resize-picture {
+  width: auto;
+  height: 72px;
+}
+.md-app-content {
+  padding: 0;
+}
+.show-lt-small {
+  display: none;
+}
+.show-gt-small {
+  display: block;
+}
+@media (max-width: 600px) {
+  .show-lt-small {
+    display: block;
+  }
+  .show-gt-small {
+    display: none;
+  }
 }
 </style>

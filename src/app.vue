@@ -24,20 +24,12 @@ export default {
 <style lang="scss">
 @import "~vue-material/dist/theme/engine";
 @include md-register-theme("default", (
-  primary: #664eae,
-  accent: #dc66a0
+  primary: #ffffff,
+  accent: #a08802
 ));
-@include md-register-theme("warm", (
-  primary: #4ea07c,
-  accent: #dc66a0
-));
-@include md-register-theme("light", (
-  primary: #ebe48b,
-  accent: #dc66a0
-));
-@include md-register-theme("dark", (
-  primary: #323232,
-  accent: #dc66a0
+@include md-register-theme("reverse", (
+  primary: #a08802,
+  accent: md-get-palette-color(red, A200)
 ));
 @import "~vue-material/dist/theme/all";
 @import "~vue-material/dist/base/theme";
@@ -58,7 +50,7 @@ html, body {
 .app-content-auto-height {
   width: 100%;
   height: auto;
-  padding: 15px;
+  // padding: 15px;
   overflow: hidden;
 }
 .app-content-fix-height {
@@ -82,19 +74,4 @@ html, body {
   z-index: 10;
 }
 
-// contact
-.md-table-content {
-  max-height: none !important;
-}
-
-// chat
-@media (max-width: 600px) {
-  .md-app-container {
-    padding-left: 0px !important;
-  }
-}
-.md-app-content {
-  padding: 0px;
-  border: none;
-}
 </style>

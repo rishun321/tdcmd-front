@@ -1,6 +1,6 @@
-# budousan - frontend
+# tdcmd - frontend
 
-> ブドウさん - フロントエンド
+> サンダーコマンドス - フロントエンド
 
 ## 1. install softwares
 
@@ -18,20 +18,20 @@
 
 ``` bash
 cd /your/path/like/desktop
-git clone https://your-git-account@github.com/mrm-xiefan/budousan-front.git
+git clone https://github.com/mrm-xiefan/tdcmd-front
 ```
 
 ## 3. install dependencies
 
 ``` bash
-cd /your/path/like/desktop/budousan-front
+cd /your/path/like/desktop/tdcmd-front
 yarn install
 ```
 
 ## 4. boot frontend
 
 ``` bash
-cd /your/path/like/desktop/budousan-front
+cd /your/path/like/desktop/tdcmd-front
 npm run dev
 ```
 
@@ -60,8 +60,8 @@ npm test
 ## 6. deploy to production enviroment
 
 ``` bash
-cd /your/path/like/desktop/budousan-front
+cd /your/path/like/desktop/tdcmd-front
 npm run build
 ```
 
-then dist folder will be created. move it to budousan-back.
+then dist folder will be created. move it to tdcmd-back.

@@ -1,7 +1,7 @@
 {
-  "name": "budousan",
+  "name": "tdcmd",
   "version": "1.0.0",
-  "description": "ブドウさん",
+  "description": "サンダーコマンドス",
   "author": "mrm-xiefan <f-xie@miraimon.com>",
   "private": true,
   "scripts": {
@@ -14,12 +14,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "aframe": "^0.7.1",
     "axios": "^0.17.1",
-    "deepmerge": "^2.0.1",
     "jquery": "^3.3.1",
-    "jquery-ui": "^1.12.1",
-    "jquery-ui-touch-punch": "^0.2.3",
     "moment": "^2.20.1",
     "socket.io": "^2.0.4",
     "uuid": "^3.2.1",
@@ -27,8 +23,7 @@
     "vue-headful": "^1.0.0",
     "vue-masonry": "^0.10.16",
     "vue-material": "^1.0.0-beta-8",
-    "vue-router": "^3.0.1",
-    "vue-upload-component": "^2.8.3"
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
