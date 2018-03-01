@@ -24,11 +24,11 @@ class Manager {
   }
   login (data, next) {
     this.user.login(data.user)
-    this.socketService.on(next)
+    this.socketService.online(next)
   }
   logout () {
     this.user.logout()
-    this.socketService.off()
+    this.socketService.offline()
   }
   checkAuth (route) {
     if (!this.user) return false

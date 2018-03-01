@@ -7,23 +7,23 @@ class SocketService {
     this.socket = null
     this.oldSocketID = null
   }
-  emit (event, params) {
-    if (!this.isOnline()) {
-      return
-    }
-    utils.event.$emit('LOCK_SCREEN', 'lock')
-    this.socket.emit(event, params)
+
+  // write all business logic (of socket) here
+  business () {
+    const self = this
+    self.on('receiveChat', (chat) => {
+      manager.chatService.room.chat(chat)
+      utils.event.$emit('SCROLL_CHAT')
+    })
   }
-  isOnline () {
-    return this.socket !== null && this.socket.connected
-  }
-  on (next) {
+
+  online (next) {
     const self = this
     self.socket = io(process.env.API_URL)
 
     self.socket.on('connect', () => {
       if (self.oldSocketID) {
-        this.emit('reinit', {oldSocketID: self.oldSocketID, user: manager.user._id})
+        self.emit('reinit', {oldSocketID: self.oldSocketID, user: manager.user._id})
       }
       self.oldSocketID = self.socket.id
       next()
@@ -31,30 +31,43 @@ class SocketService {
     self.socket.on('disconnect', () => {
       // utils.event.$emit('SHOW_MESSAGE', {code: 'S005'})
     })
-    self.socket.on('processError', (error) => {
-      utils.event.$emit('LOCK_SCREEN', 'unlock')
+
+    self.on('processError', (error) => {
       utils.event.$emit('SHOW_MESSAGE', error)
     })
-    self.socket.on('authenticateError', () => {
-      utils.event.$emit('LOCK_SCREEN', 'unlock')
+    self.on('authenticateError', () => {
       utils.router.push({name: 'error'})
     })
-    self.socket.on('reinited', () => {
-      utils.event.$emit('RECONNECTED')
+    self.on('reinited', (data) => {
+      utils.event.$emit('RECONNECTED', data)
     })
 
-    self.socket.on('receiveChat', (chat) => {
-      utils.event.$emit('LOCK_SCREEN', 'unlock')
-      manager.chatService.room.chat(chat)
-      utils.event.$emit('SCROLL_CHAT')
-    })
+    self.business()
   }
-  off () {
+  offline () {
     if (this.isOnline()) {
       this.socket.disconnect()
       this.socket = null
       this.oldSocketID = null
     }
+  }
+  isOnline () {
+    return this.socket !== null && this.socket.connected
+  }
+  emit (event, params) {
+    if (!this.isOnline()) {
+      return
+    }
+    utils.event.$emit('LOCK_SCREEN', 'lock')
+    this.socket.emit(event, params)
+  }
+  on (event, next) {
+    let origin = next
+    next = (...args) => {
+      utils.event.$emit('LOCK_SCREEN', 'unlock')
+      return origin.apply(this, args)
+    }
+    this.socket.on(event, next)
   }
 }
 
