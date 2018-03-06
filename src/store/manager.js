@@ -2,7 +2,7 @@ import utils from '@/tool/utils.js'
 import consts from './consts'
 // import user from './user.js'
 
-// import socketService from './services/socketService.js'
+import pageService from './services/pageService.js'
 
 class Manager {
   constructor () {
@@ -11,7 +11,7 @@ class Manager {
     this.const = consts
     // this.user = user
 
-    // this.socketService = socketService
+    this.pageService = pageService
 
     this.locker = 'unlock'
     utils.event.$on('LOCK_SCREEN', (locker) => {
