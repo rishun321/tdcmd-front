@@ -27,12 +27,13 @@ const nonePreload = (to, from, next) => {
 }
 
 const preloadPagesByType = (to, from, next) => {
-  utils.restGet('/api/initPageList', {}).then(
+  utils.restGet('/api/initPageList', {type: to.params.pagetype}).then(
     response => {
       console.log(response)
       if (response) {
         manager.pageService.init()
         manager.pageService.pages = response.pages
+        manager.pageService.count = response.count
         next()
       }
     }
@@ -48,6 +49,7 @@ const preloadPageByID = (to, from, next) => {
     // 編集
     utils.restGet('/api/findPages', {'_id': to.params.id}).then(
       response => {
+        console.log(response)
         if (response) {
           manager.pageService.editpage = response.pages[0]
           next()
@@ -62,14 +64,15 @@ export default new Router({
   routes: [
     // {path: '/login', name: 'login', component: login},
     // {path: '/register', name: 'register', component: register},
-    {path: '/admin/pagelist/:pagetype', name: 'pagelist', component: pagelist, beforeEnter: preloadPagesByType},
-    {path: '/admin/pageedit/:id', name: 'pageedit', component: pageedit, beforeEnter: preloadPageByID},
-    {path: '/admin/pageedit', name: 'pageedit', component: pageedit, beforeEnter: preloadPageByID},
+
     {
       path: '/',
       component: main,
       children: [
-        {path: '/', name: 'home', component: home, beforeEnter: nonePreload}
+        {path: '/', name: 'home', component: home, beforeEnter: nonePreload},
+        {path: '/admin/pagelist/:pagetype', name: 'pagelist', component: pagelist, beforeEnter: preloadPagesByType},
+        {path: '/admin/pageedit/:id', name: 'pageedit', component: pageedit, beforeEnter: preloadPageByID},
+        {path: '/admin/pageedit', name: 'pageedit', component: pageedit, beforeEnter: preloadPageByID}
       ]
     },
     {path: '*', redirect: '/'}

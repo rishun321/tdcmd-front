@@ -8,7 +8,7 @@
         <md-button class="md-icon-button show-lt-small" @click="menuVisible = !menuVisible">
           <md-icon>menu</md-icon>
         </md-button>
-        <img class="resize-picture" src="static/THUNDER-COMMANDOS.png">
+        <img class="resize-picture" src="/static/THUNDER-COMMANDOS.png">
       </div>
       <div class="md-toolbar-section-end">
         <md-tabs class="md-primary show-gt-small">

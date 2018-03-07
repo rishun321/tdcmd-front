@@ -85,7 +85,7 @@
     </div>
   </md-content>
   <md-content class="map-container">
-    <gmap-map :center="center" :zoom="7" style="width: 100%; height: 300px">
+    <gmap-map class="gmap" :center="center" :zoom="14">
       <gmap-marker
         :key="index"
         v-for="(m, index) in markers"
@@ -164,11 +164,9 @@ export default {
       {_id: 3, title: '2月22日 定例会', date: '2018年2月22日', cover: 'static/e3.jpg'},
       {_id: 4, title: '2月14日 定例会', date: '2018年2月14日', cover: 'static/e4.jpg'}
     ],
-    center: {lat: 10.0, lng: 10.0},
+    center: {lat: 35.416645, lng: 140.042037},
     markers: [{
-      position: {lat: 10.0, lng: 10.0}
-    }, {
-      position: {lat: 11.0, lng: 11.0}
+      position: {lat: 35.416645, lng: 140.042037}
     }]
   }),
   methods: {
@@ -235,10 +233,8 @@ export default {
   height: 80vw;
   max-height: 600px;
 }
-
-.tinymce-container{
-  margin: auto;
+.gmap {
   width: 100%;
-  height: 800px;
+  height: 500px
 }
 </style>

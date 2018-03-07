@@ -3,7 +3,7 @@ import moment from 'moment'
 class Page {
   constructor (data) {
     this._id = data._id
-    this._type = data._type // PAGE_TYPE_EVENT, PAGE_TYPE_PHOTO
+    this._type = data._type // event, photo
     this._createdate = data.createdate
     this._title = data.title
     this._subhead = data.subhead
@@ -21,7 +21,10 @@ class Page {
   }
 
   get type () {
-    return this._type ? this._type : 'PAGE_TYPE_EVENT'
+    return this._type ? this._type : 'event'
+  }
+  get typename () {
+    return this.type === 'イベント' ? '' : '活動の写真'
   }
   set type (data) {
     this._type = data
@@ -56,9 +59,10 @@ class Page {
   toJSON () {
     return {
       _id: this._id,
-      createdate: this._createdate,
-      type: this._type,
+      createdate: this.createdate,
+      type: this.type,
       title: this._title,
+      subhead: this._subhead,
       trimpicture: this._trimpicture,
       contenthtml: this._contenthtml
     }

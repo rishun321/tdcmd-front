@@ -24,8 +24,8 @@
             <md-field :class="{'md-invalid': inValidObj === 'adress'}">
               <label for="adress">タイプ</label>
               <md-select v-model="manager.pageService.editpage.type">
-                <md-option value="PAGE_TYPE_EVENT">イベント</md-option>
-                <md-option value="PAGE_TYPE_PHOTO">活動の写真</md-option>
+                <md-option value="event">イベント</md-option>
+                <md-option value="photo">活動の写真</md-option>
               </md-select>
             </md-field>
           </div>
@@ -55,13 +55,15 @@ export default {
     Editor
   },
   data: () => ({
-    contenthtml: '',
     inValidObj: '',
     editorInit: {
       plugins: 'print preview fullpage powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount tinymcespellchecker a11ychecker imagetools mediaembed  linkchecker contextmenu colorpicker textpattern help',
       toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link image | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat'
     }
   }),
+  created () {
+    this.contenthtml = manager.pageService.editpage.contenthtml
+  },
   methods: {
     cancel () {
       this.$router.go(-1)
