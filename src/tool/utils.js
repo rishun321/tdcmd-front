@@ -143,6 +143,10 @@ class Utils {
     this.event.$emit('LOCK_SCREEN', 'unlock')
     this.event.$emit('SHOW_MESSAGE', error)
   }
+
+  getPageTypeDisplayName (type) {
+    return type === 'イベント' ? '' : '活動の写真'
+  }
 }
 
 export default new Utils()
