@@ -14,8 +14,12 @@
         <md-tabs class="md-primary show-gt-small">
           <md-tab id="route-home" md-icon="home" md-label="ホーム" to="/"></md-tab>
           <md-tab id="route-field" md-icon="filter_hdr" md-label="フィールド" to="/field"></md-tab>
-          <md-tab id="route-event" md-icon="whatshot" md-label="イベント" to="/event"></md-tab>
-          <md-tab id="route-reserve" md-icon="date_range" md-label="予約" to="/reserve"></md-tab>
+          <md-tab id="route-calendar" md-icon="date_range" md-label="カレンダー" to="/reserve"></md-tab>
+          <md-tab id="route-lend" md-icon="date_range" md-label="貸切" to="/reserve"></md-tab>
+          <md-tab id="route-event" md-icon="whatshot" md-label="定例会・イベント" to="/event"></md-tab>
+          <md-tab id="route-photo" md-icon="whatshot" md-label="写真" to="/event"></md-tab>
+          <md-tab id="route-reserve" md-icon="date_range" md-label="予約・問い合わせ" to="/reserve"></md-tab>
+          <md-tab id="route-rental" md-icon="date_range" md-label="レンタル" to="/reserve"></md-tab>
           <md-tab id="route-access" md-icon="directions_car" md-label="アクセス" to="/access"></md-tab>
         </md-tabs>
       </div>
@@ -35,7 +39,7 @@
       </md-list-item>
       <md-list-item to="/event">
         <md-icon>whatshot</md-icon>
-        <span class="md-list-item-text">イベント</span>
+        <span class="md-list-item-text">定例会・イベント</span>
       </md-list-item>
       <md-list-item to="/reserve">
         <md-icon>date_range</md-icon>

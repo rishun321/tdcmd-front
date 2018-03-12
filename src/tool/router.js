@@ -6,6 +6,8 @@ import Router from 'vue-router'
 // import error from '@/components/error'
 import main from '@/components/main'
 import home from '@/components/home/home'
+import company from '@/components/company/company'
+import access from '@/components/access/access'
 
 // import manager from '@/store/manager.js'
 // import utils from '@/tool/utils.js'
@@ -29,7 +31,9 @@ export default new Router({
       path: '/',
       component: main,
       children: [
-        {path: '/', name: 'home', component: home, beforeEnter: nonePreload}
+        {path: '/', name: 'home', component: home, beforeEnter: nonePreload},
+        {path: '/company', name: 'company', component: company, beforeEnter: nonePreload},
+        {path: '/access', name: 'access', component: access, beforeEnter: nonePreload}
       ]
     },
     {path: '*', redirect: '/'}

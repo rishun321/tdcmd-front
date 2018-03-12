@@ -71,7 +71,23 @@
 
   <md-content>
     <div class="md-display-1 home-header">
-      最新情報・イベント
+      定例会・イベント
+      <md-button class="md-fab md-plain more">
+        <md-icon>more_horiz</md-icon>
+      </md-button>
+    </div>
+  </md-content>
+  <md-content>
+    <div class="md-layout md-gutter">
+      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100" v-for="event in events" :key="event._id">
+        <eventCard :manager="manager" :event="event"/>
+      </div>
+    </div>
+  </md-content>
+
+  <md-content>
+    <div class="md-display-1 home-header">
+      ゲームの写真
       <md-button class="md-fab md-plain more">
         <md-icon>more_horiz</md-icon>
       </md-button>
@@ -88,7 +104,7 @@
   <md-content>
     <div class="md-display-1 home-header">
       アクセス
-      <md-button class="md-fab md-plain more">
+      <md-button class="md-fab md-plain more" to="/access">
         <md-icon>more_horiz</md-icon>
       </md-button>
     </div>
@@ -99,48 +115,10 @@
   </md-content>
 
   <md-content class="company">
-    <md-tabs class="md-accent">
-      <md-tab md-label="会社概要">
-        <div class="detail-row">
-          <p class="detail-title">会社名</p>
-          <p class="detail-content">アモネ株式会社</p>
-        </div>
-        <div class="detail-row">
-          <p class="detail-title">設立</p>
-          <p class="detail-content">2017年7月18日</p>
-        </div>
-        <div class="detail-row">
-          <p class="detail-title">資本金</p>
-          <p class="detail-content">930万円</p>
-        </div>
-        <div class="detail-row">
-          <p class="detail-title">代表取締役社長</p>
-          <p class="detail-content">須佐 幸輝</p>
-        </div>
-        <div class="detail-row">
-          <p class="detail-title">本社所在地</p>
-          <p class="detail-content">〒136-0071 東京都江東区亀戸3-21-8 804号</p>
-        </div>
-        <div class="detail-row">
-          <p class="detail-title">電話</p>
-          <p class="detail-content">03-6874-5906、080-4893-8383 (予約受付担当、対応時間:平日9:00-17:00)</p>
-        </div>
-      </md-tab>
-
-      <md-tab md-label="事業内容">
-        <p class="md-body-1">サバイバルゲーム施設の経営</p>
-        <p class="md-body-1">サバイバルゲーム各装備、迷彩服及び消耗品等の輸出入及び販売</p>
-        <p class="md-body-1">グラフィック、ウェブ、ファッション、パンフレット、図書及びキャラクター等のデザインの企画、作成、宣伝及び発信業務</p>
-        <p class="md-body-1">イベント及び展示会等の企画、主催及び支援</p>
-        <p class="md-body-1">翻訳及び通訳業務</p>
-      </md-tab>
-
-      <md-tab md-label="会社理念">
-        <p class="md-body-1">お客様に喜びと満足を与え続ける。</p>
-        <p class="md-body-1">最大ではなく、最適なサービスを提供する。</p>
-        <p class="md-body-1">地域社会に貢献できる企業を目指す。</p>
-      </md-tab>
-    </md-tabs>
+    <img class="resize-picture" src="static/THUNDER-COMMANDOS.png">
+  </md-content>
+  <md-content md-theme="reverse" class="md-primary company-link">
+    <md-button class="company-button" to="/company">会社概要</md-button>
   </md-content>
 </div>
 </template>
@@ -167,7 +145,14 @@ export default {
 <style scoped lang="scss">
 .cover {
   width: 100%;
+  height: 700px;
+  display: flext;
   justify-content: center;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 .md-content {
   margin-top: 30px;
@@ -197,22 +182,25 @@ export default {
   justify-content: center;
 }
 .company {
-  min-height: 380px;
+  min-height: 180px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #aaa;
+}
+.resize-picture {
+  width: 240px;
+}
+.company-link {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   padding: 0px;
 }
-.md-tab {
-  padding-left: 50px;
-  padding-right: 50px;
-}
-.detail-row {
-  display: flex;
-  justify-content: flex-start;
-  .detail-title {
-    width: 120px;
-  }
-  .detail-content {
-    width: calc(100% - 120px);
-    border-bottom: solid 1px #eee;
-  }
+.company-button {
+  color: #fff;
+  font-weight: 450;
 }
 </style>
