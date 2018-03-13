@@ -58,6 +58,9 @@ html, body {
   height: 100%;
   overflow: scroll;
 }
+.md-with-hover {
+  cursor: default !important;
+}
 
 // button icon
 .button-text {
