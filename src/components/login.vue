@@ -20,7 +20,7 @@
 
     <md-card-actions>
       <md-button class="md-primary" to="/register">アカウント作成</md-button>
-      <md-button class="md-primary md-raised" to="/">匿名</md-button>
+      <md-button class="md-primary md-raised" to="/">匿名訪問</md-button>
       <md-button class="md-primary md-raised" @click.native="login()" :disabled="!isAccountValid || !isPasswordValid">ログイン</md-button>
     </md-card-actions>
   </md-card>
@@ -84,7 +84,7 @@ export default {
               if (path) {
                 that.$router.push({path: path})
               } else {
-                that.$router.push({path: '/'})
+                that.$router.push({path: '/admin'})
               }
             })
           }

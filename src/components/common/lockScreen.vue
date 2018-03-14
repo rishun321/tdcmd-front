@@ -3,7 +3,7 @@
   <!-- <div class="load-animation">
     <md-progress-spinner :md-diameter="100" :md-stroke="10" md-mode="indeterminate"></md-progress-spinner>
   </div> -->
-  <md-content md-theme="reverse" class="load-animation md-primary">
+  <md-content class="load-animation md-primary">
     <div class="bar bar1"></div>
     <div class="bar bar2"></div>
     <div class="bar bar3"></div>

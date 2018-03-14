@@ -28,7 +28,7 @@
 
   <md-app-drawer :md-active.sync="menuVisible">
     <md-toolbar class="md-transparent" md-elevation="0">サンダーコマンドス</md-toolbar>
-    <md-list md-theme="reverse">
+    <md-list>
       <md-list-item to="/">
         <md-icon>home</md-icon>
         <span class="md-list-item-text">ホーム</span>

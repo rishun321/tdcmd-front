@@ -72,7 +72,7 @@
   <md-content>
     <div class="md-display-1 home-header">
       定例会・イベントのお知らせ
-      <md-button class="md-fab md-plain more">
+      <md-button class="md-fab md-primary more">
         <md-icon>more_horiz</md-icon>
       </md-button>
     </div>
@@ -88,7 +88,7 @@
   <md-content>
     <div class="md-display-1 home-header">
       定例会・イベントの写真
-      <md-button class="md-fab md-plain more">
+      <md-button class="md-fab md-primary more">
         <md-icon>more_horiz</md-icon>
       </md-button>
     </div>
@@ -104,7 +104,7 @@
   <md-content>
     <div class="md-display-1 home-header">
       アクセス
-      <md-button class="md-fab md-plain more" to="/access">
+      <md-button class="md-fab md-primary more" to="/access">
         <md-icon>more_horiz</md-icon>
       </md-button>
     </div>

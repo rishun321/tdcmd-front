@@ -12,7 +12,7 @@
   <md-content>
     <div class="md-layout md-gutter">
       <div class="md-layout-item md-size-25" v-for="route in routes" :key="route.start">
-        <md-content md-theme="reverse" class="md-primary">
+        <md-content class="md-primary">
           {{route.start}}
         </md-content>
       </div>
