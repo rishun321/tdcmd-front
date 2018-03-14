@@ -17,8 +17,8 @@
               <div class="md-subhead">{{page.subhead}}</div>
             </md-card-header>
             <md-card-actions>
-              <md-button class="md-accent" @click.prevent="edit(page.id)">編集</md-button>
-              <md-button class="md-accent" @click.prevent="remove(page.id)">削除</md-button>
+              <md-button class="md-primary" @click.prevent="edit(page.id)">編集</md-button>
+              <md-button class="md-primary" @click.prevent="remove(page.id)">削除</md-button>
             </md-card-actions>
             <md-card-content>
               <span v-html="page.contenthtml"></span>

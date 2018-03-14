@@ -8,7 +8,7 @@
     <div class="md-subhead">{{event.date}}</div>
   </md-card-header>
   <md-card-actions>
-    <md-button class="md-accent">詳細</md-button>
+    <md-button class="md-primary">詳細</md-button>
   </md-card-actions>
 </md-card>
 </template>

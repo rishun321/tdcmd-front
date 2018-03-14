@@ -7,7 +7,7 @@
   </md-content>
 
   <md-content>
-    <div class="md-headline home-header"><md-icon class="md-accent">directions_subway</md-icon>公共交通機関でお越しの方</div>
+    <div class="md-headline home-header"><md-icon class="md-primary">directions_subway</md-icon>公共交通機関でお越しの方</div>
   </md-content>
   <md-content>
     <div class="md-layout md-gutter">
@@ -20,7 +20,7 @@
   </md-content>
 
   <md-content>
-    <div class="md-headline home-header"><md-icon class="md-accent">directions_car</md-icon>車でお越しの方</div>
+    <div class="md-headline home-header"><md-icon class="md-primary">directions_car</md-icon>車でお越しの方</div>
   </md-content>
   <md-content class="pic-container">
     <img src="static/map.png">

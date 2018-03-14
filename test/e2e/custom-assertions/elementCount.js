@@ -17,11 +17,11 @@ exports.assertion = function (selector, count) {
     return res.value
   }
   this.command = function (cb) {
-    var self = this
+    var that = this
     return this.api.execute(function (selector) {
       return document.querySelectorAll(selector).length
     }, [selector], function (res) {
-      cb.call(self, res)
+      cb.call(that, res)
     })
   }
 }

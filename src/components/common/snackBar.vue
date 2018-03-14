@@ -1,7 +1,7 @@
 <template>
 <md-snackbar :md-position="position" :md-duration="isInfinity ? Infinity : duration" :md-active.sync="showSnackbar" md-persistent>
   <span>{{message}}</span>
-  <md-button class="md-accent" @click="excute()">OK</md-button>
+  <md-button class="md-primary" @click="excute()">OK</md-button>
 </md-snackbar>
 </template>
 
@@ -19,26 +19,26 @@ export default {
     ok: null
   }),
   mounted () {
-    const self = this
+    const that = this
     utils.event.$on('SHOW_SNACKBAR', (code, duration, ok) => {
       const info = manager.const.messages[code] || manager.const.messages['I001']
-      self.message = info.message
+      that.message = info.message
       if (duration && parseInt(duration) >= 1000 && parseInt(duration) <= 10000) {
-        self.isInfinity = false
-        self.duration = parseInt(duration)
+        that.isInfinity = false
+        that.duration = parseInt(duration)
       } else {
-        self.isInfinity = true
-        self.duration = 4000
+        that.isInfinity = true
+        that.duration = 4000
       }
-      self.ok = ok || null
-      self.showSnackbar = true
+      that.ok = ok || null
+      that.showSnackbar = true
     })
     utils.event.$on('HIDE_SNACKBAR', () => {
-      self.message = ''
-      self.isInfinity = true
-      self.duration = 4000
-      self.ok = null
-      self.showSnackbar = false
+      that.message = ''
+      that.isInfinity = true
+      that.duration = 4000
+      that.ok = null
+      that.showSnackbar = false
     })
   },
   beforeDestroy () {

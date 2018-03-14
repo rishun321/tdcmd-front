@@ -1,9 +1,6 @@
 <template>
 <div class="wrapper">
-  <md-content class="md-primary app-title md-elevation-8">
-    ブドウさん
-  </md-content>
-  <md-card class=" md-elevation-8">
+  <md-card class="md-elevation-8">
     <md-card-header>
       <div class="md-title">アカウント作成</div>
     </md-card-header>
@@ -87,27 +84,27 @@ export default {
   },
   methods: {
     register () {
-      const self = this
-      if (!self.account || !self.password || self.password !== this.retype) {
+      const that = this
+      if (!that.account || !that.password || that.password !== this.retype) {
         utils.event.$emit('SHOW_MESSAGE', {code: 'B004'}, () => {
-          if (!self.account) {
-            self.$refs.register_user.$el.focus()
-          } else if (!self.password) {
-            self.$refs.register_password.$el.focus()
-          } else if (self.password !== this.retype) {
-            self.$refs.retype.$el.focus()
+          if (!that.account) {
+            that.$refs.register_user.$el.focus()
+          } else if (!that.password) {
+            that.$refs.register_password.$el.focus()
+          } else if (that.password !== this.retype) {
+            that.$refs.retype.$el.focus()
           }
         })
         return
       }
-      utils.restPost('/register', {_id: self.account, password: self.password}).then(
+      utils.restPost('/register', {_id: that.account, password: that.password}).then(
         response => {
           if (response) {
-            utils.restPost('/authenticate', {username: self.account, password: self.password}).then(
+            utils.restPost('/authenticate', {username: that.account, password: that.password}).then(
               response => {
                 if (response) {
                   manager.login(response, () => {
-                    self.$router.push({path: '/'})
+                    that.$router.push({path: '/'})
                   })
                 }
               }
@@ -135,25 +132,6 @@ export default {
 .md-card-header {
   text-align: center;
 }
-
-.app-title {
-  position: absolute;
-  left: -500px;
-  top: -500px;
-  left: calc(50% - 140px);
-  top: calc(50% - 215px);
-  padding: 30px 80px;
-  z-index: 10;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size:24px;
-  background: -webkit-linear-gradient(bottom, #563e9e, #7e71ab);
-  background: linear-gradient(to top right, #563e9e, #7e71ab);
-  background: -ms-linear-gradient(bottom, #563e9e, #7e71ab) !important;
-  background: -moz-linear-gradient(center bottom, #563e9e 0%, #7e71ab 100%) !important;
-  background: -o-linear-gradient(#563e9e, #7e71ab) !important;
-}
-
 .md-field + .md-field {
   margin-top: 40px;
 }

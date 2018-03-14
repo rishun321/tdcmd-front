@@ -8,21 +8,24 @@ import utils from '@/tool/utils.js'
 export default {
   props: ['manager'],
   mounted () {
-    const self = this
+    const that = this
     const path = this.$route.query.path
     utils.restGet('/login').then(
       response => {
-        if (response) {
-          if (response.user) {
-            manager.login(response, () => {
-              if (path) {
-                self.$router.push({path: path})
-              } else {
-                self.$router.push({path: '/'})
-              }
-            })
+        if (response && response.user) {
+          manager.login(response, () => {
+            if (path) {
+              that.$router.push({path: path})
+            } else {
+              that.$router.push({path: '/'})
+            }
+          })
+        } else {
+          manager.anonymousLogin()
+          if (path) {
+            that.$router.push({path: path})
           } else {
-            self.$router.push({name: 'login', query: {path: path}})
+            that.$router.push({path: '/'})
           }
         }
       }

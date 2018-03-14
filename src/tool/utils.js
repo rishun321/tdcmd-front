@@ -20,67 +20,67 @@ class Utils {
     this.router = router
   }
   async restGet (api, params) {
-    const self = this
+    const that = this
     let responseData = null
-    self.event.$emit('LOCK_SCREEN', 'lock')
+    that.event.$emit('LOCK_SCREEN', 'lock')
     await this.api.get(api, {params: params}).then(
       response => {
-        responseData = self.processResponse(response)
+        responseData = that.processResponse(response)
       }
     ).catch(
       error => {
-        self.processError(error)
+        that.processError(error)
       }
     )
     return responseData
   }
   async restPost (api, params) {
-    const self = this
+    const that = this
     let responseData = null
-    self.event.$emit('LOCK_SCREEN', 'lock')
+    that.event.$emit('LOCK_SCREEN', 'lock')
     await this.api.post(api, params).then(
       response => {
-        responseData = self.processResponse(response)
+        responseData = that.processResponse(response)
       }
     ).catch(
       error => {
-        self.processError(error)
+        that.processError(error)
       }
     )
     return responseData
   }
   async restPut (api, params) {
-    const self = this
+    const that = this
     let responseData = null
-    self.event.$emit('LOCK_SCREEN', 'lock')
+    that.event.$emit('LOCK_SCREEN', 'lock')
     await this.api.put(api, params).then(
       response => {
-        responseData = self.processResponse(response)
+        responseData = that.processResponse(response)
       }
     ).catch(
       error => {
-        self.processError(error)
+        that.processError(error)
       }
     )
     return responseData
   }
   async restDelete (api, params) {
-    const self = this
+    const that = this
     let responseData = null
-    self.event.$emit('LOCK_SCREEN', 'lock')
+    that.event.$emit('LOCK_SCREEN', 'lock')
     await this.api.delete(api, {params: params}).then(
       response => {
-        responseData = self.processResponse(response)
+        responseData = that.processResponse(response)
       }
     ).catch(
       error => {
-        self.processError(error)
+        that.processError(error)
       }
     )
     return responseData
   }
   async uploadFiles (files, fileNames) {
-    const self = this
+    const that = this
     const uploadUrl = '/uploadFiles'
     let responseData = null
     let param = new FormData()
@@ -90,14 +90,14 @@ class Utils {
     let config = {
       headers: {'Content-Type': 'multipart/form-data'}
     }
-    self.event.$emit('LOCK_SCREEN', 'lock')
+    that.event.$emit('LOCK_SCREEN', 'lock')
     await this.api.post(uploadUrl, param, config).then(
       response => {
-        responseData = self.processResponse(response)
+        responseData = that.processResponse(response)
       }
     ).catch(
       error => {
-        self.processError(error)
+        that.processError(error)
       }
     )
     return responseData

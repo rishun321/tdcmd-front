@@ -12,9 +12,9 @@
     </div>
   </md-content>
   <md-dialog-actions>
-    <md-button :class="{'md-primary': type !== 'error', 'md-accent': type === 'error', 'md-raised': true}" @click="excuteYes()" v-show="type !== 'select'">OK</md-button>
-    <md-button :class="{'md-primary': type !== 'error', 'md-accent': type === 'error', 'md-raised': true}" @click="excuteYes()" v-show="type === 'select'">YES</md-button>
-    <md-button :class="{'md-primary': type !== 'error', 'md-accent': type === 'error', 'md-raised': true}" @click="excuteNo()" v-show="type === 'select'">NO</md-button>
+    <md-button :class="{'md-primary': type !== 'error', 'md-primary': type === 'error', 'md-raised': true}" @click="excuteYes()" v-show="type !== 'select'">OK</md-button>
+    <md-button :class="{'md-primary': type !== 'error', 'md-primary': type === 'error', 'md-raised': true}" @click="excuteYes()" v-show="type === 'select'">YES</md-button>
+    <md-button :class="{'md-primary': type !== 'error', 'md-primary': type === 'error', 'md-raised': true}" @click="excuteNo()" v-show="type === 'select'">NO</md-button>
   </md-dialog-actions>
 </md-dialog>
 </template>
@@ -34,17 +34,17 @@ export default {
     showDialog: false
   }),
   mounted () {
-    const self = this
+    const that = this
     utils.event.$on('SHOW_MESSAGE', (error, yes, no) => {
       const code = error ? (error.code ? error.code : 'S000') : 'S000'
       const info = manager.const.messages[code]
-      self.type = info.type
-      self.title = info.title
-      self.message = info.message
-      self.detail = error.detail || ''
-      self.yes = yes || null
-      self.no = no || null
-      self.showDialog = true
+      that.type = info.type
+      that.title = info.title
+      that.message = info.message
+      that.detail = error.detail || ''
+      that.yes = yes || null
+      that.no = no || null
+      that.showDialog = true
     })
   },
   beforeDestroy () {

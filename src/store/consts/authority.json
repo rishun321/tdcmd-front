@@ -1,0 +1,29 @@
+{
+  "0": [
+    "home",
+    "access",
+    "calendar",
+    "company",
+    "event",
+    "field",
+    "photo",
+    "rental",
+    "reserve",
+    "reserveField"
+  ],
+  "1": [
+    "home",
+    "access",
+    "calendar",
+    "company",
+    "event",
+    "field",
+    "photo",
+    "rental",
+    "reserve",
+    "reserveField",
+    "admin",
+    "article",
+    "contact"
+  ]
+}

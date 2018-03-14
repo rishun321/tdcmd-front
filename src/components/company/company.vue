@@ -2,11 +2,11 @@
 <div class="app-content-auto-height">
   <vue-headful title="サンダーコマンドス - 会社概要"/>
   <div class="cover">
-    <img src="static/cover1.png">
+    <img src="static/cover1.jpg">
   </div>
 
   <md-content class="company">
-    <md-tabs class="md-accent">
+    <md-tabs class="md-primary">
       <md-tab md-label="会社概要">
         <div class="detail-row">
           <p class="detail-title">会社名</p>
@@ -62,13 +62,11 @@ export default {
 <style scoped lang="scss">
 .cover {
   width: 100%;
-  height: 400px;
-  display: flext;
-  justify-content: center;
+  height: auto;
+  text-align: center;
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
   }
 }
 .company {

@@ -52,11 +52,11 @@ class PageService {
   }
 
   async publishPage (page) {
-    await utils.restPut('/api/insertPage', page)
+    await utils.restPut('/private/insertPage', page)
   }
 
   async updatePage (param) {
-    await utils.restPost('/api/updatePage', param)
+    await utils.restPost('/private/updatePage', param)
   }
 
   async findPage (type, page) {
@@ -81,7 +81,7 @@ class PageService {
 
     param.filter = {type: type}
 
-    await utils.restGet('/api/findPages', param).then(response => {
+    await utils.restGet('/private/findPages', param).then(response => {
       console.log(response)
       that._pages.splice(0, this._pages.length)
       that.pages = response.pages
@@ -89,7 +89,7 @@ class PageService {
   }
 
   async removePage (type, param) {
-    await utils.restDelete('/api/removePage', param).then(result => {
+    await utils.restDelete('/private/removePage', param).then(result => {
       if (result.ok > 0) {
         let i = 0
         for (;i < this._pages.length; i++) {

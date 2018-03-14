@@ -24,12 +24,12 @@ export default {
 <style lang="scss">
 @import "~vue-material/dist/theme/engine";
 @include md-register-theme("default", (
-  primary: #ffffff,
-  accent: #a08802
-));
-@include md-register-theme("reverse", (
-  primary: #a08802,
+  primary: #796e2f,
   accent: md-get-palette-color(red, A200)
+));
+@include md-register-theme("white", (
+  primary: #ffffff,
+  accent: #796e2f
 ));
 @import "~vue-material/dist/theme/all";
 @import "~vue-material/dist/base/theme";

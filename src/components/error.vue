@@ -1,5 +1,5 @@
 <template>
-<md-empty-state class="md-accent" md-icon="highlight_off" md-label="認証が失敗しました" md-description="">
+<md-empty-state class="md-primary" md-icon="highlight_off" md-label="認証が失敗しました" md-description="">
   <div class="error-content">
     再度<router-link to="/login">ブドウさんにログイン</router-link>してみてください。
   </div>

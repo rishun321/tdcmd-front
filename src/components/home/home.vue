@@ -2,7 +2,7 @@
 <div class="app-content-auto-height">
   <vue-headful title="サンダーコマンドス - ホーム"/>
   <div class="cover">
-    <img class="cover-pic" src="static/home.jpg">
+    <img class="cover-pic" src="static/cover1.jpg">
   </div>
 
   <md-content>
@@ -22,7 +22,7 @@
             <div class="md-subhead">レンタルサービス</div>
           </md-card-header>
           <md-card-actions>
-            <md-button class="md-accent">詳しくはこちら</md-button>
+            <md-button class="md-primary">詳しくはこちら</md-button>
           </md-card-actions>
           <md-card-content>
             サバイバルゲームの道具や装備をお持ちでない方に対して、道具と装備品のレンタルサービスもご用意しております。
@@ -40,7 +40,7 @@
             <div class="md-subhead">ルール紹介</div>
           </md-card-header>
           <md-card-actions>
-            <md-button class="md-accent">詳しくはこちら</md-button>
+            <md-button class="md-primary">詳しくはこちら</md-button>
           </md-card-actions>
           <md-card-content>
             サンダーコマンドスは、土日や祝日に、常に定例会を開催しております。同じな趣味をお持ちの友達と出会えるかも。
@@ -58,7 +58,7 @@
             <div class="md-subhead">貸切サービス</div>
           </md-card-header>
           <md-card-actions>
-            <md-button class="md-accent">詳しくはこちら</md-button>
+            <md-button class="md-primary">詳しくはこちら</md-button>
           </md-card-actions>
           <md-card-content>
             親睦会戦、 リーグ戦、コスプレ撮影イベントなど、どんな目的でもフィールドを自由にご利用いただけます。
@@ -132,11 +132,11 @@
   </md-content> -->
 
   <md-content class="company">
-    <img class="resize-picture" src="static/THUNDER-COMMANDOS.png">
+    <img class="resize-picture" src="@/assets/THUNDERCOMMANDOS.png">
   </md-content>
-  <div class="company-link">
+  <md-content class="md-primary company-link">
     <md-button class="company-button" to="/company">会社概要</md-button>
-  </div>
+  </md-content>
 </div>
 </template>
 
@@ -234,7 +234,6 @@ export default {
   justify-content: center;
   align-items: flex-start;
   padding: 0px;
-  background: #796e2f;
 }
 .company-button {
   color: #fff;
