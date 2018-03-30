@@ -1,5 +1,5 @@
 <template>
-<md-dialog :md-active.sync="showDialog" :md-click-outside-to-close="false" :md-fullscreen="false">
+<md-dialog :md-active.sync="showDialog" :md-click-outside-to-close="false" :md-close-on-esc="false" :md-fullscreen="false">
   <md-dialog-title>
     {{title}}
   </md-dialog-title>
@@ -12,9 +12,9 @@
     </div>
   </md-content>
   <md-dialog-actions>
-    <md-button :class="{'md-primary': type !== 'error', 'md-primary': type === 'error', 'md-raised': true}" @click="excuteYes()" v-show="type !== 'select'">OK</md-button>
-    <md-button :class="{'md-primary': type !== 'error', 'md-primary': type === 'error', 'md-raised': true}" @click="excuteYes()" v-show="type === 'select'">YES</md-button>
-    <md-button :class="{'md-primary': type !== 'error', 'md-primary': type === 'error', 'md-raised': true}" @click="excuteNo()" v-show="type === 'select'">NO</md-button>
+    <md-button :class="{'md-primary': type !== 'error', 'md-accent': type === 'error', 'md-raised': true}" @click="excuteYes()" v-show="type !== 'select'">OK</md-button>
+    <md-button :class="{'md-primary': type !== 'error', 'md-accent': type === 'error', 'md-raised': true}" @click="excuteYes()" v-show="type === 'select'">YES</md-button>
+    <md-button :class="{'md-primary': type !== 'error', 'md-accent': type === 'error', 'md-raised': true}" @click="excuteNo()" v-show="type === 'select'">NO</md-button>
   </md-dialog-actions>
 </md-dialog>
 </template>
@@ -37,7 +37,7 @@ export default {
     const that = this
     utils.event.$on('SHOW_MESSAGE', (error, yes, no) => {
       const code = error ? (error.code ? error.code : 'S000') : 'S000'
-      const info = manager.const.messages[code]
+      const info = manager.const.message[code]
       that.type = info.type
       that.title = info.title
       that.message = info.message
@@ -77,7 +77,7 @@ export default {
   font-size: 12px;
   color: #666;
   word-break: break-all;
-  background: #eee;
+  background: #e8e8e8;
   border-radius: 8px;
   min-height: 100px;
 }

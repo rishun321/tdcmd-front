@@ -2,12 +2,12 @@
 <div class="app-content-auto-height">
   <vue-headful title="サンダーコマンドス - ホーム"/>
   <div class="cover">
-    <img class="cover-pic" src="static/cover1.jpg">
+    <img class="cover-pic" src="/static/cover1.jpg">
   </div>
 
   <md-content>
-    <div class="md-display-1 home-header">サンダーコマンドス</div>
-    <div class="md-display-1 home-header">サバイバルゲーム</div>
+    <div class="md-display-1 tdcmd-header">サンダーコマンドス</div>
+    <div class="md-display-1 tdcmd-header">サバイバルゲーム</div>
   </md-content>
   <md-content>
     <div class="md-layout md-gutter md-alignment-top-center">
@@ -15,14 +15,14 @@
       <div class="md-layout-item md-size-33 md-small-size-50 md-xsmall-size-100">
         <md-card md-with-hover>
           <md-card-media>
-            <img class="trim-picture" src="static/h1.jpg">
+            <img class="trim-picture" src="/static/h1.jpg">
           </md-card-media>
           <md-card-header>
             <div class="md-title">道具装備レンタル</div>
             <div class="md-subhead">レンタルサービス</div>
           </md-card-header>
           <md-card-actions>
-            <md-button class="md-primary">詳しくはこちら</md-button>
+            <md-button class="md-primary" to="/rental">詳しくはこちら</md-button>
           </md-card-actions>
           <md-card-content>
             サバイバルゲームの道具や装備をお持ちでない方に対して、道具と装備品のレンタルサービスもご用意しております。
@@ -33,14 +33,14 @@
       <div class="md-layout-item md-size-33 md-small-size-50 md-xsmall-size-100">
         <md-card md-with-hover>
           <md-card-media>
-            <img class="trim-picture" src="static/h2.jpg">
+            <img class="trim-picture" src="/static/h2.jpg">
           </md-card-media>
           <md-card-header>
             <div class="md-title">定例会とは</div>
             <div class="md-subhead">ルール紹介</div>
           </md-card-header>
           <md-card-actions>
-            <md-button class="md-primary">詳しくはこちら</md-button>
+            <md-button class="md-primary" to="/event">詳しくはこちら</md-button>
           </md-card-actions>
           <md-card-content>
             サンダーコマンドスは、土日や祝日に、常に定例会を開催しております。同じな趣味をお持ちの友達と出会えるかも。
@@ -51,14 +51,14 @@
       <div class="md-layout-item md-size-33 md-small-size-50 md-xsmall-size-100">
         <md-card md-with-hover>
           <md-card-media>
-            <img class="trim-picture" src="static/h3.jpg">
+            <img class="trim-picture" src="/static/h3.jpg">
           </md-card-media>
           <md-card-header>
             <div class="md-title">フィールド貸切</div>
             <div class="md-subhead">貸切サービス</div>
           </md-card-header>
           <md-card-actions>
-            <md-button class="md-primary">詳しくはこちら</md-button>
+            <md-button class="md-primary" to="/monopoly">詳しくはこちら</md-button>
           </md-card-actions>
           <md-card-content>
             親睦会戦、 リーグ戦、コスプレ撮影イベントなど、どんな目的でもフィールドを自由にご利用いただけます。
@@ -70,9 +70,9 @@
   </md-content>
 
   <md-content>
-    <div class="md-display-1 home-header">
+    <div class="md-display-1 tdcmd-header">
       定例会・イベントのお知らせ
-      <md-button class="md-fab md-primary more">
+      <md-button class="md-fab md-primary more" to="/event">
         <md-icon>more_horiz</md-icon>
       </md-button>
     </div>
@@ -86,9 +86,9 @@
   </md-content>
 
   <md-content>
-    <div class="md-display-1 home-header">
+    <div class="md-display-1 tdcmd-header">
       定例会・イベントの写真
-      <md-button class="md-fab md-primary more">
+      <md-button class="md-fab md-primary more" to="/photo">
         <md-icon>more_horiz</md-icon>
       </md-button>
     </div>
@@ -102,29 +102,17 @@
   </md-content>
 
   <md-content>
-    <div class="md-display-1 home-header">
+    <div class="md-display-1 tdcmd-header">
       アクセス
       <md-button class="md-fab md-primary more" to="/access">
         <md-icon>more_horiz</md-icon>
       </md-button>
     </div>
-    <div class="md-subheading home-sub-header">〒299-0231 千葉県袖ケ浦市上泉字下鎌田1135−1</div>
+    <div class="md-subheading tdcmd-sub-header">〒299-0231 千葉県袖ケ浦市上泉字下鎌田1135−1</div>
   </md-content>
-  <!-- <md-content class="map-container">
-    <gmap-map class="gmap" :center="center" :zoom="14">
-      <gmap-marker
-        :key="index"
-        v-for="(m, index) in markers"
-        :position="m.position"
-        :clickable="true"
-        :draggable="true"
-        @click="center=m.position"
-      ></gmap-marker>
-    </gmap-map>
-  </md-content> -->
   <div class="cover">
-    <img class="map-pic" src="static/map1.png">
-    <img class="map-pic" src="static/map2.png">
+    <img class="map-pic" src="/static/map1.png">
+    <img class="map-pic" src="/static/map2.png">
   </div>
 
   <!-- <md-content class="map-container">
@@ -143,7 +131,6 @@
 <script>
 // import utils from '@/tool/utils.js'
 import eventCard from '@/components/shared/eventCard'
-
 export default {
   props: ['manager'],
   components: {
@@ -155,11 +142,7 @@ export default {
       {_id: 2, title: '3月1日 定例会', date: '2018年3月1日', cover: 'static/e2.jpg'},
       {_id: 3, title: '2月22日 定例会', date: '2018年2月22日', cover: 'static/e3.jpg'},
       {_id: 4, title: '2月14日 定例会', date: '2018年2月14日', cover: 'static/e4.jpg'}
-    ],
-    center: {lat: 35.416645, lng: 140.042037},
-    markers: [{
-      position: {lat: 35.416645, lng: 140.042037}
-    }]
+    ]
   }),
   methods: {
     changed (editor, content) {},
@@ -193,11 +176,11 @@ export default {
   margin-top: 30px;
   padding: 20px;
 }
-.home-header {
+.tdcmd-header {
   width: 100%;
   text-align: center;
 }
-.home-sub-header {
+.tdcmd-sub-header {
   width: 100%;
   text-align: center;
   margin-top: 10px;
@@ -242,9 +225,5 @@ export default {
 .google-calendar {
   height: 80vw;
   max-height: 600px;
-}
-.gmap {
-  width: 100%;
-  height: 400px
 }
 </style>

@@ -12,7 +12,6 @@ import router from './tool/router'
 import {VueMasonryPlugin} from 'vue-masonry'
 import vueHeadful from 'vue-headful'
 import VueMaterial from 'vue-material'
-
 import * as VueGoogleMaps from 'vue2-google-maps'
 
 Vue.config.productionTip = false
@@ -20,11 +19,10 @@ Vue.use(VueMasonryPlugin)
 Vue.component('vue-headful', vueHeadful)
 Vue.use(VueMaterial)
 utils.setRouter(router)
-
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyA-V43tbOa8Hi0oqwhlaSkYUayZSGnP7BY',
-    v: 'OPTIONAL VERSION NUMBER'
+    v: '3'
   }
 })
 

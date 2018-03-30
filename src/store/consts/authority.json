@@ -5,11 +5,13 @@
     "calendar",
     "company",
     "event",
+    "eventDetail",
     "field",
     "photo",
+    "photoDetail",
     "rental",
     "reserve",
-    "reserveField"
+    "monopoly"
   ],
   "1": [
     "home",
@@ -17,11 +19,13 @@
     "calendar",
     "company",
     "event",
+    "eventDetail",
     "field",
     "photo",
+    "photoDetail",
     "rental",
     "reserve",
-    "reserveField",
+    "monopoly",
     "admin",
     "article",
     "contact"

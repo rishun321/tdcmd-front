@@ -77,4 +77,8 @@ html, body {
   z-index: 10;
 }
 
+// tabs
+.md-tabs-content {
+  height: auto !important;
+}
 </style>

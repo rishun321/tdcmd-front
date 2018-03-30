@@ -1,7 +1,7 @@
 <template>
 <md-snackbar :md-position="position" :md-duration="isInfinity ? Infinity : duration" :md-active.sync="showSnackbar" md-persistent>
   <span>{{message}}</span>
-  <md-button class="md-primary" @click="excute()">OK</md-button>
+  <md-button class="md-accent" @click="excute()">OK</md-button>
 </md-snackbar>
 </template>
 
@@ -21,7 +21,7 @@ export default {
   mounted () {
     const that = this
     utils.event.$on('SHOW_SNACKBAR', (code, duration, ok) => {
-      const info = manager.const.messages[code] || manager.const.messages['I001']
+      const info = manager.const.message[code] || manager.const.message['I001']
       that.message = info.message
       if (duration && parseInt(duration) >= 1000 && parseInt(duration) <= 10000) {
         that.isInfinity = false
