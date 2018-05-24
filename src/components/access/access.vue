@@ -42,27 +42,21 @@
   </md-content>
   <p class="md-subheading info">アドレス：〒299-0231 千葉県袖ケ浦市上泉字下鎌田1135−1</p>
   <p class="md-subheading info">経緯：35.416565, 140.042137</p>
-  <md-content class="content-block">
-    {{test}}
-    <gmap-map class="gmap" :center="center" :zoom="14">
-      <gmap-marker
-        v-for="(m, index) in markers"
-        :key="index"
-        :position="m.position"
-        :clickable="false"
-        :draggable="false"
-      ></gmap-marker>
-    </gmap-map>
-  </md-content>
+  <div style="position: relative;">
+    <googleMap class="gmap animate" :manager="manager" :config="position"></googleMap>
+  </div>
 </div>
 </template>
 
 <script>
 // import utils from '@/tool/utils.js'
+import googleMap from '@/components/common/googleMap'
 export default {
   props: ['manager'],
+  components: {
+    googleMap
+  },
   data: () => ({
-    test: null,
     routes: [
       {start: '姉ヶ崎駅発', lines: [{name: 'JR内房線、総武線、京葉線', station: '姉ヶ崎駅'}, {name: '「茅野」行バス', station: '「滝ケ沢団地」バス停'}, {name: '徒歩1分', station: 'サンダーコマンドス'}]},
       {start: '東京駅発', lines: [{name: 'JR総武線、京葉線', station: '姉ヶ崎駅'}, {name: '「茅野」行バス', station: '「滝ケ沢団地」バス停'}, {name: '徒歩1分', station: 'サンダーコマンドス'}]},
@@ -73,10 +67,7 @@ export default {
       {start: '横浜駅東口発(送迎車予約)', lines: [{name: '「木更津駅東口」行バス', station: '「袖ケ浦バスターミナル」バス停'}, {name: '送迎車', station: 'サンダーコマンドス'}]},
       {start: '川崎駅東口発(送迎車予約)', lines: [{name: '「木更津駅東口」行バス', station: '「袖ケ浦バスターミナル」バス停'}, {name: '送迎車', station: 'サンダーコマンドス'}]}
     ],
-    center: {lat: 35.416565, lng: 140.042137},
-    markers: [{
-      position: {lat: 35.416565, lng: 140.042137}
-    }]
+    position: {latitude: 35.416565, longitude: 140.042137}
   })
 }
 </script>

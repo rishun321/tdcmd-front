@@ -71,7 +71,7 @@
 
   <md-content>
     <div class="md-display-1 tdcmd-header">
-      定例会・イベントのお知らせ
+      お知らせ
       <md-button class="md-fab md-primary more" to="/event">
         <md-icon>more_horiz</md-icon>
       </md-button>
@@ -87,7 +87,7 @@
 
   <md-content>
     <div class="md-display-1 tdcmd-header">
-      定例会・イベントの写真
+      写真
       <md-button class="md-fab md-primary more" to="/photo">
         <md-icon>more_horiz</md-icon>
       </md-button>
