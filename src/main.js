@@ -24,7 +24,7 @@ utils.setRouter(router)
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyA-V43tbOa8Hi0oqwhlaSkYUayZSGnP7BY',
-    v: 'OPTIONAL VERSION NUMBER'
+    v: '3'
   }
 })
 
