@@ -11,14 +11,15 @@
         <img class="resize-picture" src="@/assets/THUNDERCOMMANDOS.png">
       </div>
       <div class="md-toolbar-section-end">
-        <md-tabs class="md-primary show-gt-large">
+        <md-tabs class="md-primary show-gt-large" :md-active-tab="route">
           <md-tab id="route-home" md-icon="home" md-label="ホーム" to="/"></md-tab>
           <md-tab id="route-field" md-icon="filter_hdr" md-label="フィールド" to="/field"></md-tab>
           <md-tab id="route-rental" md-icon="build" md-label="レンタル" to="/rental"></md-tab>
           <md-tab id="route-event" md-icon="whatshot" md-label="定例会" to="/event"></md-tab>
-          <md-tab id="route-lend" md-icon="lock_outline" md-label="貸切" to="/reserveField"></md-tab>
+          <md-tab id="route-monopoly" md-icon="lock_outline" md-label="貸切" to="/monopoly"></md-tab>
+          <md-tab id="route-33" md-icon="burst_mode" md-label="お知らせ" to="/photo"></md-tab>
           <md-tab id="route-photo" md-icon="burst_mode" md-label="写真" to="/photo"></md-tab>
-          <md-tab id="route-calendar" md-icon="date_range" md-label="カレンダー" to="/calendar"></md-tab>
+          <!-- <md-tab id="route-calendar" md-icon="date_range" md-label="カレンダー" to="/calendar"></md-tab> -->
           <md-tab id="route-reserve" md-icon="live_help" md-label="予約" to="/reserve"></md-tab>
           <md-tab id="route-access" md-icon="directions_car" md-label="アクセス" to="/access"></md-tab>
         </md-tabs>
@@ -45,18 +46,22 @@
         <md-icon>whatshot</md-icon>
         <span class="md-list-item-text">定例会</span>
       </md-list-item>
-      <md-list-item to="/reserveField">
+      <md-list-item to="/monopoly">
         <md-icon>lock_outline</md-icon>
         <span class="md-list-item-text">貸切</span>
       </md-list-item>
       <md-list-item to="/photo">
         <md-icon>burst_mode</md-icon>
+        <span class="md-list-item-text">お知らせ</span>
+      </md-list-item>
+      <md-list-item to="/photo">
+        <md-icon>burst_mode</md-icon>
         <span class="md-list-item-text">写真</span>
       </md-list-item>
-      <md-list-item to="/calendar">
+      <!-- <md-list-item to="/calendar">
         <md-icon>date_range</md-icon>
         <span class="md-list-item-text">カレンダー</span>
-      </md-list-item>
+      </md-list-item> -->
       <md-list-item to="/reserve">
         <md-icon>live_help</md-icon>
         <span class="md-list-item-text">予約</span>
@@ -82,16 +87,28 @@ export default {
   data: () => ({
     menuVisible: false
   }),
-  methods: {
-    // logout () {
-    //   utils.restGet('/logout').then(
-    //     response => {
-    //       if (response) {
-    //         utils.router.push({name: 'login'})
-    //       }
-    //     }
-    //   )
-    // }
+  computed: {
+    route () {
+      if (this.$route.name === 'home' || this.$route.name === 'company') {
+        return 'route-home'
+      } else if (this.$route.name === 'field') {
+        return 'route-field'
+      } else if (this.$route.name === 'rental') {
+        return 'route-rental'
+      } else if (this.$route.name === 'event' || this.$route.name === 'eventDetail') {
+        return 'route-event'
+      } else if (this.$route.name === 'monopoly') {
+        return 'route-monopoly'
+      } else if (this.$route.name === 'photo' || this.$route.name === 'photoDetail') {
+        return 'route-photo'
+      } else if (this.$route.name === 'calendar') {
+        return 'route-calendar'
+      } else if (this.$route.name === 'reserve') {
+        return 'route-reserve'
+      } else if (this.$route.name === 'access') {
+        return 'route-access'
+      }
+    }
   }
 }
 </script>

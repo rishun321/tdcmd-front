@@ -14,7 +14,7 @@ import field from '@/components/field/field'
 import photo from '@/components/photo/photo'
 import rental from '@/components/rental/rental'
 import reserve from '@/components/reserve/reserve'
-import reserveField from '@/components/reserveField/reserveField'
+import monopoly from '@/components/monopoly/monopoly'
 import admin from '@/components/admin/admin'
 import article from '@/components/admin/article'
 import contact from '@/components/admin/contact'
@@ -92,7 +92,7 @@ export default new Router({
         {path: '/photo', name: 'photo', component: photo, beforeEnter: nonePreload},
         {path: '/rental', name: 'rental', component: rental, beforeEnter: nonePreload},
         {path: '/reserve', name: 'reserve', component: reserve, beforeEnter: nonePreload},
-        {path: '/reserveField', name: 'reserveField', component: reserveField, beforeEnter: nonePreload}
+        {path: '/monopoly', name: 'monopoly', component: monopoly, beforeEnter: nonePreload}
         // {path: '/admin/pagelist/:pagetype', name: 'pagelist', component: pagelist, beforeEnter: preloadPagesByType},
         // {path: '/admin/pageedit/:id', name: 'pageedit', component: pageedit, beforeEnter: preloadPageByID},
         // {path: '/admin/pageedit', name: 'pageedit1', component: pageedit, beforeEnter: preloadPageByID}

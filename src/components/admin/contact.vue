@@ -2,7 +2,7 @@
 <div class="app-content-auto-height">
   <vue-headful title="サンダーコマンドス - 予約・連絡管理"/>
   <div class="cover">
-    <img src="static/cover1.jpg">
+    <img src="/static/cover1.jpg">
   </div>
 
   <md-content>

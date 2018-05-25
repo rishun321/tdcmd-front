@@ -2,7 +2,8 @@ import utils from '@/tool/utils.js'
 import consts from './consts'
 import user from './user.js'
 
-import pageService from './services/pageService.js'
+import eventService from './services/eventService.js'
+import photoService from './services/photoService.js'
 
 class Manager {
   constructor () {
@@ -11,7 +12,8 @@ class Manager {
     this.const = consts
     this.user = user
 
-    this.pageService = pageService
+    this.eventService = eventService
+    this.photoService = photoService
 
     this.locker = 'unlock'
     utils.event.$on('LOCK_SCREEN', (locker) => {

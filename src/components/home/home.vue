@@ -2,12 +2,12 @@
 <div class="app-content-auto-height">
   <vue-headful title="サンダーコマンドス - ホーム"/>
   <div class="cover">
-    <img class="cover-pic" src="static/cover1.jpg">
+    <img class="cover-pic" src="/static/cover1.jpg">
   </div>
 
   <md-content>
-    <div class="md-display-1 home-header">サンダーコマンドス</div>
-    <div class="md-display-1 home-header">サバイバルゲーム</div>
+    <div class="md-display-1 tdcmd-header">サンダーコマンドス</div>
+    <div class="md-display-1 tdcmd-header">サバイバルゲーム</div>
   </md-content>
   <md-content>
     <div class="md-layout md-gutter md-alignment-top-center">
@@ -15,14 +15,14 @@
       <div class="md-layout-item md-size-33 md-small-size-50 md-xsmall-size-100">
         <md-card md-with-hover>
           <md-card-media>
-            <img class="trim-picture" src="static/h1.jpg">
+            <img class="trim-picture" src="/static/h1.jpg">
           </md-card-media>
           <md-card-header>
             <div class="md-title">道具装備レンタル</div>
             <div class="md-subhead">レンタルサービス</div>
           </md-card-header>
           <md-card-actions>
-            <md-button class="md-primary">詳しくはこちら</md-button>
+            <md-button class="md-primary" to="/rental">詳しくはこちら</md-button>
           </md-card-actions>
           <md-card-content>
             サバイバルゲームの道具や装備をお持ちでない方に対して、道具と装備品のレンタルサービスもご用意しております。
@@ -33,14 +33,14 @@
       <div class="md-layout-item md-size-33 md-small-size-50 md-xsmall-size-100">
         <md-card md-with-hover>
           <md-card-media>
-            <img class="trim-picture" src="static/h2.jpg">
+            <img class="trim-picture" src="/static/h2.jpg">
           </md-card-media>
           <md-card-header>
             <div class="md-title">定例会とは</div>
             <div class="md-subhead">ルール紹介</div>
           </md-card-header>
           <md-card-actions>
-            <md-button class="md-primary">詳しくはこちら</md-button>
+            <md-button class="md-primary" to="/event">詳しくはこちら</md-button>
           </md-card-actions>
           <md-card-content>
             サンダーコマンドスは、土日や祝日に、常に定例会を開催しております。同じな趣味をお持ちの友達と出会えるかも。
@@ -51,14 +51,14 @@
       <div class="md-layout-item md-size-33 md-small-size-50 md-xsmall-size-100">
         <md-card md-with-hover>
           <md-card-media>
-            <img class="trim-picture" src="static/h3.jpg">
+            <img class="trim-picture" src="/static/h3.jpg">
           </md-card-media>
           <md-card-header>
             <div class="md-title">フィールド貸切</div>
             <div class="md-subhead">貸切サービス</div>
           </md-card-header>
           <md-card-actions>
-            <md-button class="md-primary">詳しくはこちら</md-button>
+            <md-button class="md-primary" to="/monopoly">詳しくはこちら</md-button>
           </md-card-actions>
           <md-card-content>
             親睦会戦、 リーグ戦、コスプレ撮影イベントなど、どんな目的でもフィールドを自由にご利用いただけます。
@@ -70,9 +70,9 @@
   </md-content>
 
   <md-content>
-    <div class="md-display-1 home-header">
-      定例会・イベントのお知らせ
-      <md-button class="md-fab md-primary more">
+    <div class="md-display-1 tdcmd-header">
+      お知らせ
+      <md-button class="md-fab md-primary more" to="/event">
         <md-icon>more_horiz</md-icon>
       </md-button>
     </div>
@@ -86,9 +86,9 @@
   </md-content>
 
   <md-content>
-    <div class="md-display-1 home-header">
-      定例会・イベントの写真
-      <md-button class="md-fab md-primary more">
+    <div class="md-display-1 tdcmd-header">
+      写真
+      <md-button class="md-fab md-primary more" to="/photo">
         <md-icon>more_horiz</md-icon>
       </md-button>
     </div>
@@ -102,79 +102,17 @@
   </md-content>
 
   <md-content>
-    <div class="md-display-1 home-header">
+    <div class="md-display-1 tdcmd-header">
       アクセス
       <md-button class="md-fab md-primary more" to="/access">
         <md-icon>more_horiz</md-icon>
       </md-button>
     </div>
-    <div class="md-subheading home-sub-header">〒299-0231 千葉県袖ケ浦市上泉字下鎌田1135−1</div>
-  </md-content>
-  <md-content class="map-container">
-    <gmap-map class="gmap" :center="center" :zoom="14">
-      <gmap-marker
-        :key="index"
-        v-for="(m, index) in markers"
-        :position="m.position"
-        map-type-id='terrain'
-        :options="{scrollwheel: scrollwheel}"
-        :clickable="true"
-        :draggable="true"
-        @click="center=m.position"
-      ></gmap-marker>
-    </gmap-map>
-  </md-content>
-  <md-content class="map-container">
-
-    <!--
-
-    class="map-panel" @zoom_changed="update('zoom', $event)"
-    @maptypeid_changed="update('mapType', $event)" @bounds_changed="update('bounds', $event)" -->
-    <gmap-map class="gmap map-panel" :center="center" :zoom="zoom" :map-type-id="mapType" :options="{styles: mapStyles, scrollwheel: scrollwheel}"
-    @rightclick="mapRclicked" @drag="drag++" @click="mapClickedCount++"
-    @center_changed="update('reportedCenter', $event)">
-      <!-- <gmap-marker
-        :key="index"
-        v-for="(m, index) in markers"
-        :position="m.position"
-        map-type-id='terrain'
-        :options="{scrollwheel: scrollwheel}"
-        :clickable="true"
-        :draggable="true"
-        @click="center=m.position"
-      ></gmap-marker> -->
-    <gmap-cluster :grid-size="gridSize" v-if="clustering">
-      <gmap-marker v-if="m.enabled" :position="m.position" :opacity="m.opacity" :draggable="m.draggable" @click="m.clicked++" @rightclick="m.rightClicked++" @dragend="m.dragended++" @position_changed="updateChild(m, 'position', $event)" v-for="m in activeMarkers"
-          :key="m.id">
-        <gmap-info-window :opened="m.ifw">{{m.ifw2text}}</gmap-info-window>
-      </gmap-marker>
-    </gmap-cluster>
-    <div v-if="!clustering">
-      <gmap-marker v-if="m.enabled" :position="m.position" :opacity="m.opacity" :draggable="m.draggable" @click="m.clicked++" @rightclick="m.rightClicked++" @dragend="m.dragended++" @position_changed="updateChild(m, 'position', $event)" v-for="m in activeMarkers"
-          :key="m.id">
-        <gmap-info-window :opened="m.ifw">{{m.ifw2text}}</gmap-info-window>
-      </gmap-marker>
-    </div>
-
-    <gmap-info-window :position="reportedCenter" :opened="ifw">
-      To show you the bindings are working I will stay on the center of the screen whatever you do :)
-      <br/> To show you that even my content is bound to vue here is the number of time you clicked on the map
-      <b>{{mapClickedCount}}</b>
-    </gmap-info-window>
-
-    <gmap-info-window :position="reportedCenter" :opened="ifw2">{{ifw2text}}</gmap-info-window>
-
-    <gmap-polyline v-if="plvisible" :path="plPath" :editable="pleditable" :draggable="true" :options="{geodesic:true, strokeColor:'#FF0000'}" @path_changed="updatePolylinePath($event)">
-    </gmap-polyline>
-    <gmap-polygon v-if="pgvisible" :paths="pgPath" :editable="true" :options="{geodesic:true, strokeColor:'#FF0000', fillColor:'#000000'}" @paths_changed="updatePolygonPaths($event)">
-    </gmap-polygon>
-    <gmap-circle v-if="displayCircle" :bounds="circleBounds" :center="reportedCenter" :radius="100000" :options="{editable: true}" @radius_changed="updateCircle('radius', $event)" @bounds_changed="updateCircle('bounds', $event)"></gmap-circle>
-    <gmap-rectangle v-if="displayRectangle" :bounds="rectangleBounds" :options="{editable: true}" @bounds_changed="updateRectangle('bounds', $event)"></gmap-rectangle>
-  </gmap-map>
+    <div class="md-subheading tdcmd-sub-header">〒299-0231 千葉県袖ケ浦市上泉字下鎌田1135−1</div>
   </md-content>
   <div class="cover">
-    <img class="map-pic" src="static/map1.png">
-    <img class="map-pic" src="static/map2.png">
+    <img class="map-pic" src="/static/map1.png">
+    <img class="map-pic" src="/static/map2.png">
   </div>
   <md-content class="company">
     <img class="resize-picture" src="@/assets/THUNDERCOMMANDOS.png">
@@ -188,7 +126,6 @@
 <script>
 // import utils from '@/tool/utils.js'
 import eventCard from '@/components/shared/eventCard'
-const _ = require('lodash')
 export default {
   props: ['manager'],
   components: {
@@ -200,142 +137,7 @@ export default {
       {_id: 2, title: '3月1日 定例会', date: '2018年3月1日', cover: 'static/e2.jpg'},
       {_id: 3, title: '2月22日 定例会', date: '2018年2月22日', cover: 'static/e3.jpg'},
       {_id: 4, title: '2月14日 定例会', date: '2018年2月14日', cover: 'static/e4.jpg'}
-    ],
-    center: {lat: 35.416645, lng: 140.042037},
-    markers: [{
-      position: {lat: 35.416645, lng: 140.042037}
-    }],
-    start: null,
-    end: null,
-    lastId: 1,
-    // center: {
-    //   lat: 48.8538302,
-    //   lng: 2.2982161
-    // },
-    reportedCenter: {
-      lat: 48.8538302,
-      lng: 2.2982161
-    },
-    mapBounds: {},
-    clustering: true,
-    zoom: 7,
-    gridSize: 50,
-    mapType: 'terrain',
-    // markers: [],
-    markersEven: false,
-    drag: 0,
-    mapClickedCount: 0,
-    ifw: true,
-    ifw2: false,
-    ifw2text: 'You can also use the content prop to set your modal',
-    mapStyle: 'green',
-    circleBounds: {},
-    displayCircle: false,
-    displayRectangle: false,
-    rectangleBounds: {
-      north: 33.685,
-      south: 50.671,
-      east: -70.234,
-      west: -116.251
-    },
-    originalPlPath: [{
-      lat: 37.772,
-      lng: -122.214
-    }, {
-      lat: 21.291,
-      lng: -157.821
-    }, {
-      lat: -18.142,
-      lng: 178.431
-    }, {
-      lat: -27.467,
-      lng: 153.027
-    }],
-    plPath: [{
-      lat: 37.772,
-      lng: -122.214
-    }, {
-      lat: 21.291,
-      lng: -157.821
-    }, {
-      lat: -18.142,
-      lng: 178.431
-    }, {
-      lat: -27.467,
-      lng: 153.027
-    }],
-    pleditable: true,
-    plvisible: false,
-    pgvisible: false,
-    pgPath: [
-      [{
-        lat: 38.872886,
-        lng: -77.054720
-      }, {
-        lat: 38.872602,
-        lng: -77.058046
-      }, {
-        lat: 38.870080,
-        lng: -77.058604
-      }, {
-        lat: 38.868894,
-        lng: -77.055664
-      }, {
-        lat: 38.870598,
-        lng: -77.053346
-      }],
-      [{
-        lat: 38.871684,
-        lng: -77.056780
-      }, {
-        lat: 38.871867,
-        lng: -77.055449
-      }, {
-        lat: 38.870915,
-        lng: -77.054891
-      }, {
-        lat: 38.870113,
-        lng: -77.055836
-      }, {
-        lat: 38.870581,
-        lng: -77.057037
-      }]
-    ],
-    opgPath: [
-      [{
-        lat: 38.872886,
-        lng: -77.054720
-      }, {
-        lat: 38.872602,
-        lng: -77.058046
-      }, {
-        lat: 38.870080,
-        lng: -77.058604
-      }, {
-        lat: 38.868894,
-        lng: -77.055664
-      }, {
-        lat: 38.870598,
-        lng: -77.053346
-      }],
-      [{
-        lat: 38.871684,
-        lng: -77.056780
-      }, {
-        lat: 38.871867,
-        lng: -77.055449
-      }, {
-        lat: 38.870915,
-        lng: -77.054891
-      }, {
-        lat: 38.870113,
-        lng: -77.055836
-      }, {
-        lat: 38.870581,
-        lng: -77.057037
-      }]
-    ],
-    scrollwheel: true
+    ]
   }),
   computed: {
     activeMarkers () {
@@ -415,40 +217,7 @@ export default {
   },
   methods: {
     changed (editor, content) {},
-    preview () {
-      console.log(this.content)
-    },
-    updateMapCenter (which, value) { // eslint-disable-line no-unused-vars
-      this.center = _.clone(this.reportedCenter)
-    },
-    mapClicked (mouseArgs) {
-      console.log('map clicked', mouseArgs) // eslint-disable-line no-console
-    },
-    mapRclicked (mouseArgs) {
-      const createdMarker = this.addMarker()
-      createdMarker.position.lat = mouseArgs.latLng.lat()
-      createdMarker.position.lng = mouseArgs.latLng.lng()
-    },
-    addMarker: function addMarker () {
-      this.lastId++
 
-      this.markers.push({
-        id: this.lastId,
-        position: {
-          lat: 48.8538302,
-          lng: 2.2982161
-        },
-        opacity: 1,
-        draggable: true,
-        enabled: true,
-        clicked: 0,
-        rightClicked: 0,
-        dragended: 0,
-        ifw: true,
-        ifw2text: 'This text is bad please change me :( '
-      })
-      return this.markers[this.markers.length - 1]
-    },
     resetPlPath () {
       this.plPath = this.originalPlPath
     },
@@ -540,11 +309,11 @@ export default {
   margin-top: 30px;
   padding: 20px;
 }
-.home-header {
+.tdcmd-header {
   width: 100%;
   text-align: center;
 }
-.home-sub-header {
+.tdcmd-sub-header {
   width: 100%;
   text-align: center;
   margin-top: 10px;
@@ -608,10 +377,5 @@ export default {
 .gmap{
   width: 100%;
   height: 600px;
-}
-gmap-map {
-  width: 100%;
-  height: 600px;
-  // display: block;
 }
 </style>

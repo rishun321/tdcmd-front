@@ -1,7 +1,7 @@
 <template>
 <div class="app-content-auto-height">
   <div class="cover">
-    <img src="static/cover1.jpg">
+    <img src="/static/cover1.jpg">
   </div>
 
   <md-content>
