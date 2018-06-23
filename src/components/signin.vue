@@ -2,7 +2,7 @@
 <div class="wrapper">
   <md-card class="md-elevation-8">
     <md-card-header>
-      <div class="md-title">ブドウさん</div>
+      <div class="md-title">サンダーコマンドス</div>
     </md-card-header>
 
     <md-card-content>

@@ -61,9 +61,12 @@ html, body {
 .md-with-hover {
   cursor: default !important;
 }
+.component-wrapper {
+  padding: 16px;
+}
 
-// button icon
-.button-text {
+// icon and text in one row
+.icon-text {
   display: flex;
   justify-content: center;
   align-items: center;

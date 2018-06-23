@@ -10,6 +10,6 @@
   "B002": {"type": "error", "title": "ERROR", "message": "アカウント名もしくはパスワードに誤りがあります。"},
   "B003": {"type": "error", "title": "ERROR", "message": "アカウントはすでに存在しています。"},
   "B004": {"type": "error", "title": "ERROR", "message": "アカウントとパスワードを入力してください。"},
-  "I001": {"type": "info", "title": "INFO", "message": "工事中です。"},
+  "I001": {"type": "info", "title": "INFO", "message": "お問い合せを送信しました。お早めに返事致しますので、しばらくお待ちください。"},
   "I002": {"type": "info", "title": "INFO", "message": "保存しました。"}
 }

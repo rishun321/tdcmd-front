@@ -1,12 +1,6 @@
 <template>
 <div class="app-content-auto-height">
-  <vue-headful title="サンダーコマンドス - 記事管理"/>
-  <div class="cover">
-    <img src="/static/cover1.jpg">
-  </div>
-
-  <md-content>
-  </md-content>
+  <vue-headful title="サンダーコマンドス - 投稿"/>
 </div>
 </template>
 
@@ -18,15 +12,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.cover {
-  width: 100%;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
+
 </style>

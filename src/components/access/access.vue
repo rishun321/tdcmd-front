@@ -12,9 +12,9 @@
   <md-content class="content-block">
     <div class="md-headline tdcmd-header"><md-icon class="md-primary">directions_subway</md-icon>公共交通機関でお越しの方</div>
   </md-content>
-  <div class="md-layout md-gutter content-block">
+  <div class="md-layout content-block">
     <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="(route, i) in routes" :key="route.start">
-      <div class="access-block md-elevation-3">
+      <md-card class="access-block">
         <md-content class="md-primary access-start">
           {{route.start}}
         </md-content>
@@ -32,7 +32,7 @@
           </md-content>
           <div class="vertical-line" :key="'down' + i + '-' + j" v-if="line.station !== 'サンダーコマンドス'"></div>
         </template>
-      </div>
+      </md-card>
     </div>
   </div>
   <p class="md-subheading info">※サンダーコマンドスは「袖ケ浦バスターミナル」バス停、JR袖ヶ浦駅（南口）、JR姉ヶ崎駅（東口）にて、無料送迎車を用意しております。また、蒲田、川崎、品川、秋葉原、市川の有料送迎車を派遣することもできます。送迎車のご予約は、<router-link to="/reserve">「予約」フォーム</router-link>にてお問合わせください。</p>
@@ -100,9 +100,12 @@ export default {
   text-align: center;
   margin-top: 10px;
 }
+.md-layout-item {
+  margin-bottom: 30px;
+}
 .access-block {
   padding: 20px;
-  margin-bottom: 30px;
+  height: 100%;
 }
 .access-start {
   padding: 20px;

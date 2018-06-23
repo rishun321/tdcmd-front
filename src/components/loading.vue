@@ -1,5 +1,5 @@
 <template>
-<vue-headful title="ブドウさん"/>
+<vue-headful title="サンダーコマンドス"/>
 </template>
 
 <script>

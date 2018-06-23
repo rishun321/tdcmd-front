@@ -1,7 +1,7 @@
 <template>
 <md-empty-state class="md-primary" md-icon="highlight_off" md-label="認証が失敗しました" md-description="">
   <div class="error-content">
-    再度<router-link to="/login">ブドウさんにログイン</router-link>してみてください。
+    再度<router-link to="/signin">ログイン</router-link>してみてください。
   </div>
   <div class="">
     エラーが解消されない場合は、システム管理者へご連絡くださいませ。

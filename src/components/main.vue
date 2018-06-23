@@ -17,9 +17,8 @@
           <md-tab id="route-rental" md-icon="build" md-label="レンタル" to="/rental"></md-tab>
           <md-tab id="route-event" md-icon="whatshot" md-label="定例会" to="/event"></md-tab>
           <md-tab id="route-monopoly" md-icon="lock_outline" md-label="貸切" to="/monopoly"></md-tab>
-          <md-tab id="route-33" md-icon="burst_mode" md-label="お知らせ" to="/photo"></md-tab>
+          <md-tab id="route-notification" md-icon="notification_important" md-label="お知らせ" to="/notification"></md-tab>
           <md-tab id="route-photo" md-icon="burst_mode" md-label="写真" to="/photo"></md-tab>
-          <!-- <md-tab id="route-calendar" md-icon="date_range" md-label="カレンダー" to="/calendar"></md-tab> -->
           <md-tab id="route-reserve" md-icon="live_help" md-label="予約" to="/reserve"></md-tab>
           <md-tab id="route-access" md-icon="directions_car" md-label="アクセス" to="/access"></md-tab>
         </md-tabs>
@@ -50,18 +49,14 @@
         <md-icon>lock_outline</md-icon>
         <span class="md-list-item-text">貸切</span>
       </md-list-item>
-      <md-list-item to="/photo">
-        <md-icon>burst_mode</md-icon>
+      <md-list-item to="/notification">
+        <md-icon>notification_important</md-icon>
         <span class="md-list-item-text">お知らせ</span>
       </md-list-item>
       <md-list-item to="/photo">
         <md-icon>burst_mode</md-icon>
         <span class="md-list-item-text">写真</span>
       </md-list-item>
-      <!-- <md-list-item to="/calendar">
-        <md-icon>date_range</md-icon>
-        <span class="md-list-item-text">カレンダー</span>
-      </md-list-item> -->
       <md-list-item to="/reserve">
         <md-icon>live_help</md-icon>
         <span class="md-list-item-text">予約</span>
@@ -101,8 +96,8 @@ export default {
         return 'route-monopoly'
       } else if (this.$route.name === 'photo' || this.$route.name === 'photoDetail') {
         return 'route-photo'
-      } else if (this.$route.name === 'calendar') {
-        return 'route-calendar'
+      } else if (this.$route.name === 'notification') {
+        return 'route-notification'
       } else if (this.$route.name === 'reserve') {
         return 'route-reserve'
       } else if (this.$route.name === 'access') {

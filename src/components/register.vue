@@ -24,7 +24,7 @@
     </md-card-content>
 
     <md-card-actions>
-      <md-button class="md-primary" to="/login">既存アカウントでログイン</md-button>
+      <md-button class="md-primary" to="/signin">既存アカウントでログイン</md-button>
       <md-button class="md-primary md-raised" @click.native="register()" :disabled="!isAccountValid || !isPasswordValid || !isRetypeValid">作成</md-button>
     </md-card-actions>
   </md-card>

@@ -103,6 +103,14 @@
 
   <md-content>
     <div class="md-display-1 tdcmd-header">
+      カレンダー
+    </div>
+    <!-- <iframe class="google-calendar" src="https://calendar.google.com/calendar/embed?src=m61elhohn1s4n613kgseekgo7o%40group.calendar.google.com&ctz=Asia%2FTokyo" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
+    <iframe class="google-calendar" src="https://calendar.google.com/calendar/embed?src=e69227usonlkiim5hkr3o777pg%40group.calendar.google.com&ctz=Asia%2FTokyo" frameborder="0" scrolling="no"></iframe>
+  </md-content>
+
+  <md-content>
+    <div class="md-display-1 tdcmd-header">
       アクセス
       <md-button class="md-fab md-primary more" to="/access">
         <md-icon>more_horiz</md-icon>
@@ -373,6 +381,10 @@ export default {
 .settings-panel {
   overflow-y: scroll;
   flex: 1 0 500px;
+}
+.google-calendar {
+  width: 100%;
+  height: 400px;
 }
 .gmap{
   width: 100%;

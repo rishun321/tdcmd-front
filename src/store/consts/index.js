@@ -1,10 +1,10 @@
 import authority from './authority.json'
-import messages from './messages.json'
+import message from './message.json'
 
 class Const {
   constructor () {
     this.authority = authority
-    this.messages = messages
+    this.message = message
   }
 }
 

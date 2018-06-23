@@ -1,31 +1,37 @@
 <template>
 <div class="app-content-auto-height">
-  <div class="cover">
-    <img src="/static/cover1.jpg">
-  </div>
-
-  <md-content>
-  </md-content>
+  <vue-headful title="サンダーコマンドス - 管理"/>
+  <md-button class="md-primary md-raised action-button" @click="signout()">
+    <div class="icon-text">
+      <md-icon>power_settings_new</md-icon><p>ログアウト</p>
+    </div>
+  </md-button>
+  <md-button class="md-primary md-raised action-button" to="/article">
+    <div class="icon-text">
+      <md-icon>add</md-icon><p>投稿</p>
+    </div>
+  </md-button>
 </div>
 </template>
 
 <script>
-// import utils from '@/tool/utils.js'
+import utils from '@/tool/utils.js'
 export default {
-  props: ['manager']
+  props: ['manager'],
+  methods: {
+    signout () {
+      utils.restGet('/logout').then(
+        response => {
+          if (response) {
+            location.href = location.protocol + '//' + location.host + '/'
+          }
+        }
+      )
+    }
+  }
 }
 </script>
 
 <style scoped lang="scss">
-.cover {
-  width: 100%;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
+
 </style>

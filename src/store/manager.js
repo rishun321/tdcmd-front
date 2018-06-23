@@ -4,6 +4,7 @@ import user from './user.js'
 
 import eventService from './services/eventService.js'
 import photoService from './services/photoService.js'
+import inquiryService from './services/inquiryService.js'
 
 class Manager {
   constructor () {
@@ -14,6 +15,7 @@ class Manager {
 
     this.eventService = eventService
     this.photoService = photoService
+    this.inquiryService = inquiryService
 
     this.locker = 'unlock'
     utils.event.$on('LOCK_SCREEN', (locker) => {
@@ -25,7 +27,10 @@ class Manager {
     next()
   }
   anonymousLogin () {
-    this.user.login({})
+    this.user.login({
+      _id: '匿名',
+      role: '0'
+    })
   }
   logout () {
     this.user.logout()
@@ -40,7 +45,7 @@ class Manager {
       }
     } else {
       if (this.const.authority[this.user.role].indexOf(route.name) < 0) {
-        utils.router.push({name: 'login', query: {path: route.fullPath}})
+        utils.router.push({name: 'signin', query: {path: route.fullPath}})
       }
     }
     return true

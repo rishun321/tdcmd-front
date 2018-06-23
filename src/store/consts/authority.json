@@ -2,7 +2,7 @@
   "0": [
     "home",
     "access",
-    "calendar",
+    "notification",
     "company",
     "event",
     "eventDetail",
@@ -16,7 +16,7 @@
   "1": [
     "home",
     "access",
-    "calendar",
+    "notification",
     "company",
     "event",
     "eventDetail",
@@ -27,7 +27,6 @@
     "reserve",
     "monopoly",
     "admin",
-    "article",
-    "contact"
+    "article"
   ]
 }

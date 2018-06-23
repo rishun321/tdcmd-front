@@ -2,21 +2,24 @@ class User {
   constructor () {
     this._id = ''
     this.password = ''
-    this.role = '0' // 0: 訪問者; 1: 管理者;
+    this.role = '0' // 0: 匿名; 1: 管理者;
   }
   get isLogin () {
-    return !(this._id === '') || (this.role === '0')
+    return !(this._id === '')
+  }
+  get isAnonymous () {
+    return this._id === '匿名'
   }
   get isAdmin () {
     return this._id && this.role === '1'
   }
   login (data) {
-    this._id = data._id || ''
-    this.password = data.password || ''
-    this.role = data.role || '0'
+    if (data._id != null) this._id = data._id
+    if (data.password != null) this.password = data.password
+    if (data.role != null) this.role = data.role
   }
   logout () {
-    this._id = ''
+    this._id = '匿名'
     this.password = ''
     this.role = '0'
   }
