@@ -61,7 +61,7 @@
             <md-button class="md-primary" to="/monopoly">詳しくはこちら</md-button>
           </md-card-actions>
           <md-card-content>
-            親睦会戦、 リーグ戦、コスプレ撮影イベントなど、どんな目的でもフィールドを自由にご利用いただけます。
+            親睦会戦や、 リーグ戦、コスプレ撮影イベントなど、どんな目的であってもフィールドを自由にご利用いただけます。
           </md-card-content>
         </md-card>
       </div>
@@ -72,15 +72,15 @@
   <md-content>
     <div class="md-display-1 tdcmd-header">
       お知らせ
-      <md-button class="md-fab md-primary more" to="/event">
+      <md-button class="md-fab md-primary more" to="/notification">
         <md-icon>more_horiz</md-icon>
       </md-button>
     </div>
   </md-content>
   <md-content>
-    <div class="md-layout md-gutter">
-      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100" v-for="event in events" :key="event._id">
-        <eventCard :manager="manager" :event="event"/>
+    <div class="md-layout md-gutter card-list">
+      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100" v-for="(notification, index) in manager.notificationService.notifications" :key="notification._id" v-if="index < 4">
+        <notificationCard :manager="manager" :notification="notification"/>
       </div>
     </div>
   </md-content>
@@ -94,9 +94,9 @@
     </div>
   </md-content>
   <md-content>
-    <div class="md-layout md-gutter">
-      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100" v-for="event in events" :key="event._id">
-        <eventCard :manager="manager" :event="event"/>
+    <div class="md-layout md-gutter card-list">
+      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100" v-for="(photo, index) in manager.photoService.photos" :key="photo._id" v-if="index < 4">
+        <photoCard :manager="manager" :photo="photo"/>
       </div>
     </div>
   </md-content>
@@ -133,21 +133,13 @@
 
 <script>
 // import utils from '@/tool/utils.js'
-import eventCard from '@/components/shared/eventCard'
+import notificationCard from '@/components/shared/notificationCard'
+import photoCard from '@/components/shared/photoCard'
 export default {
   props: ['manager'],
   components: {
-    eventCard
-  },
-  data: () => ({
-    events: [
-      {_id: 1, title: '3月7日 平日定例会', date: '2018年3月7日', cover: 'static/e1.png'},
-      {_id: 2, title: '3月1日 定例会', date: '2018年3月1日', cover: 'static/e2.jpg'},
-      {_id: 3, title: '2月22日 定例会', date: '2018年2月22日', cover: 'static/e3.jpg'},
-      {_id: 4, title: '2月14日 定例会', date: '2018年2月14日', cover: 'static/e4.jpg'}
-    ]
-  }),
-  methods: {
+    notificationCard,
+    photoCard
   }
 }
 </script>
@@ -247,5 +239,8 @@ export default {
 .gmap{
   width: 100%;
   height: 600px;
+}
+.card-list {
+  min-height: 414px;
 }
 </style>

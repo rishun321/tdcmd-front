@@ -5,8 +5,20 @@
     <img src="/static/cover1.jpg">
   </div>
 
-  <md-content>
-  </md-content>
+  <div class="contents">
+    <p class="md-display-1 content-title">フィールド貸切</p>
+    <p>チームの交流戦や親睦会、リーグ戦ゲーム、コスプレ撮影イベント、ショップのイベントなど、フィールドを自由にご利用いただけます。</p>
+    <p>※空き状況はカレンダーをご確認ください。</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+  </div>
 </div>
 </template>
 
@@ -26,5 +38,11 @@ export default {
     width: 100%;
     height: 100%;
   }
+}
+.content-title {
+  text-align: center;
+}
+.contents {
+  padding: 16px;
 }
 </style>

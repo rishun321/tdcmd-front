@@ -13,6 +13,7 @@ import notificationDetail from '@/components/notification/notificationDetail'
 import event from '@/components/event/event'
 import field from '@/components/field/field'
 import photo from '@/components/photo/photo'
+import photoDetail from '@/components/photo/photoDetail'
 import rental from '@/components/rental/rental'
 import reserve from '@/components/reserve/reserve'
 import monopoly from '@/components/monopoly/monopoly'
@@ -20,10 +21,17 @@ import admin from '@/components/admin/admin'
 import adminNotification from '@/components/admin/notification'
 import editNotification from '@/components/admin/editNotification'
 import adminPhoto from '@/components/admin/photo'
+import editPhoto from '@/components/admin/editPhoto'
 
 import manager from '@/store/manager.js'
 
 Vue.use(Router)
+
+let initApplication = (to, from, next) => {
+  manager.notificationService.loadNotifications(null, null, () => {
+    manager.photoService.loadPhotos(to, from, next)
+  })
+}
 
 let router = new Router({
   mode: 'history',
@@ -36,14 +44,15 @@ let router = new Router({
       path: '/',
       component: main,
       children: [
-        {path: '/', name: 'home', component: home, meta: {requireAuth: true}},
+        {path: '/', name: 'home', component: home, beforeEnter: initApplication, meta: {requireAuth: true}},
         {path: '/company', name: 'company', component: company, meta: {requireAuth: true}},
         {path: '/access', name: 'access', component: access, meta: {requireAuth: true}},
         {path: '/notification', name: 'notification', component: notification, beforeEnter: manager.notificationService.loadNotifications, meta: {requireAuth: true}},
         {path: '/notification/:id', name: 'notificationDetail', component: notificationDetail, beforeEnter: manager.notificationService.loadNotificationForDetail, meta: {requireAuth: true}},
         {path: '/event', name: 'event', component: event, meta: {requireAuth: true}},
         {path: '/field', name: 'field', component: field, meta: {requireAuth: true}},
-        {path: '/photo', name: 'photo', component: photo, meta: {requireAuth: true}},
+        {path: '/photo', name: 'photo', component: photo, beforeEnter: manager.photoService.loadPhotos, meta: {requireAuth: true}},
+        {path: '/photo/:id', name: 'photoDetail', component: photoDetail, beforeEnter: manager.photoService.loadPhotoForDetail, meta: {requireAuth: true}},
         {path: '/rental', name: 'rental', component: rental, meta: {requireAuth: true}},
         {path: '/reserve', name: 'reserve', component: reserve, meta: {requireAuth: true}},
         {path: '/monopoly', name: 'monopoly', component: monopoly, meta: {requireAuth: true}},
@@ -54,7 +63,8 @@ let router = new Router({
           children: [
             {path: '/admin/notification', name: 'adminNotification', component: adminNotification, beforeEnter: manager.notificationService.loadNotifications, meta: {requireAuth: true}},
             {path: '/admin/notification/:id', name: 'editNotification', component: editNotification, beforeEnter: manager.notificationService.loadNotificationForEdit, meta: {requireAuth: true}},
-            {path: '/admin/photo', name: 'adminPhoto', component: adminPhoto, meta: {requireAuth: true}}
+            {path: '/admin/photo', name: 'adminPhoto', component: adminPhoto, beforeEnter: manager.photoService.loadPhotos, meta: {requireAuth: true}},
+            {path: '/admin/photo/:id', name: 'editPhoto', component: editPhoto, beforeEnter: manager.photoService.loadPhotoForEdit, meta: {requireAuth: true}}
           ],
           meta: {requireAuth: true}
         }
