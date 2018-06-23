@@ -1,6 +1,6 @@
 <template>
-<div class="app-content-auto-height">
-  <vue-headful title="サンダーコマンドス - 投稿"/>
+<div>
+  sdfsdf
 </div>
 </template>
 

@@ -1,16 +1,18 @@
 <template>
 <div class="app-content-auto-height">
   <vue-headful title="サンダーコマンドス - 管理"/>
-  <md-button class="md-primary md-raised action-button" @click="signout()">
-    <div class="icon-text">
-      <md-icon>power_settings_new</md-icon><p>ログアウト</p>
-    </div>
-  </md-button>
-  <md-button class="md-primary md-raised action-button" to="/article">
-    <div class="icon-text">
-      <md-icon>add</md-icon><p>投稿</p>
-    </div>
-  </md-button>
+  <div class="actions">
+    <md-button class="md-primary md-raised action-button" @click="logout()">
+      ログアウト
+    </md-button>
+    <md-button class="md-primary md-raised action-button" to="/admin/notification">
+      お知らせ
+    </md-button>
+    <md-button class="md-primary md-raised action-button" to="/admin/photo">
+      写真
+    </md-button>
+  </div>
+  <router-view :manager="manager"/>
 </div>
 </template>
 
@@ -19,7 +21,7 @@ import utils from '@/tool/utils.js'
 export default {
   props: ['manager'],
   methods: {
-    signout () {
+    logout () {
       utils.restGet('/logout').then(
         response => {
           if (response) {
@@ -33,5 +35,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.actions {
+  padding: 20px;
+  .action-button {
+    width: 100px;
+  }
+}
 </style>

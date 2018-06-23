@@ -4,8 +4,8 @@ class Photo {
   constructor (data) {
     this._id = data._id
     this.title = data.title
-    this.thumbnail = data.thumbnail
-    this.contenthtml = data.contenthtml
+    this.cover = data.cover
+    this.content = data.content
     this._cdate = null
     if (data.cdate) this.cdate = data.cdate
     this._udate = null
@@ -38,8 +38,8 @@ class Photo {
     return {
       _id: this._id,
       title: this.title,
-      thumbnail: this.thumbnail,
-      contenthtml: this.contenthtml
+      cover: this.cover,
+      content: this.content
     }
   }
 }

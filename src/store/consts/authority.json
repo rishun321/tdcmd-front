@@ -27,6 +27,9 @@
     "reserve",
     "monopoly",
     "admin",
-    "article"
+    "adminNotification",
+    "editNotification",
+    "adminPhoto",
+    "editPhoto"
   ]
 }

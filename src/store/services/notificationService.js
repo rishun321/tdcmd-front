@@ -1,25 +1,25 @@
 import utils from '@/tool/utils.js'
-import Photo from '@/store/models/photo.js'
+import Notification from '@/store/models/notification.js'
 
-class PhotoService {
+class NotificationService {
   constructor () {
-    this._photos = []
+    this._notifications = []
     this._count = 0
     this._page = 0
-    this._photo = null
+    this._notification = null
   }
-  get photos () {
-    return this._photos
+  get notifications () {
+    return this._notifications
   }
-  set photos (photos) {
-    if (photos) {
-      photos.forEach(one => {
+  set notifications (notifications) {
+    if (notifications) {
+      notifications.forEach(one => {
         // 重複を削除
-        this._photos.filter(photo => {
-          return photo._id === one._id
+        this._notifications.filter(notification => {
+          return notification._id === one._id
         })
         // リストに追加
-        this._photos.push(new Photo(one))
+        this._notifications.push(new Notification(one))
       })
     }
   }
@@ -35,57 +35,57 @@ class PhotoService {
   set page (data) {
     this._page = parseInt(data)
   }
-  get photo () {
-    return this._photo
+  get notification () {
+    return this._notification
   }
-  set photo (photo) {
-    if (photo) {
-      this._photo = new Photo(photo)
+  set notification (notification) {
+    if (notification) {
+      this._notification = new Notification(notification)
     } else {
-      this._photo = null
+      this._notification = null
     }
   }
 
   init () {
-    this._photos.splice(0, this._photos.length)
+    this._notifications.splice(0, this._notifications.length)
     this.count = 0
     this.page = 0
-    this.photo = null
+    this.notification = null
   }
 
-  findPhotos (filter, sort, page, next) {
+  findNotifications (filter, sort, page, next) {
     let that = this
-    utils.restGet('/public/findPhotos', {filter: filter, sort: sort, page: page}).then(
+    utils.restGet('/public/findNotifications', {filter: filter, sort: sort, page: page}).then(
       response => {
         if (response) {
           that.count = response.count
-          that.photos = response.photos
+          that.notifications = response.notifications
           if (next) next()
         }
       }
     )
   }
 
-  loadPhotos = (to, from, next) => {
+  loadNotifications = (to, from, next) => {
     this.init()
-    this.findPhotos(null, null, null, next)
+    this.findNotifications(null, null, null, next)
   }
 
-  morePhotos (next) {
+  moreNotifications (next) {
     let that = this
-    this.findPhotos(null, null, that.page + 1, () => {
+    this.findNotifications(null, null, that.page + 1, () => {
       that.page += 1
       if (next) next()
     })
   }
 
-  loadPhotoForEdit = (to, from, next) => {
+  loadNotificationForEdit = (to, from, next) => {
     let that = this
     const reg = /[0-9A-Fa-f]{24}/g
     if (to.params.id && to.params.id !== 'new' && reg.test(to.params.id)) {
-      that.findPhotos({_id: to.params.id}, null, null, () => {
-        if (that.photos.length > 0) {
-          that._photo = that.photos[0]
+      that.findNotifications({_id: to.params.id}, null, null, () => {
+        if (that.notifications.length > 0) {
+          that._notification = that.notifications[0]
           if (next) next()
         } else {
           utils.event.$emit('SHOW_MESSAGE', {code: 'B001', detail: '対象を参照する権限がないか、対象が削除されたか、いくつかの原因が考えられます。'}, () => {
@@ -94,7 +94,7 @@ class PhotoService {
         }
       })
     } else if (to.params.id && to.params.id === 'new') {
-      that.photo = {}
+      that.notification = {}
       if (next) next()
     } else {
       utils.event.$emit('SHOW_MESSAGE', {code: 'B005', detail: 'IDが間違っています。'}, () => {
@@ -103,13 +103,13 @@ class PhotoService {
     }
   }
 
-  loadPhotoForDetail = (to, from, next) => {
+  loadNotificationForDetail = (to, from, next) => {
     let that = this
     const reg = /[0-9A-Fa-f]{24}/g
     if (to.params.id && reg.test(to.params.id)) {
-      that.findPhotos({_id: to.params.id}, null, null, () => {
-        if (that.photos.length > 0) {
-          that._photo = that.photos[0]
+      that.findNotifications({_id: to.params.id}, null, null, () => {
+        if (that.notifications.length > 0) {
+          that._notification = that.notifications[0]
           if (next) next()
         } else {
           utils.event.$emit('SHOW_MESSAGE', {code: 'B001', detail: '対象を参照する権限がないか、対象が削除されたか、いくつかの原因が考えられます。'}, () => {
@@ -124,25 +124,25 @@ class PhotoService {
     }
   }
 
-  insertPhoto (photo, next) {
-    utils.restPut('/private/insertPhoto', photo).then(savedPhoto => {
-      if (savedPhoto) {
+  insertNotification (notification, next) {
+    utils.restPut('/private/insertNotification', notification).then(savedNotification => {
+      if (savedNotification) {
         if (next) next()
       }
     })
   }
 
-  updatePhoto (photo, next) {
-    utils.restPost('/private/updatePhoto', photo).then(savedPhoto => {
-      if (savedPhoto) {
+  updateNotification (notification, next) {
+    utils.restPost('/private/updateNotification', notification).then(savedNotification => {
+      if (savedNotification) {
         if (next) next()
       }
     })
   }
 
-  deletePhoto (photo, next) {
-    utils.restPost('/private/deletePhoto', {_id: photo._id}).then(savedPhoto => {
-      if (savedPhoto) {
+  deleteNotification (notification, next) {
+    utils.restPost('/private/deleteNotification', {_id: notification._id}).then(savedNotification => {
+      if (savedNotification) {
         if (next) next()
         utils.event.$emit('SHOW_MESSAGE', {code: 'I003'})
       }
@@ -150,4 +150,4 @@ class PhotoService {
   }
 }
 
-export default new PhotoService()
+export default new NotificationService()

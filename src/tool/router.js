@@ -16,7 +16,8 @@ import rental from '@/components/rental/rental'
 import reserve from '@/components/reserve/reserve'
 import monopoly from '@/components/monopoly/monopoly'
 import admin from '@/components/admin/admin'
-import article from '@/components/admin/article'
+import adminNotification from '@/components/admin/notification'
+import adminPhoto from '@/components/admin/photo'
 
 import manager from '@/store/manager.js'
 // import utils from '@/tool/utils.js'
@@ -57,8 +58,16 @@ let router = new Router({
         {path: '/rental', name: 'rental', component: rental, meta: {requireAuth: true}},
         {path: '/reserve', name: 'reserve', component: reserve, meta: {requireAuth: true}},
         {path: '/monopoly', name: 'monopoly', component: monopoly, meta: {requireAuth: true}},
-        {path: '/admin', name: 'admin', component: admin, meta: {requireAuth: true}},
-        {path: '/article', name: 'article', component: article, meta: {requireAuth: true}}
+        {
+          path: '/admin',
+          component: admin,
+          name: 'admin',
+          children: [
+            {path: '/admin/notification', name: 'adminNotification', component: adminNotification, meta: {requireAuth: true}},
+            {path: '/admin/photo', name: 'adminPhoto', component: adminPhoto, meta: {requireAuth: true}}
+          ],
+          meta: {requireAuth: true}
+        }
       ]
     },
     {path: '*', redirect: '/'}

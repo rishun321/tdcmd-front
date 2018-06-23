@@ -2,7 +2,7 @@ import utils from '@/tool/utils.js'
 import consts from './consts'
 import user from './user.js'
 
-import eventService from './services/eventService.js'
+import notificationService from './services/notificationService'
 import photoService from './services/photoService.js'
 import inquiryService from './services/inquiryService.js'
 
@@ -13,7 +13,7 @@ class Manager {
     this.const = consts
     this.user = user
 
-    this.eventService = eventService
+    this.notificationService = notificationService
     this.photoService = photoService
     this.inquiryService = inquiryService
 
