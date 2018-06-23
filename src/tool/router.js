@@ -9,6 +9,7 @@ import home from '@/components/home/home'
 import company from '@/components/company/company'
 import access from '@/components/access/access'
 import notification from '@/components/notification/notification'
+import notificationDetail from '@/components/notification/notificationDetail'
 import event from '@/components/event/event'
 import field from '@/components/field/field'
 import photo from '@/components/photo/photo'
@@ -17,25 +18,12 @@ import reserve from '@/components/reserve/reserve'
 import monopoly from '@/components/monopoly/monopoly'
 import admin from '@/components/admin/admin'
 import adminNotification from '@/components/admin/notification'
+import editNotification from '@/components/admin/editNotification'
 import adminPhoto from '@/components/admin/photo'
 
 import manager from '@/store/manager.js'
-// import utils from '@/tool/utils.js'
 
 Vue.use(Router)
-
-// const preloadPagesByType = (to, from, next) => {
-//   utils.restGet('/private/initPageList', {type: to.params.pagetype}).then(
-//     response => {
-//       if (response) {
-//         manager.pageService.init()
-//         manager.pageService.pages = response.pages
-//         manager.pageService.count = response.count
-//         next()
-//       }
-//     }
-//   )
-// }
 
 let router = new Router({
   mode: 'history',
@@ -51,7 +39,8 @@ let router = new Router({
         {path: '/', name: 'home', component: home, meta: {requireAuth: true}},
         {path: '/company', name: 'company', component: company, meta: {requireAuth: true}},
         {path: '/access', name: 'access', component: access, meta: {requireAuth: true}},
-        {path: '/notification', name: 'notification', component: notification, meta: {requireAuth: true}},
+        {path: '/notification', name: 'notification', component: notification, beforeEnter: manager.notificationService.loadNotifications, meta: {requireAuth: true}},
+        {path: '/notification/:id', name: 'notificationDetail', component: notificationDetail, beforeEnter: manager.notificationService.loadNotificationForDetail, meta: {requireAuth: true}},
         {path: '/event', name: 'event', component: event, meta: {requireAuth: true}},
         {path: '/field', name: 'field', component: field, meta: {requireAuth: true}},
         {path: '/photo', name: 'photo', component: photo, meta: {requireAuth: true}},
@@ -63,7 +52,8 @@ let router = new Router({
           component: admin,
           name: 'admin',
           children: [
-            {path: '/admin/notification', name: 'adminNotification', component: adminNotification, meta: {requireAuth: true}},
+            {path: '/admin/notification', name: 'adminNotification', component: adminNotification, beforeEnter: manager.notificationService.loadNotifications, meta: {requireAuth: true}},
+            {path: '/admin/notification/:id', name: 'editNotification', component: editNotification, beforeEnter: manager.notificationService.loadNotificationForEdit, meta: {requireAuth: true}},
             {path: '/admin/photo', name: 'adminPhoto', component: adminPhoto, meta: {requireAuth: true}}
           ],
           meta: {requireAuth: true}

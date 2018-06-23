@@ -81,6 +81,7 @@ class PhotoService {
 
   loadPhotoForEdit = (to, from, next) => {
     let that = this
+    that.init()
     const reg = /[0-9A-Fa-f]{24}/g
     if (to.params.id && to.params.id !== 'new' && reg.test(to.params.id)) {
       that.findPhotos({_id: to.params.id}, null, null, () => {
@@ -105,6 +106,7 @@ class PhotoService {
 
   loadPhotoForDetail = (to, from, next) => {
     let that = this
+    that.init()
     const reg = /[0-9A-Fa-f]{24}/g
     if (to.params.id && reg.test(to.params.id)) {
       that.findPhotos({_id: to.params.id}, null, null, () => {

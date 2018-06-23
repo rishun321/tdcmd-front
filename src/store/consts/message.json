@@ -13,5 +13,6 @@
   "B005": {"type": "error", "title": "ERROR", "message": "指定が正しく有りません。"},
   "I001": {"type": "info", "title": "INFO", "message": "お問い合せを送信しました。お早めに返事致しますので、しばらくお待ちください。"},
   "I002": {"type": "info", "title": "INFO", "message": "保存しました。"},
-  "I003": {"type": "info", "title": "INFO", "message": "削除しました。"}
+  "I003": {"type": "info", "title": "INFO", "message": "削除しました。"},
+  "I004": {"type": "select", "title": "INFO", "message": "削除してもよろしいですか？"}
 }

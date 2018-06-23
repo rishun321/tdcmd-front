@@ -36,7 +36,7 @@ export default {
 
 <style scoped lang="scss">
 .actions {
-  padding: 20px;
+  padding: 20px 10px 0 10px;
   .action-button {
     width: 100px;
   }

@@ -76,7 +76,7 @@
 </template>
 
 <script>
-// import utils from '@/tool/utils.js'
+import utils from '@/tool/utils.js'
 export default {
   props: ['manager'],
   data: () => ({
@@ -90,19 +90,77 @@ export default {
         return 'route-field'
       } else if (this.$route.name === 'rental') {
         return 'route-rental'
-      } else if (this.$route.name === 'event' || this.$route.name === 'eventDetail') {
+      } else if (this.$route.name === 'event') {
         return 'route-event'
       } else if (this.$route.name === 'monopoly') {
         return 'route-monopoly'
       } else if (this.$route.name === 'photo' || this.$route.name === 'photoDetail') {
         return 'route-photo'
-      } else if (this.$route.name === 'notification') {
+      } else if (this.$route.name === 'notification' || this.$route.name === 'notificationDetail') {
         return 'route-notification'
       } else if (this.$route.name === 'reserve') {
         return 'route-reserve'
       } else if (this.$route.name === 'access') {
         return 'route-access'
+      } else {
+        return 'route-home'
       }
+    }
+  },
+  mounted () {
+    const that = this
+    utils.event.$on('SCROLL_TO_TOP', () => {
+      that.$nextTick(() => {
+        that.scrollTo(0, 300)
+      })
+    })
+    that.scrollTop = 0
+    let scrollElement = document.getElementsByClassName('md-app-scroller')[0]
+    scrollElement.addEventListener('scroll', this.handleScroll)
+
+    utils.event.$emit('SCROLL_AT', scrollElement.scrollTop + scrollElement.clientHeight + that.headerHeight)
+    utils.event.$on('FIRE_SCROLL_AT', () => {
+      utils.event.$emit('SCROLL_AT', scrollElement.scrollTop + scrollElement.clientHeight + that.headerHeight)
+    })
+  },
+  beforeDestroy () {
+    utils.event.$off('SCROLL_TO_TOP')
+    utils.event.$off('FIRE_SCROLL_AT')
+    let scrollElement = document.getElementsByClassName('md-app-scroller')[0]
+    if (scrollElement) scrollElement.removeEventListener('scroll', this.handleScroll)
+  },
+  updated () {
+    let that = this
+    let scrollElement = document.getElementsByClassName('md-app-scroller')[0]
+    if (scrollElement) utils.event.$emit('SCROLL_AT', scrollElement.scrollTop + scrollElement.clientHeight + that.headerHeight)
+  },
+  methods: {
+    handleScroll () {
+      let scrollElement = document.getElementsByClassName('md-app-scroller')[0]
+      if (this.scrollTop < scrollElement.scrollTop && (scrollElement.scrollHeight - scrollElement.scrollTop - scrollElement.clientHeight) < 600) {
+        if (this.timmer) clearTimeout(this.timmer)
+        this.timmer = setTimeout(() => {
+          utils.event.$emit('SCROLL_ON_BOTTOM')
+        }, 100)
+      }
+      if (this.scrollTop < scrollElement.scrollTop) {
+        utils.event.$emit('SCROLL_AT', scrollElement.scrollTop + scrollElement.clientHeight + this.headerHeight)
+      }
+      this.scrollTop = scrollElement.scrollTop
+    },
+    scrollTo (to, duration) {
+      const that = this
+      if (duration <= 0) return
+      if (!document.getElementsByClassName('md-app-scroller') || document.getElementsByClassName('md-app-scroller').length <= 0) return
+      let element = document.getElementsByClassName('md-app-scroller')[0]
+      let difference = to - element.scrollTop - element.clientHeight
+      let perTick = difference / duration * 10
+
+      setTimeout(() => {
+        element.scrollTop = element.scrollTop + perTick
+        if (element.scrollTop === to) return
+        that.scrollTo(to, duration - 10)
+      }, 10)
     }
   }
 }
