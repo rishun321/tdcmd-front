@@ -17,7 +17,6 @@
             <img class="demo-picture" :src="'static/camp/' + i + '.JPG'">
           </div>
         </div>
-        <p>フィールド紹介文章をここに1111</p>
       </md-tab>
 
       <md-tab md-label="高台">

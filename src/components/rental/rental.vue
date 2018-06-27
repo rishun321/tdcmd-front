@@ -14,27 +14,27 @@
       </div>
       <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100">
         <img src="/static/rental2.jpg">
-        <p class="md-title">電動ガン</p>
+        <p class="md-title">迷彩服</p>
       </div>
       <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100">
         <img src="/static/rental3.jpg">
-        <p class="md-title">電動ガン</p>
+        <p class="md-title">ベスト</p>
       </div>
       <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100">
         <img src="/static/rental4.jpg">
-        <p class="md-title">電動ガン</p>
+        <p class="md-title">フルフェイスゴーグル</p>
       </div>
       <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100">
         <img src="/static/rental5.jpg">
-        <p class="md-title">電動ガン</p>
+        <p class="md-title">バッテリー</p>
       </div>
       <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100">
         <img src="/static/rental6.jpg">
-        <p class="md-title">電動ガン</p>
+        <p class="md-title">ベルト</p>
       </div>
       <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100">
         <img src="/static/rental7.jpg">
-        <p class="md-title">電動ガン</p>
+        <p class="md-title">帽子</p>
       </div>
     </div>
   </div>

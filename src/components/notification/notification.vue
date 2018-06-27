@@ -5,6 +5,7 @@
     <img src="/static/cover1.jpg">
   </div>
 
+  <p class="md-display-1 content-title">お知らせ</p>
   <div class="contents">
     <div class="md-layout md-gutter">
       <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="notification in manager.notificationService.notifications" :key="notification._id">
@@ -57,6 +58,9 @@ export default {
     width: 100%;
     height: 100%;
   }
+}
+.content-title {
+  text-align: center;
 }
 .contents {
   padding: 16px;
