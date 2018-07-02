@@ -2,7 +2,7 @@
 <div class="app-content-auto-height">
   <vue-headful title="サンダーコマンドス - フィールド"/>
   <div class="cover">
-    <img src="/static/field.png">
+    <img src="/static/field.jpg">
   </div>
 
   <md-content class="content-block">
@@ -11,42 +11,18 @@
 
   <md-content>
     <md-tabs class="md-primary">
-      <md-tab md-label="軍営">
+      <md-tab md-label="Aフィールド">
         <div class="md-layout md-gutter">
-          <div class="md-layout-item md-size-20 md-medium-size-25 md-small-size-33 md-xsmall-size-50" v-for="i in 10" :key="i">
-            <img class="demo-picture" :src="'static/camp/' + i + '.JPG'">
+          <div class="md-layout-item md-size-20 md-medium-size-25 md-small-size-33 md-xsmall-size-50" v-for="i in 16" :key="i">
+            <img class="demo-picture" :src="'static/A/' + i + '.JPG'">
           </div>
         </div>
       </md-tab>
 
-      <md-tab md-label="高台">
+      <md-tab md-label="Bフィールド">
         <div class="md-layout md-gutter">
-          <div class="md-layout-item md-size-20 md-medium-size-25 md-small-size-33 md-xsmall-size-50" v-for="i in 10" :key="i">
-            <img class="demo-picture" :src="'static/highground/' + i + '.JPG'">
-          </div>
-        </div>
-      </md-tab>
-
-      <md-tab md-label="森林">
-        <div class="md-layout md-gutter">
-          <div class="md-layout-item md-size-20 md-medium-size-25 md-small-size-33 md-xsmall-size-50" v-for="i in 10" :key="i">
-            <img class="demo-picture" :src="'static/forest/' + i + '.JPG'">
-          </div>
-        </div>
-      </md-tab>
-
-      <md-tab md-label="倉庫">
-        <div class="md-layout md-gutter">
-          <div class="md-layout-item md-size-20 md-medium-size-25 md-small-size-33 md-xsmall-size-50" v-for="i in 10" :key="i">
-            <img class="demo-picture" :src="'static/warehouse/' + i + '.JPG'">
-          </div>
-        </div>
-      </md-tab>
-
-      <md-tab md-label="村落">
-        <div class="md-layout md-gutter">
-          <div class="md-layout-item md-size-20 md-medium-size-25 md-small-size-33 md-xsmall-size-50" v-for="i in 10" :key="i">
-            <img class="demo-picture" :src="'static/village/' + i + '.JPG'">
+          <div class="md-layout-item md-size-20 md-medium-size-25 md-small-size-33 md-xsmall-size-50" v-for="i in 16" :key="i">
+            <img class="demo-picture" :src="'static/B/' + i + '.JPG'">
           </div>
         </div>
       </md-tab>

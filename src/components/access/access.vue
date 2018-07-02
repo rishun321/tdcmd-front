@@ -2,7 +2,7 @@
 <div class="app-content-auto-height">
   <vue-headful title="サンダーコマンドス - アクセス"/>
   <div class="cover">
-    <img src="/static/cover1.jpg">
+    <img src="/static/cover02.jpg">
   </div>
 
   <md-content class="content-block">

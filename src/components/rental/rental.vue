@@ -2,7 +2,7 @@
 <div class="app-content-auto-height">
   <vue-headful title="サンダーコマンドス - レンタル"/>
   <div class="cover">
-    <img src="/static/cover1.jpg">
+    <img src="/static/cover02.jpg">
   </div>
 
   <p class="md-display-1 content-title">レンタル装備</p>
