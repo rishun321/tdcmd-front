@@ -234,7 +234,7 @@ export default {
 }
 .google-calendar {
   width: 100%;
-  height: 500px;
+  height: 650px;
 }
 .gmap{
   width: 100%;
