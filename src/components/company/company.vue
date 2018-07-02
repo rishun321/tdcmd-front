@@ -2,7 +2,7 @@
 <div class="app-content-auto-height">
   <vue-headful title="サンダーコマンドス - 会社概要"/>
   <div class="cover">
-    <img src="/static/cover03.jpg">
+    <img src="/static/cover.jpg">
   </div>
 
   <md-content class="company">
@@ -26,7 +26,7 @@
         </div>
         <div class="detail-row">
           <p class="detail-title">本社所在地</p>
-          <p class="detail-content">〒136-0071 東京都江東区亀戸3-21-8 804号</p>
+          <p class="detail-content">〒145-0064 東京都大田区上池台1-7-16 203号室</p>
         </div>
         <div class="detail-row">
           <p class="detail-title">電話</p>

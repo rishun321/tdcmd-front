@@ -2,7 +2,7 @@
 <div class="app-content-auto-height">
   <vue-headful title="サンダーコマンドス - レンタル"/>
   <div class="cover">
-    <img src="/static/cover02.jpg">
+    <img src="/static/cover.jpg">
   </div>
 
   <p class="md-display-1 content-title">レンタル装備</p>
@@ -48,12 +48,22 @@
       </md-table-row>
 
       <md-table-row>
-        <md-table-cell>銃</md-table-cell>
+        <md-table-cell>電動ガン</md-table-cell>
         <md-table-cell>3,000円</md-table-cell>
         <md-table-cell>バッテリー交換は無料で行います。</md-table-cell>
       </md-table-row>
       <md-table-row>
+        <md-table-cell>迷彩服</md-table-cell>
+        <md-table-cell>1,000円</md-table-cell>
+        <md-table-cell>ー</md-table-cell>
+      </md-table-row>
+      <md-table-row>
         <md-table-cell>ベスト</md-table-cell>
+        <md-table-cell>500円</md-table-cell>
+        <md-table-cell>ー</md-table-cell>
+      </md-table-row>
+      <md-table-row>
+        <md-table-cell>フルフェイスゴーグル</md-table-cell>
         <md-table-cell>500円</md-table-cell>
         <md-table-cell>ー</md-table-cell>
       </md-table-row>
@@ -63,14 +73,19 @@
         <md-table-cell>ー</md-table-cell>
       </md-table-row>
       <md-table-row>
-        <md-table-cell>迷彩服</md-table-cell>
-        <md-table-cell>1,000円</md-table-cell>
+        <md-table-cell>ベルト</md-table-cell>
+        <md-table-cell>100円</md-table-cell>
         <md-table-cell>ー</md-table-cell>
       </md-table-row>
       <md-table-row>
-        <md-table-cell>フルフェイスゴーグル</md-table-cell>
+        <md-table-cell>帽子</md-table-cell>
         <md-table-cell>500円</md-table-cell>
         <md-table-cell>ー</md-table-cell>
+      </md-table-row>
+      <md-table-row>
+        <md-table-cell>マガジン</md-table-cell>
+        <md-table-cell>500円</md-table-cell>
+        <md-table-cell>1個</md-table-cell>
       </md-table-row>
       <md-table-row>
         <md-table-cell>バイオbb弾0.2g</md-table-cell>

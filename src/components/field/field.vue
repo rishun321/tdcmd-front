@@ -2,7 +2,11 @@
 <div class="app-content-auto-height">
   <vue-headful title="サンダーコマンドス - フィールド"/>
   <div class="cover">
-    <img src="/static/field.jpg">
+    <img src="/static/cover.jpg">
+  </div>
+
+  <div class="cover">
+    <img class="map-pic" src="/static/field.jpg">
   </div>
 
   <md-content class="content-block">
@@ -46,6 +50,12 @@ export default {
   img {
     width: 100%;
     height: 100%;
+  }
+  .map-pic {
+    width: auto;
+    max-height: 700px;
+    height: 100%;
+    margin: 20px 0;
   }
 }
 .content-block {
