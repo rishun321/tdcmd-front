@@ -19,7 +19,7 @@
     </md-card-content>
 
     <md-card-actions>
-      <md-button class="md-primary" to="/register">アカウント作成</md-button>
+      <!-- <md-button class="md-primary" to="/register">アカウント作成</md-button> -->
       <md-button class="md-primary md-raised" to="/">匿名訪問</md-button>
       <md-button class="md-primary md-raised" @click.native="login()" :disabled="!isAccountValid || !isPasswordValid">ログイン</md-button>
     </md-card-actions>
