@@ -30,7 +30,7 @@
         </div>
         <div class="detail-row">
           <p class="detail-title">電話</p>
-          <p class="detail-content">03-6874-5906、080-4893-8383 (予約受付担当、対応時間:平日9:00-17:00)</p>
+          <p class="detail-content">080-4893-8383 (予約受付担当、対応時間:平日9:00-17:00)</p>
         </div>
       </md-tab>
 

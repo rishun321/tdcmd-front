@@ -147,6 +147,6 @@ export default {
 }
 .google-calendar {
   width: 100%;
-  height: 650px;
+  height: 500px;
 }
 </style>

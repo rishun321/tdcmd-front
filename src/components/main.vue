@@ -5,9 +5,6 @@
   <md-app-toolbar md-theme="white" class="md-dense md-primary">
     <div class="md-toolbar-row">
       <div class="md-toolbar-section-start">
-        <md-button class="md-icon-button show-lt-large" @click="menuVisible = !menuVisible">
-          <md-icon>menu</md-icon>
-        </md-button>
         <img class="resize-picture" src="@/assets/THUNDERCOMMANDOS.png">
       </div>
       <div class="md-toolbar-section-end">
@@ -22,11 +19,14 @@
           <md-tab id="route-reserve" md-icon="live_help" md-label="予約" to="/reserve"></md-tab>
           <md-tab id="route-access" md-icon="directions_car" md-label="アクセス" to="/access"></md-tab>
         </md-tabs>
+        <md-button class="md-icon-button show-lt-large" @click="menuVisible = !menuVisible">
+          <md-icon>menu</md-icon>
+        </md-button>
       </div>
     </div>
   </md-app-toolbar>
 
-  <md-app-drawer :md-active.sync="menuVisible">
+  <md-app-drawer class="md-right" :md-active.sync="menuVisible">
     <md-toolbar class="md-transparent" md-elevation="0">サンダーコマンドス</md-toolbar>
     <md-list>
       <md-list-item to="/">

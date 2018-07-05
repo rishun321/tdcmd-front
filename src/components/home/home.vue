@@ -103,14 +103,6 @@
 
   <md-content>
     <div class="md-display-1 tdcmd-header">
-      カレンダー
-    </div>
-    <!-- <iframe class="google-calendar" src="https://calendar.google.com/calendar/embed?src=m61elhohn1s4n613kgseekgo7o%40group.calendar.google.com&ctz=Asia%2FTokyo" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
-    <iframe class="google-calendar" src="https://calendar.google.com/calendar/embed?src=e69227usonlkiim5hkr3o777pg%40group.calendar.google.com&ctz=Asia%2FTokyo" frameborder="0" scrolling="no"></iframe>
-  </md-content>
-
-  <md-content>
-    <div class="md-display-1 tdcmd-header">
       アクセス
       <md-button class="md-fab md-primary more" to="/access">
         <md-icon>more_horiz</md-icon>
@@ -122,11 +114,23 @@
     <img class="map-pic" src="/static/map1.png">
     <img class="map-pic" src="/static/map2.png">
   </div>
+
+  <md-content>
+    <div class="md-display-1 tdcmd-header">
+      カレンダー
+    </div>
+    <!-- <iframe class="google-calendar" src="https://calendar.google.com/calendar/embed?src=m61elhohn1s4n613kgseekgo7o%40group.calendar.google.com&ctz=Asia%2FTokyo" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
+    <iframe class="google-calendar" src="https://calendar.google.com/calendar/embed?src=e69227usonlkiim5hkr3o777pg%40group.calendar.google.com&ctz=Asia%2FTokyo" frameborder="0" scrolling="no"></iframe>
+  </md-content>
+
   <md-content class="company">
     <img class="resize-picture" src="@/assets/THUNDERCOMMANDOS.png">
   </md-content>
   <md-content class="md-primary company-link">
-    <md-button class="company-button" to="/company">会社概要</md-button>
+    <div class="actions">
+      <md-button class="company-button" to="/company">会社概要</md-button>
+    </div>
+    <p class="md-caption">© アモネ株式会社 all right reserved.</p>
   </md-content>
 </div>
 </template>
@@ -204,10 +208,16 @@ export default {
 }
 .company-link {
   height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 0px;
+  .actions {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+  }
+  p {
+    text-align: right;
+    color: #eee;
+  }
 }
 .company-button {
   color: #fff;
@@ -234,7 +244,7 @@ export default {
 }
 .google-calendar {
   width: 100%;
-  height: 650px;
+  height: 500px;
 }
 .gmap{
   width: 100%;

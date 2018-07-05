@@ -1,6 +1,6 @@
 <template>
 <div class="contents">
-  <div class="md-layout md-gutter md-alignment-left">
+  <div class="md-layout md-gutter md-alignment-left" v-if="manager.notificationService.notification">
     <div class="md-layout-item md-size-33 md-small-size-100">
       <md-field md-clearable>
         <label for="name">タイトル</label>

@@ -29,6 +29,5 @@ export default {
 }
 .content-frame {
   width: 100%;
-  height: 600px;
 }
 </style>
