@@ -248,7 +248,7 @@ export default {
 }
 .gmap{
   width: 100%;
-  height: 600px;
+  height: 400px;
 }
 .card-list {
   min-height: 414px;

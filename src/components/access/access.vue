@@ -145,7 +145,7 @@ export default {
 }
 .gmap {
   width: 100%;
-  height: 400px
+  height: 400px;
 }
 .info-huge {
   font-size: 30px;
