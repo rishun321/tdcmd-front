@@ -68,7 +68,7 @@
       </div>
     </div>
     <div class="action-container">
-      <md-button class="md-primary md-raised action-button" :disabled="!isNameValid || !isContactValid || isContact2Valid || !isContentValid" @click="send">
+      <md-button class="md-primary md-raised action-button" :disabled="!isNameValid || !isContactValid || !isContact2Valid || !isContentValid" @click="send">
         <div class="icon-text">
           <md-icon class="animate-icon">send</md-icon><p>送信</p>
         </div>
