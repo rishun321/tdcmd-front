@@ -6,8 +6,8 @@
   </div>
 
   <div class="cover">
-    <img class="map-pic" src="/static/map1.png">
-    <img class="map-pic" src="/static/map2.png">
+    <img class="map-pic" src="/static/map1.jpg">
+    <img class="map-pic" src="/static/map2.jpg">
   </div>
 
   <md-content class="content-block">
@@ -45,8 +45,8 @@
   <md-content class="content-block">
     <div class="md-headline tdcmd-header"><md-icon class="md-primary">directions_car</md-icon>車でお越しの方</div>
   </md-content>
-  <p class="md-subheading info">アドレス：〒299-0231 千葉県袖ケ浦市上泉字下鎌田1135−1</p>
-  <p class="md-subheading info">経緯：35.416565, 140.042137</p>
+  <p class="md-subheading info info-huge">アドレス：〒299-0231 千葉県袖ケ浦市上泉字下鎌田1135−1</p>
+  <p class="md-subheading info info-huge">経緯：35.416565, 140.042137</p>
   <div style="position: relative;">
     <googleMap class="gmap animate" :manager="manager" :config="position"></googleMap>
   </div>
@@ -146,5 +146,10 @@ export default {
 .gmap {
   width: 100%;
   height: 400px
+}
+.info-huge {
+  font-size: 30px;
+  height: 30px;
+  margin: 30px 0;
 }
 </style>

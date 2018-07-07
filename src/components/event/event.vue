@@ -7,7 +7,7 @@
 
   <div class="contents">
     <p class="md-display-1 content-title">定例会開催について</p>
-    <p class="md-title content-title">毎週土曜日及び祝日に定例会を開催致します。2018年6月1日から、土日定例会や平日定例会は完全予約制となります。</p>
+    <p class="md-title content-title">毎週土曜日及び祝日に定例会を開催致します。2018年6月1日から、土日定例会や平日定例会は<span class="strong-color">完全予約制</span>となります。</p>
     <md-chip class="md-primary">☆予約制！</md-chip>
     <md-chip class="md-primary">☆途中参加・退場OK！</md-chip>
     <md-chip class="md-primary">☆当日昼食受付OK！（11時まで）</md-chip>
@@ -148,5 +148,8 @@ export default {
 .google-calendar {
   width: 100%;
   height: 500px;
+}
+.strong-color {
+  color: red;
 }
 </style>

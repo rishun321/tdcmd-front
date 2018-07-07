@@ -47,7 +47,7 @@
     <p>お申込みの際は十分ご注意ください。</p>
     <p class="md-title content-title">貸切応援サービス</p>
     <div class="md-layout md-gutter">
-      <div class="md-layout-item md-size-70 md-small-size-100">
+      <div class="md-layout-item md-size-40 md-small-size-100">
         <p>貸切のお客様にはバーベキューのコンロ、炭を無料提供致します。食材に関しましてはお客様ご自身でのご準備をお願い致しております。</p>
         <p>「貸切割引券」や「サービス券」をお持ちのお客様は、当日受付スタッフにお渡しすると、各種サービスが受けられます。</p>
         <p>貸切の場合、フィールドでの昼食サービスは行なっておりませんが、スタッフがお弁当の買出しをすることは可能です。あらかじめご予約の際にご相談下さい。（要予約）</p>
@@ -56,24 +56,37 @@
       <div class="md-layout-item md-size-30 md-small-size-100">
         <img src="/static/bbq.jpg">
       </div>
+      <div class="md-layout-item md-size-30 md-small-size-100">
+        <img src="/static/bbq2.jpg">
+      </div>
     </div>
     <p class="md-title content-title">予約〜当日までの流れ</p>
-    <md-steppers>
-      <md-step id="first" md-label="申込">
-        <p>当日7日前まで、貸切予約フォームにてお申し込みください。</p>
-        <p>運営より予約内容の確認及び貸切料金の振込情報をお送り致します。</p>
-      </md-step>
-      <md-step id="second" md-label="貸切料金支払">
-        <p>「貸切基本料金」を振込していただき、運営より振込済みの連絡を致します。</p>
-      </md-step>
-      <md-step id="third" md-label="最終確認">
-        <p>ご予約日の前日に運営よりお電話致します。</p>
-        <p>※お電話できないお客様はご予約前日20：00まで、メールで担当者へお知らせください。</p>
-      </md-step>
-      <md-step id="fourth" md-label="ご利用">
-        <p>当日にご来場いただき、フィールド受付にて利用人数の確認、レンタル品の支給を致します。</p>
-      </md-step>
-    </md-steppers>
+
+    <div class="steps">
+      <md-steppers :md-active-step.sync="active" md-vertical md-linear>
+        <md-step id="step1" md-label="申込" :md-editable="false" :md-done.sync="step1">
+          <p>当日7日前まで、貸切予約フォームにてお申し込みください。</p>
+          <p>運営より予約内容の確認及び貸切料金の振込情報をお送り致します。</p>
+          <md-button class="md-raised md-accent" @click="next('step2')">次へ</md-button>
+        </md-step>
+        <md-step id="step2" md-label="貸切料金支払" :md-editable="false" :md-done.sync="step2">
+          <p>「貸切基本料金」を振込していただき、運営より振込済みの連絡を致します。</p>
+          <md-button class="md-raised md-accent" @click="back('step2', 'step1')">戻る</md-button>
+          <md-button class="md-raised md-accent" @click="next('step3')">次へ</md-button>
+        </md-step>
+        <md-step id="step3" md-label="最終確認" :md-editable="false" :md-done.sync="step3">
+          <p>ご予約日の前日に運営よりお電話致します。</p>
+          <p>※お電話できないお客様はご予約前日20：00まで、メールで担当者へお知らせください。</p>
+          <md-button class="md-raised md-accent" @click="back('step3', 'step2')">戻る</md-button>
+          <md-button class="md-raised md-accent" @click="next('step4')">次へ</md-button>
+        </md-step>
+        <md-step id="step4" md-label="ご利用" :md-editable="false" :md-done.sync="step4">
+          <p>当日にご来場いただき、フィールド受付にて利用人数の確認、レンタル品の支給を致します。</p>
+          <md-button class="md-raised md-accent" @click="back('step4', 'step3')">戻る</md-button>
+        </md-step>
+      </md-steppers>
+    </div>
+
     <div class="actions">
       <md-button class="md-primary md-raised" to="/reserve">予約</md-button>
     </div>
@@ -84,7 +97,22 @@
 <script>
 // import utils from '@/tool/utils.js'
 export default {
-  props: ['manager']
+  props: ['manager'],
+  data: () => ({
+    active: 'step1',
+    step1: false,
+    step2: false,
+    step3: false,
+    step4: false
+  }),
+  methods: {
+    next (step) {
+      this.active = step
+    },
+    back (current, pre) {
+      this.active = pre
+    }
+  }
 }
 </script>
 
@@ -111,5 +139,17 @@ export default {
   display: flex;
   justify-content: center;
   margin-bottom: 120px;
+}
+.steps {
+  display: flex;
+  justify-content: center;
+}
+.md-steppers {
+  max-width: 1000px;
+}
+.md-layout-item {
+  img {
+    margin-bottom: 16px;
+  }
 }
 </style>

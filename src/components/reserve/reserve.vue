@@ -20,11 +20,19 @@
           <span class="md-error" v-else>20文字以内</span>
         </md-field>
       </div>
-      <div class="md-layout-item md-size-66 md-xsmall-size-100">
+      <div class="md-layout-item md-size-33 md-xsmall-size-100">
         <md-field md-clearable :class="{'md-invalid': !isContactValid}">
-          <label for="name">ご連絡方法</label>
+          <label for="contact">メールアドレス</label>
           <md-input v-model="contact" required></md-input>
           <span class="md-error" v-if="contact === '' || (contact && !contact.trim())">入力してください</span>
+          <span class="md-error" v-else>40文字以内</span>
+        </md-field>
+      </div>
+      <div class="md-layout-item md-size-33 md-xsmall-size-100">
+        <md-field md-clearable :class="{'md-invalid': !isContact2Valid}">
+          <label for="contact2">電話番号</label>
+          <md-input v-model="contact2" required></md-input>
+          <span class="md-error" v-if="contact2 === '' || (contact2 && !contact2.trim())">入力してください</span>
           <span class="md-error" v-else>40文字以内</span>
         </md-field>
       </div>
@@ -45,16 +53,22 @@
         </md-field>
       </div>
       <div class="md-layout-item md-size-100">
+        <md-field md-clearable>
+          <label for="team">住所</label>
+          <md-input v-model="live"></md-input>
+        </md-field>
+      </div>
+      <div class="md-layout-item md-size-100">
         <md-field :class="{'md-invalid': !isContentValid}">
           <label>テキスト</label>
           <md-textarea v-model="content" required></md-textarea>
-          <span class="md-error" v-if="content === '' || (contact && !contact.trim())">入力してください</span>
+          <span class="md-error" v-if="content === '' || (content && !content.trim())">入力してください</span>
           <span class="md-error" v-else>200文字以内</span>
         </md-field>
       </div>
     </div>
     <div class="action-container">
-      <md-button class="md-primary md-raised action-button" :disabled="!isNameValid || !isContactValid || !isContentValid" @click="send">
+      <md-button class="md-primary md-raised action-button" :disabled="!isNameValid || !isContactValid || isContact2Valid || !isContentValid" @click="send">
         <div class="icon-text">
           <md-icon class="animate-icon">send</md-icon><p>送信</p>
         </div>
@@ -73,9 +87,11 @@ export default {
     type: '定例会',
     name: null,
     contact: null,
+    contact2: null,
     count: null,
     rdate: null,
     team: null,
+    live: null,
     content: null
   }),
   mounted () {
@@ -92,6 +108,12 @@ export default {
       if (this.contact === null) return true
       if (!this.contact || !this.contact.trim()) return false
       if (this.contact && this.contact.trim().length > 40) return false
+      return true
+    },
+    isContact2Valid () {
+      if (this.contact2 === null) return true
+      if (!this.contact2 || !this.contact2.trim()) return false
+      if (this.contact2 && this.contact2.trim().length > 40) return false
       return true
     },
     isContentValid () {
@@ -112,6 +134,10 @@ export default {
         this.contact = ''
         isValid = false
       }
+      if (!this.contact2) {
+        this.contact2 = ''
+        isValid = false
+      }
       if (!this.content) {
         this.content = ''
         isValid = false
@@ -121,9 +147,11 @@ export default {
         type: this.type,
         name: this.name,
         contact: this.contact,
+        contact2: this.contact2,
         count: this.count,
         rdate: this.rdate,
         team: this.team,
+        live: this.live,
         content: this.content,
         mail: 'info@amone.jp'
       }

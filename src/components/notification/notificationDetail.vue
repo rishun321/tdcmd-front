@@ -3,7 +3,9 @@
   <vue-headful title="サンダーコマンドス - お知らせ"/>
   <p class="md-display-1 content-title">{{manager.notificationService.notification.title}}</p>
   <p class="md-caption content-date">{{manager.notificationService.notification.udateText}}</p>
-  <div class="content-frame" v-html="manager.notificationService.notification.content">
+  <div class="content-frame">
+    <div class="html-content" v-html="manager.notificationService.notification.content">
+    </div>
   </div>
 </div>
 </template>
@@ -26,8 +28,19 @@ export default {
 .content-date {
   text-align: right;
   font-size: 20px;
+  margin: 40px;
 }
 .content-frame {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  .html-content {
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+    border: 10px solid #e8e8e8;
+    border-radius: 5px;
+  }
+  margin-bottom: 100px;
 }
 </style>

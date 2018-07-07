@@ -111,8 +111,8 @@
     <div class="md-subheading tdcmd-sub-header">〒299-0231 千葉県袖ケ浦市上泉字下鎌田1135−1</div>
   </md-content>
   <div class="cover">
-    <img class="map-pic" src="/static/map1.png">
-    <img class="map-pic" src="/static/map2.png">
+    <img class="map-pic" src="/static/map1.jpg">
+    <img class="map-pic" src="/static/map2.jpg">
   </div>
 
   <md-content>
