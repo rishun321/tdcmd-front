@@ -24,6 +24,7 @@ import adminPhoto from '@/components/admin/photo'
 import editPhoto from '@/components/admin/editPhoto'
 
 import manager from '@/store/manager.js'
+import utils from '@/tool/utils.js'
 
 Vue.use(Router)
 
@@ -81,6 +82,7 @@ router.beforeEach((to, from, next) => {
       return
     }
   }
+  utils.event.$emit('SCROLL_TO_TOP')
   next()
 })
 

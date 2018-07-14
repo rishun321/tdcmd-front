@@ -95,6 +95,13 @@ export default {
     content: null
   }),
   mounted () {
+    this.$material.locale.firstDayOfAWeek = 1
+    this.$material.locale.days = ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日']
+    this.$material.locale.shortDays = ['日曜', '月曜', '火曜', '水曜', '木曜', '金曜', '土曜']
+    this.$material.locale.shorterDays = ['日', '月', '火', '水', '木', '金', '土']
+    this.$material.locale.months = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
+    this.$material.locale.shortMonths = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+    this.$material.locale.shorterMonths = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
     this.rdate = moment(new Date()).add(7, 'days').toDate()
   },
   computed: {

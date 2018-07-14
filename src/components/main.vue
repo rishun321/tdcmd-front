@@ -5,7 +5,7 @@
   <md-app-toolbar md-theme="white" class="md-dense md-primary">
     <div class="md-toolbar-row">
       <div class="md-toolbar-section-start">
-        <img class="resize-picture" src="@/assets/THUNDERCOMMANDOS.png">
+        <router-link to="/"><img class="resize-picture" src="@/assets/THUNDERCOMMANDOS.png"></router-link>
       </div>
       <div class="md-toolbar-section-end">
         <md-tabs class="md-primary show-gt-large" :md-active-tab="route">
