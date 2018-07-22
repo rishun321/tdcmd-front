@@ -9,6 +9,7 @@
     <div class="md-layout md-gutter">
       <div class="md-layout-item md-size-100">
         <md-radio v-model="type" value="定例会">定例会</md-radio>
+        <md-radio v-model="type" value="夕方定例会">夕方定例会</md-radio>
         <md-radio v-model="type" value="平日貸切">平日貸切</md-radio>
         <md-radio v-model="type" value="土日祝貸切">土日祝貸切</md-radio>
       </div>

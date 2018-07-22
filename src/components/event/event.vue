@@ -14,15 +14,42 @@
     <md-chip class="md-primary">☆女性・初心者大歓迎！</md-chip>
     <md-chip class="md-primary">☆雨天決行！（大雨、台風、嵐の場合は中止）</md-chip>
     <p class="md-display-1 content-title">定例会詳細</p>
-    <p class="md-headline">参加費</p>
-    <p>1名様3,000円（税込）。昼食、各メニューも500円～1000円（税込）で予約できます。</p>
+    <p class="md-headline">参加費及びお時間について</p>
+    <p>1名様3,000円(税込)。昼食、各メニューも500円~1000円(税込゙)ご予約いただけます。</p>
+
+    <md-table>
+      <md-table-row>
+        <md-table-head>定例会種類</md-table-head>
+        <md-table-head>お時間</md-table-head>
+        <md-table-head>参加費</md-table-head>
+        <md-table-head>サービス券利用</md-table-head>
+        <md-table-head>昼食</md-table-head>
+        <md-table-head>途中休憩</md-table-head>
+      </md-table-row>
+
+      <md-table-row>
+        <md-table-cell>通常定例会</md-table-cell>
+        <md-table-cell>１０：００〜１７：００（１１月から３月までは１６：００時）</md-table-cell>
+        <md-table-cell>3,000円（税込）</md-table-cell>
+        <md-table-cell>OK</md-table-cell>
+        <md-table-cell>500~1,000円（税込）</md-table-cell>
+        <md-table-cell>約１時間</md-table-cell>
+      </md-table-row>
+      <md-table-row>
+        <md-table-cell>夕方定例会</md-table-cell>
+        <md-table-cell>１５：００〜１９：００（２１時まで伸ばすことを検討中）</md-table-cell>
+        <md-table-cell>3,000円（税込）</md-table-cell>
+        <md-table-cell>OK</md-table-cell>
+        <md-table-cell>なし</md-table-cell>
+        <md-table-cell>なし</md-table-cell>
+      </md-table-row>
+    </md-table>
+
     <p class="md-headline">予約締切について</p>
     <p>土、日定例会は通常に毎週行います。（休み場合あり、カレンダーより）</p>
-    <p>※土曜日定例会の予約締切は木曜日12時まで（2日前）（6月18日から実施します）</p>
-    <p>※日曜日定例会の予約締切は金曜日12時まで（2日前）（6月18日から実施します）・火、水、木定例会は不定期です（カレンダーより）</p>
+    <p>※土曜日の 通常定例会 及び 夕方定例会 の予約締切は木曜日12時まで（2日前）（7月17日から実施します）</p>
+    <p>※日曜日の 通常定例会 及び 夕方定例会 の予約締切は金曜日12時まで（2日前）（7月17日から実施します）・火、水、木定例会は不定期です（カレンダーより）</p>
     <p>※平日定例会の予約締切はカレンダー掲示日より</p>
-    <p class="md-headline">時間について</p>
-    <p>9:10開場 > 10:00開始 〜 17:00頃終了（冬は16:00頃） ※お弁当やカレーライスの受付は10時から11時までとなります。</p>
     <p class="md-headline">女性団体サービスについて</p>
     <p>5人以上の女性団体が予約する方々に特別な「一人分1000円offサービス」にします。</p>
     <p>※予約フォームでの予約限定です。予約フォームのコメントにて、全員のお名前を入力してください。</p>
