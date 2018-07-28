@@ -7,7 +7,8 @@
 
   <div class="contents">
     <p class="md-display-1 content-title">定例会開催について</p>
-    <p class="md-title content-title">毎週土曜日及び祝日に定例会を開催致します。2018年6月1日から、土日定例会や平日定例会は<span class="strong-color">完全予約制</span>となります。</p>
+    <p class="md-title content-title">毎週土曜日及び祝日に定例会を開催致します。2018年6月1日から、土日定例会や平日定例会は<span class="strong-color">予約制</span>となります。</p>
+    <p class="md-body-1 content-title">（予約なしの方は、定例会に入場できますが、割引サービスは差し上げません）</p>
     <md-chip class="md-primary">☆予約制！</md-chip>
     <md-chip class="md-primary">☆途中参加・退場OK！</md-chip>
     <md-chip class="md-primary">☆当日昼食受付OK！（11時まで）</md-chip>
