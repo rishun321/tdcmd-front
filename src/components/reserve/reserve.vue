@@ -157,7 +157,7 @@ export default {
         contact: this.contact,
         contact2: this.contact2,
         count: this.count,
-        rdate: this.rdate,
+        rdate: this.rdate.valueOf(),
         team: this.team,
         live: this.live,
         content: this.content,
