@@ -8,10 +8,13 @@
   <div class="component-wrapper">
     <div class="md-layout md-gutter">
       <div class="md-layout-item md-size-100">
-        <md-radio v-model="type" value="定例会">定例会</md-radio>
-        <md-radio v-model="type" value="夕方定例会">夕方定例会</md-radio>
+        <md-radio v-model="type" value="土曜日定例会">土曜日定例会</md-radio>
+        <md-radio v-model="type" value="日曜日定例会">日曜日定例会</md-radio>
+        <md-radio v-model="type" value="特別定例会">特別定例会</md-radio>
         <md-radio v-model="type" value="平日貸切">平日貸切</md-radio>
-        <md-radio v-model="type" value="土日祝貸切">土日祝貸切</md-radio>
+        <md-radio v-model="type" value="土曜日貸切">土曜日貸切</md-radio>
+        <md-radio v-model="type" value="日曜日貸切">日曜日貸切</md-radio>
+        <md-radio v-model="type" value="祝日貸切">祝日貸切</md-radio>
       </div>
       <div class="md-layout-item md-size-33 md-xsmall-size-100">
         <md-field md-clearable :class="{'md-invalid': !isNameValid}">
