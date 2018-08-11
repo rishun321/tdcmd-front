@@ -163,11 +163,6 @@ export default {
         content: this.content,
         mail: 'info@amone.jp'
       }
-      console.log('this.rdate:', this.rdate)
-      console.log('this.rdate.valueOf():', this.rdate.valueOf())
-      console.log('message.rdate:', message.rdate)
-      console.log('moment:', moment(message.rdate))
-      console.log('formated:', moment(message.rdate).format('YYYY/MM/DD'))
       this.manager.inquiryService.sendInquiry(message, () => {
         utils.event.$emit('SHOW_MESSAGE', {code: 'I001'}, () => {
           utils.router.push({path: '/'})
