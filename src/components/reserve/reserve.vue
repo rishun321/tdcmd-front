@@ -10,7 +10,7 @@
       <div class="md-layout-item md-size-100">
         <md-radio v-model="type" value="土曜日定例会">土曜日定例会</md-radio>
         <md-radio v-model="type" value="日曜日定例会">日曜日定例会</md-radio>
-        <md-radio v-model="type" value="特別定例会">特別定例会</md-radio>
+        <md-radio v-model="type" value="特別定例会">特別イベント</md-radio>
         <md-radio v-model="type" value="平日貸切">平日貸切</md-radio>
         <md-radio v-model="type" value="土曜日貸切">土曜日貸切</md-radio>
         <md-radio v-model="type" value="日曜日貸切">日曜日貸切</md-radio>

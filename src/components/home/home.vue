@@ -125,6 +125,7 @@
 
   <md-content class="company">
     <img class="resize-picture" src="@/assets/THUNDERCOMMANDOS.png">
+    <a href="https://dragon-force.jp" target="blank"><img class="resize-picture" src="/static/df.jpeg"></a>
   </md-content>
   <md-content class="md-primary company-link">
     <div class="actions">
@@ -200,8 +201,11 @@ export default {
   min-height: 180px;
   padding: 0px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  img {
+    margin-bottom: 8px;
+  }
 }
 .resize-picture {
   width: 240px;
