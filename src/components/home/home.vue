@@ -1,8 +1,8 @@
 <template>
 <div class="app-content-auto-height">
   <vue-headful title="サンダーコマンドス - ホーム"/>
-  <div class="cover">
-    <img class="cover-pic" src="/static/cover03.jpg">
+  <div class="video-wrap">
+    <video autoplay src="/static/cover.mp4" poster="/static/cover03.jpg" loop></video>
   </div>
 
   <md-content>
@@ -150,6 +150,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.video-wrap {
+  width: 100%;
+  video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+  }
+}
 .cover {
   width: 100%;
   height: auto;
