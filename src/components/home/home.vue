@@ -2,7 +2,7 @@
 <div class="app-content-auto-height">
   <vue-headful title="サンダーコマンドス - ホーム"/>
   <div class="video-wrap">
-    <video autoplay src="/static/cover.mp4" poster="/static/cover03.jpg" loop></video>
+    <video autoplay src="/static/cover20180904.mp4" poster="/static/cover03.jpg" loop></video>
   </div>
 
   <md-content>

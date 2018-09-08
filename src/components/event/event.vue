@@ -7,8 +7,62 @@
 
   <div class="contents">
     <p class="md-display-1 content-title">定例会開催について</p>
-    <p class="md-title content-title">毎週土曜日及び祝日に定例会を開催致します。2018年6月1日から、土日定例会や平日定例会は<span class="strong-color">予約制</span>となります。</p>
+    <p class="md-title content-title">毎週土曜日及び祝日に定例会を開催致します。2018年9月3日から、土日定例会や平日定例会は<span class="strong-color">予約優先制</span>となります。</p>
     <p class="md-body-1 content-title">（予約なしの方は、定例会に入場できますが、割引サービスは差し上げません）</p>
+    <p>予約優先制とは、</p>
+    <p>予約されている方へ下記のサービスを差し上げます。</p>
+
+    <md-table>
+      <md-table-row>
+        <md-table-head></md-table-head>
+        <md-table-head>予約あり</md-table-head>
+        <md-table-head>予約なし</md-table-head>
+      </md-table-row>
+
+      <md-table-row>
+        <md-table-cell>特別割引サービス券のご利用</md-table-cell>
+        <md-table-cell>可</md-table-cell>
+        <md-table-cell>不可</md-table-cell>
+      </md-table-row>
+      <md-table-row>
+        <md-table-cell>チラシの割引サービス</md-table-cell>
+        <md-table-cell>受付へご提示いただくと500円off</md-table-cell>
+        <md-table-cell>受付へご提示いただくと100円off</md-table-cell>
+      </md-table-row>
+      <md-table-row>
+        <md-table-cell>回数券カードのご購入</md-table-cell>
+        <md-table-cell>可</md-table-cell>
+        <md-table-cell>不可</md-table-cell>
+      </md-table-row>
+      <md-table-row>
+        <md-table-cell>定例会のご予約順番によって最初の8名様への特別サービス</md-table-cell>
+        <md-table-cell>参加費2500円になります。※割引サービス券やチラシなどの同時利用はOK</md-table-cell>
+        <md-table-cell>なし</md-table-cell>
+      </md-table-row>
+      <md-table-row>
+        <md-table-cell>定例会のご予約順番によって9人目以降のお客様へのサービス</md-table-cell>
+        <md-table-cell>スポッツドリンクを1本差し上げます。</md-table-cell>
+        <md-table-cell>なし</md-table-cell>
+      </md-table-row>
+      <md-table-row>
+        <md-table-cell>定例会通常に行える場合</md-table-cell>
+        <md-table-cell>入場OK</md-table-cell>
+        <md-table-cell>入場OK</md-table-cell>
+      </md-table-row>
+      <md-table-row>
+        <md-table-cell>定例会のMAX人数超える場合（駐車場や休憩所は当日に空いていない場合）</md-table-cell>
+        <md-table-cell>入場OK</md-table-cell>
+        <md-table-cell>入場NG</md-table-cell>
+      </md-table-row>
+      <md-table-row>
+        <md-table-cell>定例会中止になる場合</md-table-cell>
+        <md-table-cell>メールにてご連絡を差し上げます。</md-table-cell>
+        <md-table-cell>連絡はできません。</md-table-cell>
+      </md-table-row>
+    </md-table>
+
+    <br>
+
     <md-chip class="md-primary">☆予約制！</md-chip>
     <md-chip class="md-primary">☆途中参加・退場OK！</md-chip>
     <md-chip class="md-primary">☆当日昼食受付OK！（11時まで）</md-chip>
