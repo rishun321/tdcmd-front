@@ -72,14 +72,14 @@
   <md-content>
     <div class="md-display-1 tdcmd-header">
       お知らせ
-      <md-button class="md-fab md-primary more" to="/notification">
-        <md-icon>more_horiz</md-icon>
+      <md-button class="md-primary md-raised more" to="/notification">
+        さらに見る
       </md-button>
     </div>
   </md-content>
   <md-content>
     <div class="md-layout md-gutter card-list">
-      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100" v-for="(notification, index) in manager.notificationService.notifications" :key="notification._id" v-if="index < 4">
+      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100" v-for="(notification, index) in manager.notificationService.notifications" :key="notification._id" v-if="index < 8">
         <notificationCard :manager="manager" :notification="notification"/>
       </div>
     </div>
@@ -88,14 +88,14 @@
   <md-content>
     <div class="md-display-1 tdcmd-header">
       写真
-      <md-button class="md-fab md-primary more" to="/photo">
-        <md-icon>more_horiz</md-icon>
+      <md-button class="md-primary md-raised more" to="/photo">
+        さらに見る
       </md-button>
     </div>
   </md-content>
   <md-content>
     <div class="md-layout md-gutter card-list">
-      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100" v-for="(photo, index) in manager.photoService.photos" :key="photo._id" v-if="index < 4">
+      <div class="md-layout-item md-size-25 md-small-size-50 md-xsmall-size-100" v-for="(photo, index) in manager.photoService.photos" :key="photo._id" v-if="index < 8">
         <photoCard :manager="manager" :photo="photo"/>
       </div>
     </div>
@@ -104,8 +104,8 @@
   <md-content>
     <div class="md-display-1 tdcmd-header">
       アクセス
-      <md-button class="md-fab md-primary more" to="/access">
-        <md-icon>more_horiz</md-icon>
+      <md-button class="md-primary md-raised more" to="/access">
+        詳細を見る
       </md-button>
     </div>
     <div class="md-subheading tdcmd-sub-header">〒299-0231 千葉県袖ケ浦市上泉字下鎌田1135−1</div>
@@ -254,10 +254,6 @@ export default {
 .settings-panel {
   overflow-y: scroll;
   flex: 1 0 500px;
-}
-.google-calendar {
-  width: 100%;
-  height: 500px;
 }
 .gmap{
   width: 100%;

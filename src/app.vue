@@ -84,4 +84,14 @@ html, body {
 .md-tabs-content {
   height: auto !important;
 }
+
+.google-calendar {
+  width: 100%;
+  height: 500px !important;
+}
+@media (max-width: 600px) {
+  .google-calendar {
+    height: 300px !important;
+  }
+}
 </style>

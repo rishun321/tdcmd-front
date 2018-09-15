@@ -1,5 +1,5 @@
 <template>
-<md-app md-waterfall md-mode="fixed">
+<md-app md-mode="fixed">
   <vue-headful title="サンダーコマンドス"/>
 
   <md-app-toolbar md-theme="white" class="md-dense md-primary">
