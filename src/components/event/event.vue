@@ -35,13 +35,8 @@
         <md-table-cell>不可</md-table-cell>
       </md-table-row>
       <md-table-row>
-        <md-table-cell>定例会のご予約順番によって最初の8名様への特別サービス</md-table-cell>
-        <md-table-cell>参加費2500円になります。※割引サービス券やチラシなどの同時利用はOK</md-table-cell>
-        <md-table-cell>なし</md-table-cell>
-      </md-table-row>
-      <md-table-row>
-        <md-table-cell>定例会のご予約順番によって9人目以降のお客様へのサービス</md-table-cell>
-        <md-table-cell>スポッツドリンクを1本差し上げます。</md-table-cell>
+        <md-table-cell>先行予約サービス（一週前予約）<br>・土曜日定例会は先週土曜日12時まで<br>・日曜日定例会は先週日曜日12時まで</md-table-cell>
+        <md-table-cell>参加費2500円</md-table-cell>
         <md-table-cell>なし</md-table-cell>
       </md-table-row>
       <md-table-row>
@@ -58,6 +53,11 @@
         <md-table-cell>定例会中止になる場合</md-table-cell>
         <md-table-cell>メールにてご連絡を差し上げます。</md-table-cell>
         <md-table-cell>連絡はできません。</md-table-cell>
+      </md-table-row>
+      <md-table-row>
+        <md-table-cell>後半入場（14:00以降）</md-table-cell>
+        <md-table-cell>参加費2000円<br>全ての割引券、サービス券のご利用はできません。</md-table-cell>
+        <md-table-cell>参加費2000円<br>全ての割引券、サービス券のご利用はできません。</md-table-cell>
       </md-table-row>
     </md-table>
 
